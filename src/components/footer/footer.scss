@@ -1,0 +1,81 @@
+$font-family: 'Montserrat', sans-serif;
+$font-color-white: #EAEFF9;
+$font-color-orange: #DFA974;
+$background: #071633;
+
+%font-title {
+    font-family: $font-family;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 2.7rem;
+    line-height: 3.7rem;
+    color: $font-color-white;
+}
+
+%font-text {
+    font-family: $font-family;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.8rem;
+    line-height: 2.3rem;
+    color: $font-color-white;
+}
+
+.footer {
+    margin-top: 40px;
+    background: $background;
+
+    &__container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 15px 20px;
+        max-width: 1440px;
+        margin: 0 auto;
+        padding: 40px 20px;
+
+        &__logo-cont {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            &__logo {
+                @extend %font-title;
+            }
+
+            &__title {
+                @extend %font-text;
+            }
+
+            &__instagram {
+                width: 4rem;
+                height: 4rem;
+                align-self: flex-start;
+            }
+        }
+
+        &__phone-cont,
+        &__email-cont {
+                
+            &__phone,
+            &__email {
+                @extend %font-title;
+                font-weight: 400;
+                color: $font-color-orange;
+                text-decoration: none;
+            }
+
+            &__text {
+                @extend %font-text;
+                font-weight: 400;
+            }
+        }
+
+        &__nav {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+    }
+}

@@ -1,0 +1,69 @@
+$font-family: 'Montserrat', sans-serif;
+$font-color-grey: #252E39;
+$font-color-white: #EAEFF9;
+$background: #1D3564;
+
+%font-title {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 4rem;
+    line-height: 5rem;
+    color: $font-color-grey;
+}
+
+%font-text {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 2.4rem;
+    line-height: 3.4rem;
+    color: $font-color-white;
+}
+
+.categories-block {
+    margin-top: 40px;
+
+    &__container {
+        max-width: 1440px;
+        margin: 0 auto;
+        padding: 0 20px;
+
+        &__title-cont {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+
+            &__title {
+                width: 20%;
+                @extend %font-title;
+            }
+
+            &__line {
+                width: 100%;
+                height: 0.5rem;
+                background: $background;
+                box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            }
+        }
+
+        &__cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px 20px;
+
+            &__card {
+                width: 335px;
+                height: 155px;
+                background-position: center;
+                border-radius: 5px;
+                text-decoration: none;
+
+                &__title {
+                    @extend %font-text;
+                    padding: 20px 20px;
+                }
+            }
+        }
+    }
+}
