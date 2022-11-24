@@ -13,9 +13,9 @@ export interface Category {
     name: string,
     price: number,
     characteristics: [string, string[]][],
-    size: [string, number][],
     additional: string[],
+    presence: string,
     vendorCode: string,
-    link: string
+    link: string,
   }[]
 }

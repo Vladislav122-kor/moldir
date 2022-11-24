@@ -5,125 +5,172 @@ import { Category } from '../../../src/interfaces/index';
 import './category-container.scss';
 
 class CategoryContainer extends Component {
-
   private category: Category;
-
   private categoryLink: string;
-
   private container: Component;
-
-  private content: Component;
-  
   private filterBlock: Component;
-
   private panelCards: Component;
-
   private titleContainer: Component;
-
   private title: Component;
-
   private line: Component;
+  private sortingContainer: Component;
+  private sortingTitle: Component;
+  private sortingIncrease: Component;
+  private sortingDecrease: Component;
+  private cards: Component;
+  private clearButton: Component;
+  private prices: number[];
+  private sortingValue: string;
   
   constructor(parentNode: HTMLElement, categoryLink: string) {
     super(parentNode, 'div', ['category-container']);
     this.categoryLink = categoryLink;
     this.category = {} as Category;
-
     // search for training clicked which was clicked (with the help of trainingLink)
     Goods.forEach((item) => {
       if (item.link === this.categoryLink) { this.category = item }
     });
+    // define default prices for filter
+    this.prices = [0, 0];
+    this.definePrices();
+    this.sortingValue = '';
 
     this.container = new Component(this.element, 'div', ['category-container__container']);
 
-    this.content = new Component(this.container.element, 'div', ['category-container__container__content']);
-    this.filterBlock = new Component(this.content.element, 'div', ['category-container__container__content__filter']);
-    this.defineFilters();
-    this.panelCards = new Component(this.content.element, 'div', ['category-container__container__content__panel']);
+    this.filterBlock = new Component(this.container.element, 'div', ['category-container__filter']);
+    this.createFilters();
+    this.clearButton = new Component(this.filterBlock.element, 'div', ['category-container__filter__clear'], 'Сбросить настройки');
+    this.panelCards = new Component(this.container.element, 'div', ['category-container__panel']);
 
-    this.titleContainer = new Component(this.panelCards.element, 'div', ['categories-block__container__content__panel__title-cont']);
-    this.title = new Component(this.titleContainer.element, 'h2', ['categories-block__container__content__panel__title-cont__title'], `${this.category.name}`);
-    this.line = new Component(this.titleContainer.element, 'div', ['categories-block__container__content__panel__title-cont__line']);
+    this.titleContainer = new Component(this.panelCards.element, 'div', ['category-container__panel__title-cont']);
+    this.title = new Component(this.titleContainer.element, 'h2', ['category-container__panel__title-cont__title'], `${this.category.name}`);
+    this.line = new Component(this.titleContainer.element, 'div', ['category-container__panel__title-cont__line']);
+
+    this.sortingContainer = new Component(this.panelCards.element, 'div', ['category-container__panel__sorting']);
+    this.sortingTitle = new Component(this.sortingContainer.element, 'p', ['category-container__panel__sorting-title'], 'Сортировать по стоимости:');
+    this.sortingIncrease = new Component(this.sortingContainer.element, 'p', ['category-container__panel__sorting-increase'], 'по возрастанию');
+    this.sortingDecrease = new Component(this.sortingContainer.element, 'p', ['category-container__panel__sorting-decrease'], 'по убыванию');
+
+    this.cards = new Component(this.panelCards.element, 'div', ['category-container__panel__cards']);
+    this.defineCards();
+
+    this.filterBlock.element.addEventListener('input', (e) => {
+      if ((e.target as HTMLElement).classList.contains('number')) {
+        this.defineCards();
+      }
+    })
+
+    this.filterBlock.element.addEventListener('click', (e) => {
+      if ((e.target as HTMLElement).className.includes('clear')) {
+        this.clearFilters();
+      }
+    })
+
+    this.sortingContainer.element.addEventListener('click', (e) => {
+      if ((e.target as HTMLElement).className.includes('crease')) {
+        if ((e.target as HTMLElement).className.includes('increase') && !((e.target as HTMLElement).classList.contains('active'))) {
+          this.sortingValue = 'increase';
+          (e.target as HTMLElement).classList.add('active');
+          document.querySelector('.category-container__panel__sorting-decrease')?.classList.remove('active');
+        } else if ((e.target as HTMLElement).className.includes('decrease') && !((e.target as HTMLElement).classList.contains('active'))) {
+          this.sortingValue = 'decrease';
+          (e.target as HTMLElement).classList.add('active');
+          document.querySelector('.category-container__panel__sorting-increase')?.classList.remove('active');
+        } else if ((e.target as HTMLElement).className.includes('increase') && (e.target as HTMLElement).classList.contains('active')) {
+          this.sortingValue = '';
+          (e.target as HTMLElement).classList.remove('active');
+        } else if ((e.target as HTMLElement).className.includes('decrease') && (e.target as HTMLElement).classList.contains('active')) {
+          this.sortingValue = '';
+          (e.target as HTMLElement).classList.remove('active');
+        }
+        this.defineCards();
+      }
+    })
   }
 
-  private defineFilters() {
-    const characteristics: [string, string[]][] = [];
-    const size: [string, number, number][] = [];
-    const price: number[] = [0, 0];
+  private createFilters() {
+    // price
+    const filterItem = new Component(this.filterBlock.element, 'div', ['category-container__filter__filter-item']);
+    const title = new Component(filterItem.element, 'h4', ['category-container__filter__filter-item__title'], 'Цена');
+    const inputBlock = new Component(filterItem.element, 'div', ['category-container__filter__filter-item__inputs']);
+    const minPrice = new Component(inputBlock.element, 'input', ['category-container__filter__filter-item__inputs__minPrice', 'number']);
+    minPrice.element.setAttribute('type', 'number');
+    minPrice.element.setAttribute('value', `${this.prices[0]}`);
+    const dash = new Component(inputBlock.element, 'p', ['category-container__filter__filter-item__inputs__dash'], '-');
+    const maxPrice = new Component(inputBlock.element, 'input', ['category-container__filter__filter-item__inputs__maxPrice', 'number']);
+    maxPrice.element.setAttribute('type', 'number');
+    maxPrice.element.setAttribute('value', `${this.prices[1]}`);
+  }
 
-    // create massive for characteristics
-    for (let elem of this.category.cards[0].characteristics) {
-      characteristics.push([elem[0], []]);
-    }
-
-    // create massive for size
-    for (let elem of this.category.cards[0].size) {
-      size.push([elem[0], 0, 0]);
-    }
-    
-    // cards iteration
+  private defineCards() {
+    let cards = [];
+    // filter by price
+    const minPrice = document.querySelector('.category-container__filter__filter-item__inputs__minPrice');
+    const maxPrice = document.querySelector('.category-container__filter__filter-item__inputs__maxPrice');
     for (let elem of this.category.cards) {
-      for (let i = 0; i < elem.characteristics.length; i += 1) {
-        elem.characteristics[i][1].forEach((item) => !characteristics[i][1].includes(item) ? characteristics[i][1].push(item) : 0);
-      }
-
-      // min max size
-      for (let i = 0; i < elem.size.length; i += 1) {
-        if (elem.size[i][1] <= size[i][1] || size[i][1] === 0) {
-          size[i][1] = elem.size[i][1];
-        }
-
-        if (elem.size[i][1] >= size[i][2]) {
-          size[i][2] = elem.size[i][1];
-        }
-      }
-
-      // min max price
-      if (elem.price <= price[0] || price[0] === 0) {
-        price[0] = elem.price;
-      }
-
-      if (elem.price >= price[1]) {
-        price[1] = elem.price;
+      if (elem.price >= Number((minPrice as HTMLInputElement).value) && elem.price <= Number((maxPrice as HTMLInputElement).value)) {
+        cards.push(elem);
       }
     }
-
-    
-    
-    this.createFilters(characteristics, size, price);
+    // sorting by price
+    switch(this.sortingValue) {
+      case 'increase':
+        cards.sort((a, b) => a.price - b.price);
+        break;
+      case 'decrease':
+        cards.sort((a, b) => b.price - a.price);
+        break;
+      default:
+        break;
+    }
+    this.createCards(cards);
   }
 
-  private createFilters(characteristics: [string, string[]][], size: [string, number, number][], price: number[]) {
-    const priceBlock = new Component(this.filterBlock.element, 'div', ['category-container__container__content__filter__price-block']);
-    const title = new Component(priceBlock.element, 'h4', ['category-container__container__content__filter__price-block__title'], 'Цена');
-    const inputBlock = new Component(priceBlock.element, 'div', ['category-container__container__content__filter__price-block__inputs']);
-    const input_1 = new Component(inputBlock.element, 'input', ['category-container__container__content__filter__price-block__inputs__input_1']);
-    input_1.element.setAttribute('value', `${price[0]}`);
-    const dash = new Component(inputBlock.element, 'p', ['category-container__container__content__filter_price-block__inputs__dash'], '-');
-    const input_2 = new Component(inputBlock.element, 'input', ['category-container__container__content__filter_price-block__inputs__input_2']);
-    input_2.element.setAttribute('value', `${price[1]}`);
-
-    for (let elem of characteristics) {
-      const charBlock = new Component(this.filterBlock.element, 'div', ['category-container__container__content__filter__char-block']);
-      const title = new Component(charBlock.element, 'h4', ['category-container__container__content__filter__char-block__title'], `${elem[0]}`);
-      const clauseBlock = new Component(charBlock.element, 'div', ['category-container__container__content__filter__char-block__clause-block']);
-      for (let item of elem[1]) {
-        const checkboxBlock = new Component(clauseBlock.element, 'div', ['category-container__container__content__filter__char-block__clause-block__checkbox-block']);
-        const checkbox = new Component(clauseBlock.element, 'input', ['category-container__container__content__filter__char-block__clause-block__checkbox-block__checkbox']);
-        checkbox.element.setAttribute('type', 'checkbox');
-        const name = new Component(clauseBlock.element, 'p', ['category-container__container__content__filter__char-block__clause-block__checkbox-block__name'], `${item}`);
+  private createCards(cards: Category["cards"]) {
+    this.cards.element.innerHTML = '';
+    for (let elem of cards) {
+      const card = new Component(this.cards.element, 'a', ['category-container__panel__cards__card']);
+      card.element.setAttribute('href', `#/categories/${this.categoryLink}/${elem.link}`);
+      const photo = new Component(card.element, 'div', ['category-container__panel__cards__card__img']);
+      photo.element.style.backgroundImage = `url('./assets/img/${elem.photo}')`;
+      const name = new Component(card.element, 'p', ['category-container__panel__cards__card__name'], `${elem.name}`);
+      const description = new Component(card.element, 'div', ['category-container__panel__cards__card__description']);
+      const vendorCode = new Component(description.element, 'p', ['category-container__panel__cards__card__vendor-code']);
+      vendorCode.element.innerHTML = `<u>Артикул</u>: ${elem.vendorCode}`;
+      const presence = new Component(description.element, 'p', ['category-container__panel__cards__card__presence'], `${elem.presence}`);
+      switch(elem.presence) {
+        case 'на складе':
+          presence.element.style.color = 'green';
+          break;
+        default:
+          presence.element.style.color = 'orange';
+          break;
       }
+      const price = new Component(card.element, 'p', ['category-container__panel__cards__card__price'], `${elem.price} BYN/шт.`);
     }
+  }
 
-    for (let elem of size) {
-      const charBlock = new Component(this.filterBlock.element, 'div', ['category-container__container__content__filter__char-block']);
-      const title = new Component(charBlock.element, 'h4', ['category-container__container__content__filter__char-block__title'], `${elem[0]}`);
-      const inputBlock = new Component(charBlock.element, 'div', ['category-container__container__content__filter__char-block__inputs']);
-      const input_1 = new Component(inputBlock.element, 'input', ['category-container__container__content__filter__char-block__inputs__input_1']);
-      input_1.element.setAttribute('value', `${elem[1]}`);
-      const dash = new Component(inputBlock.element, 'p', ['category-container__container__content__filter_char-block__inputs__dash'], '-');
-      const input_2 = new Component(inputBlock.element, 'input', ['category-container__container__content__filter_char-block__inputs__input_2']);
-      input_2.element.setAttribute('value', `${elem[2]}`);
+  private clearFilters() {
+    // make price by default
+    const minPrice = document.querySelector('.category-container__filter__filter-item__inputs__minPrice');
+    const maxPrice = document.querySelector('.category-container__filter__filter-item__inputs__maxPrice');
+    (minPrice as HTMLInputElement).value = `${this.prices[0]}`;
+    (maxPrice as HTMLInputElement).value = `${this.prices[1]}`;
+    //make sorting by default
+    this.sortingValue = '';
+    document.querySelector('.category-container__panel__sorting-increase')?.classList.remove('active');
+    document.querySelector('.category-container__panel__sorting-decrease')?.classList.remove('active');
+    this.defineCards();
+  }
+
+  private definePrices() {
+    for (let elem of this.category.cards) {
+      if (elem.price <= this.prices[0] || this.prices[0] === 0) {
+        this.prices[0] = elem.price;
+      }
+      if (elem.price >= this.prices[1]) {
+        this.prices[1] = elem.price;
+      }
     }
   }
 
