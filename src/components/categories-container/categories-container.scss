@@ -41,13 +41,12 @@ $background: #EAEFF9;
         padding: 40px 20px;
         @extend %font-text;
 
-        &__main,
-        &__pre-category {
+        &__main {
             @extend %font-text;
             text-decoration: none;
         }
 
-        &__arrow-1 {
+        &__arrow {
             width: 2.2rem;
             height: 2rem;
             background-repeat: no-repeat;

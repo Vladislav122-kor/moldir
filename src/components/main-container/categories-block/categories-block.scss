@@ -28,41 +28,40 @@ $background: #1D3564;
         max-width: 1440px;
         margin: 0 auto;
         padding: 0 20px;
+    }
 
-        &__title-cont {
-            display: flex;
-            align-items: center;
-            gap: 20px;
+    &__title {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 0 0 20px;
+        @extend %font-title;
+
+        &:after {
+            display: block;
+            content: '';
+            width: 100%;
+            height: 4px;
+            border-bottom: 4px solid $background;
+        }
+    }
+
+    &__cards {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px 20px;
+
+        &__card {
+            width: 280px;
+            height: 170px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 5px;
+            text-decoration: none;
 
             &__title {
-                width: 20%;
-                @extend %font-title;
-            }
-
-            &__line {
-                width: 100%;
-                height: 0.5rem;
-                background: $background;
-                box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-            }
-        }
-
-        &__cards {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px 20px;
-
-            &__card {
-                width: 335px;
-                height: 155px;
-                background-position: center;
-                border-radius: 5px;
-                text-decoration: none;
-
-                &__title {
-                    @extend %font-text;
-                    padding: 20px 20px;
-                }
+                @extend %font-text;
+                padding: 20px 20px;
             }
         }
     }

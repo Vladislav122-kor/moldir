@@ -91,6 +91,7 @@ $background: #EAEFF9;
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
+                position: relative;
                 padding: 0 12px;
                 width: 160px;
                 height: 40px;
@@ -98,6 +99,37 @@ $background: #EAEFF9;
                 border-radius: 5px;
                 filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
                 cursor: pointer;
+
+                &__categories {
+                    display: none;
+                    position: absolute;
+                    padding: 10px;
+                    width: 300px;
+                    left: 0;
+                    top: 100%;
+                    background: $background;
+                    cursor: default;
+
+                    &.active {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 7px;
+                    }
+
+                    &__element {
+                        padding: 2px;
+                        @extend %font-text;
+                        font-weight: 400;
+                        font-size: 1.5rem;
+                        cursor: pointer;
+                        text-decoration: none;
+
+                        &:hover {
+                            color: $background;
+                            background: $font-color-blue;
+                        }
+                    }
+                }
 
                 &__text {
                     @extend %font-text;

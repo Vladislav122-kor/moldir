@@ -1,12 +1,12 @@
 import Component from '../../utils/component';
 import Goods from '../../assets/files/goods';
-import { Category } from '../../../src/interfaces/index';
+import { Category } from '../../interfaces/index';
 
-import './category-container.scss';
+import './categories-container.scss';
 
 class CategoryContainer extends Component {
-  private category: Category;
-  private categoryLink: string;
+  private categories: Category[];
+  private categoriesLink: string;
   private container: Component;
   private filterBlock: Component;
   private panelCards: Component;
@@ -23,17 +23,16 @@ class CategoryContainer extends Component {
   private sortingValue: string;
   private navigation: Component;
   private main: Component;
-  private arrow_1: Component;
+  private arrow: Component;
   private currentCategory: Component;
-  preCategory: Component;
   
-  constructor(parentNode: HTMLElement, categoryLink: string) {
+  constructor(parentNode: HTMLElement, categoriesLink: string) {
     super(parentNode, 'div', ['category-container']);
-    this.categoryLink = categoryLink;
-    this.category = {} as Category;
+    this.categoriesLink = categoriesLink;
+    this.categories = [] as Category[];
     // search for training clicked which was clicked (with the help of trainingLink)
     Goods.forEach((item) => {
-      if (item.link === this.categoryLink) { this.category = item }
+      if (item.link.includes(this.categoriesLink)) { this.categories.push(item) }
     });
     
     // define default prices for filter
@@ -44,13 +43,9 @@ class CategoryContainer extends Component {
     this.navigation = new Component(this.element, 'div', ['category-container__navigation']);
     this.main = new Component(this.navigation.element, 'a', ['category-container__navigation__main'], 'Главная');
     this.main.element.setAttribute('href', '#/');
-    this.arrow_1 = new Component(this.navigation.element, 'div', ['category-container__navigation__arrow-1']);
-    this.arrow_1.element.style.backgroundImage = 'url("./assets/svg/arrow-link.svg")';
-    this.preCategory = new Component(this.navigation.element, 'a', ['category-container__navigation__pre-category'], `${this.category.name.split(' ')[0]}`);
-    this.preCategory.element.setAttribute('href', `#/catalog/${this.categoryLink.split('_')[0]}`);
-    this.arrow_1 = new Component(this.navigation.element, 'div', ['category-container__navigation__arrow-1']);
-    this.arrow_1.element.style.backgroundImage = 'url("./assets/svg/arrow-link.svg")';
-    this.currentCategory = new Component(this.navigation.element, 'a', ['category-container__navigation__current-category'], `${this.category.name}`);
+    this.arrow = new Component(this.navigation.element, 'div', ['category-container__navigation__arrow']);
+    this.arrow.element.style.backgroundImage = 'url("./assets/svg/arrow-link.svg")';
+    this.currentCategory = new Component(this.navigation.element, 'a', ['category-container__navigation__current-category'], `${this.categories[0].name.split(' ')[0]}`);
 
     this.container = new Component(this.element, 'div', ['category-container__container']);
 
@@ -60,7 +55,7 @@ class CategoryContainer extends Component {
     this.panelCards = new Component(this.container.element, 'div', ['category-container__panel']);
 
     this.titleContainer = new Component(this.panelCards.element, 'div', ['category-container__panel__title-cont']);
-    this.title = new Component(this.titleContainer.element, 'h2', ['category-container__panel__title-cont__title'], `${this.category.name}`);
+    this.title = new Component(this.titleContainer.element, 'h2', ['category-container__panel__title-cont__title'], `${this.categories[0].name.split(' ')[0]}`);
     this.line = new Component(this.titleContainer.element, 'div', ['category-container__panel__title-cont__line']);
 
     this.sortingContainer = new Component(this.panelCards.element, 'div', ['category-container__panel__sorting']);
@@ -124,9 +119,11 @@ class CategoryContainer extends Component {
     // filter by price
     const minPrice = document.querySelector('.category-container__filter__filter-item__inputs__minPrice');
     const maxPrice = document.querySelector('.category-container__filter__filter-item__inputs__maxPrice');
-    for (let elem of this.category.cards) {
-      if (elem.price >= Number((minPrice as HTMLInputElement).value) && elem.price <= Number((maxPrice as HTMLInputElement).value)) {
-        cards.push(elem);
+    for (let elem of this.categories) {
+      for (let item of elem.cards) {
+        if (item.price >= Number((minPrice as HTMLInputElement).value) && item.price <= Number((maxPrice as HTMLInputElement).value)) {
+          cards.push(item);
+        }
       }
     }
     // sorting by price
@@ -147,7 +144,7 @@ class CategoryContainer extends Component {
     this.cards.element.innerHTML = '';
     for (let elem of cards) {
       const card = new Component(this.cards.element, 'a', ['category-container__panel__cards__card']);
-      card.element.setAttribute('href', `#/catalog/${this.categoryLink.split('_')[0]}/${this.categoryLink}/${elem.link}`);
+      card.element.setAttribute('href', `#/catalog/${this.categoriesLink}/${elem.preLink}/${elem.link}`);
       const photo = new Component(card.element, 'div', ['category-container__panel__cards__card__img']);
       photo.element.style.backgroundImage = `url('./assets/img/${elem.photo[0]}/1.${elem.photo[1]}')`;
       const name = new Component(card.element, 'p', ['category-container__panel__cards__card__name'], `${elem.name}`);
@@ -181,12 +178,14 @@ class CategoryContainer extends Component {
   }
 
   private definePrices() {
-    for (let elem of this.category.cards) {
-      if (elem.price <= this.prices[0] || this.prices[0] === 0) {
-        this.prices[0] = elem.price;
-      }
-      if (elem.price >= this.prices[1]) {
-        this.prices[1] = elem.price;
+    for (let elem of this.categories) {
+      for (let item of elem.cards) {
+        if (item.price <= this.prices[0] || this.prices[0] === 0) {
+          this.prices[0] = item.price;
+        }
+        if (item.price >= this.prices[1]) {
+          this.prices[1] = item.price;
+        }
       }
     }
   }
