@@ -1,6 +1,7 @@
 $font-family: 'Montserrat', sans-serif;
 $font-color-blue: #1D3564;
 $font-color-grey: #252E39;
+$font-color-orange: #DFA974;
 $background: #EAEFF9;
 
 %font-title {
@@ -42,19 +43,32 @@ $background: #EAEFF9;
 
     &__navigation {
         display: flex;
-        gap: 20px;
+        gap: 10px;
         align-items: center;
-        @extend %font-text;
 
         &__main,
-        &__current-category {
+        &__pre-category,
+        &__current-category,
+        &__current-card {
             @extend %font-text;
+            font-size: 1.5rem;
             text-decoration: none;
+            transition: 0.3s;
         }
 
-        &__arrow-1 {
-            width: 2.2rem;
-            height: 2rem;
+        &__main:hover,
+        &__pre-category:hover,
+        &__current-category:hover {
+            color: $font-color-orange;
+        }
+
+        &__current-card {
+            text-decoration: underline;
+        }
+
+        &__arrow {
+            width: 1.6rem;
+            height: 1.6rem;
             background-repeat: no-repeat;
             background-position: center;
         }
@@ -99,6 +113,10 @@ $background: #EAEFF9;
                         background-position: center;
                         cursor: pointer;
 
+                        &:hover {
+                            border: 1px solid $background;
+                        }
+
                         &.active {
                             border: 2px solid $font-color-grey;
                         }
@@ -116,8 +134,22 @@ $background: #EAEFF9;
                 border-top: solid 3px $font-color-blue;
 
                 &__price {
-                    font-size: 3rem;
+                    padding-bottom: 30px;
+                    font-size: 2.8rem;
                     font-weight: 700;
+                }
+
+                &__detailed {
+                    margin-bottom: 30px;
+                    font-style: italic;
+                    font-size: 2.2rem;
+                    color: $font-color-blue;
+                    text-decoration: underline;
+                    transition: 0.3s;
+
+                    &:hover {
+                        color: $font-color-orange;
+                    }
                 }
 
                 &__delivery-box {
@@ -128,34 +160,110 @@ $background: #EAEFF9;
             }
         }
 
-        &__characteristics {
+        &__about {
             display: flex;
-            flex-direction: column;
-            gap: 20px;
-            width: 45%;
+            gap: 5%;
+            padding-top: 20px;
 
-            &__block {
+            &__additional {
+                padding: 20px;
+                width: 45%;
+                @extend %font-text;
+                background: $background;
+                border-radius: 5px;
+            }
+
+            &__characteristics {
                 display: flex;
-                justify-content: space-between;
-                align-items: center;
-                gap: 10px;
-
-                &__parameter {
-                    @extend %font-text;
-                }
-
-                &__spaces {
-                    flex-grow: 1;
-                    border: 1px dashed $font-color-grey;
-                }
-
-                &__value-block {
+                flex-direction: column;
+                gap: 20px;
+                width: 45%;
+    
+                &__block {
                     display: flex;
-                    gap: 20px;
-
-                    &__value {
+                    justify-content: space-between;
+                    align-items: center;
+                    gap: 10px;
+    
+                    &__parameter {
                         @extend %font-text;
                     }
+    
+                    &__spaces {
+                        flex-grow: 1;
+                        border: 1px dashed $font-color-grey;
+                    }
+    
+                    &__value-block {
+                        display: flex;
+                        gap: 20px;
+    
+                        &__value {
+                            @extend %font-text;
+                        }
+                    }
+                }
+            }
+        }
+
+        &__same-title {
+            padding: 40px 0 10px;
+            @extend %font-title;
+            font-size: 3rem;
+            line-height: 3rem;
+            border-bottom: 4px solid $font-color-blue;
+        }
+
+        &__cards {
+            display: flex;
+            gap: 4%;
+
+            &__card {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+                padding: 10px 10px 10px;
+                width: 20%;
+                background: $background;
+                border-radius: 5px;
+                text-decoration: none;
+                box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.15);
+                transition: 0.3s;
+
+                &:hover {
+                    box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.3);
+
+                    .card-container__content__cards__card__img {
+                        transform: rotate(360deg);
+                    }
+                }
+
+                &__img {
+                    width: 100%;
+                    height: 260px;
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    border-radius: 5px;
+                    transition: 0.3s;
+                }
+
+                &__name {
+                    @extend %font-text;
+                    text-align: center;
+                }
+
+                &__description {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 5px;
+                    @extend %font-text-values;
+                    text-decoration: none;
+                }
+
+                &__price {
+                    @extend %font-text;
+                    text-align: center;
                 }
             }
         }

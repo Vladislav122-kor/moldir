@@ -75,6 +75,10 @@ class Router {
   updateRouter(): void {
     window.scrollTo(0, 0);
     const currentRouteName = window.location.hash.slice(1);
+    if (currentRouteName === 'characteristics') {
+      window.location.hash = `#${this.cardLink}`;
+      return;
+    }
     this.rootElement.innerHTML = '';
     if (currentRouteName.split('/').length === 3) {
       this.categoriesLink = currentRouteName.split('/')[currentRouteName.split('/').length - 1];
@@ -89,7 +93,7 @@ class Router {
       );
       (currentRoute || this.defaultRoute).component();
     } else if (currentRouteName.split('/').length === 5) {
-      this.cardLink = currentRouteName.split('/').splice(3, 2).join('/');
+      this.cardLink = currentRouteName;//currentRouteName.split('/').splice(3, 2).join('/');
       const currentRoute = this.routes.find(
         (page) => page.name === '/catalog/category/goods/card',
       );

@@ -150,7 +150,7 @@ class CategoryContainer extends Component {
       const name = new Component(card.element, 'p', ['category-container__panel__cards__card__name'], `${elem.name}`);
       const description = new Component(card.element, 'div', ['category-container__panel__cards__card__description']);
       const vendorCode = new Component(description.element, 'p', ['category-container__panel__cards__card__vendor-code']);
-      vendorCode.element.innerHTML = `<u>Артикул</u>: ${elem.vendorCode}`;
+      vendorCode.element.innerHTML = `<u>Артикул</u>: ${(elem.link).toUpperCase()}`;
       const presence = new Component(description.element, 'p', ['category-container__panel__cards__card__presence'], `${elem.presence}`);
       switch(elem.presence) {
         case 'на складе':

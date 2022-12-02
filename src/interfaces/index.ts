@@ -13,11 +13,11 @@ export interface Category {
     name: string,
     price: number,
     characteristics: [string, string[]][],
-    additional: string[],
+    additional: string,
     presence: string,
-    vendorCode: string,
     link: string,
     preLink: string,
+    same: string[]
   }[]
 }
 
@@ -27,9 +27,9 @@ export interface Card {
   name: string,
   price: number,
   characteristics: [string, string[]][],
-  additional: string[],
+  additional: string,
   presence: string,
-  vendorCode: string,
   link: string,
   preLink: string,
+  same: string[]
 }
