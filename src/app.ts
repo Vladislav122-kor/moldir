@@ -19,6 +19,8 @@ class App {
   init(): void {
     this.router.initRouter();
   }
+
+  
 }
 
 export default App;

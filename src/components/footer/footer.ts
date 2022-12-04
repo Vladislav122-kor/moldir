@@ -57,7 +57,7 @@ class Footer extends Component {
         const navLinks: string[] = [];
 
         for (let i: number = 0; i < navNames.length; i += 1) {
-            const element = new Component(this.navigation.element, 'a', ['header__nav-panel__container__nav__element'], `${navNames[i]}`);
+            const element = new Component(this.navigation.element, 'a', ['footer__container__nav__element'], `${navNames[i]}`);
         }
     }
 }

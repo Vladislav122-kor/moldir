@@ -1,13 +1,14 @@
 $font-family: 'Montserrat', sans-serif;
 $font-color-blue: #1D3564;
 $font-color-grey: #252E39;
+$font-color-orange: #DFA974;
 $background: #EAEFF9;
 
 %font-title {
     font-family: $font-family;
     font-style: normal;
     font-weight: 700;
-    font-size: 4rem;
+    font-size: 3.5rem;
     line-height: 4rem;
     color: $font-color-grey;
 }
@@ -30,178 +31,220 @@ $background: #EAEFF9;
     color: $font-color-grey;
 }
 
-.category-container {
+.categories-container {
+
+    &__container {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        max-width: 1440px;
+        margin: 0 auto;
+        padding: 40px 20px;
+    }
 
     &__navigation {
         display: flex;
         align-items: center;
-        gap: 20px;
-        max-width: 1440px;
-        margin: 0 auto;
-        padding: 40px 20px;
-        @extend %font-text;
+        gap: 10px;
 
-        &__main {
+        &__main,
+        &__current-category {
             @extend %font-text;
+            font-size: 1.5rem;
             text-decoration: none;
+            transition: 0.3s;
+        }
+
+        &__main:hover {
+            color: $font-color-orange;
+        }
+
+        &__current-category {
+            text-decoration: underline;
         }
 
         &__arrow {
-            width: 2.2rem;
-            height: 2rem;
+            width: 1.6rem;
+            height: 1.6rem;
             background-repeat: no-repeat;
             background-position: center;
         }
     }
 
-    &__container {
+    &__content {
         display: flex;
         justify-content: space-between;
-        gap: 40px;
-        max-width: 1440px;
-        margin: 0 auto;
-        padding: 0 20px;
-    }
+        gap: 5%;
 
-    &__filter {
-        display: flex;
-        flex-direction: column;
-        gap: 25px;
-        width: 400px;
-        padding: 20px;
-        background: $background;
-        border-radius: 5px;
+        &__pseudo {
+            width: 23.5%;
+            background: $background;
+            border-radius: 5px;
+        }
 
-        &__filter-item {
+        &__filter {
             display: flex;
             flex-direction: column;
-            gap: 7px;
-
-            &__title {
-                position: relative;
-                @extend %font-text;
-
-                &::after {
-                    content: '';
-                    position: absolute;
-                    left: 0;
-                    right: 0;
-                    bottom: 0;
-                    height: 1.5px;
-                    background: $font-color-blue;
-                }
-            }
-
-            &__inputs {
-                display: flex;
-                align-items: center;
-                gap: 5px;
-
-                &__dash {
-                    @extend %font-text-values;
-                }
-
-                &__minPrice,
-                &__maxPrice {
-                    width: 100px;
-                    @extend %font-text-values;
-                }
-            }
-        }
-
-        &__clear {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 7px;
-            @extend %font-text;
-            color: #EAEFF9;
-            background: #1D3564; 
+            gap: 25px;
+            position: fixed;
+            width: 20%;
+            padding: 20px;
+            background: $background;
             border-radius: 5px;
-            cursor: pointer;
-        }
-    }
-
-    &__panel {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-        width: 100%;
-
-        &__title-cont {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        
-            &__title {
-                width: 20%;
-                @extend %font-title;
-            }
-        
-            &__line {
-                width: 100%;
-                height: 0.5rem;
-                background: $font-color-blue;
-                box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-            }
-        }
-
-        &__sorting {
-            display: flex;
-            gap: 10px;
-            @extend %font-text;
-
-            &-increase,
-            &-decrease {
-                font-weight: 400;
-                cursor: pointer;
-
-                &.active {
-                    text-decoration: underline;
-                }
-            }
-        }
-
-        &__cards {
-            display: flex;
-            gap: 40px 5%;
-            flex-wrap: wrap;
-
-            &__card {
+    
+            &__filter-item {
                 display: flex;
                 flex-direction: column;
-                gap: 20px;
-                padding: 10px 10px 20px;
-                width: 30%;
-                background: $background;
-                border-radius: 5px;
-                text-decoration: none;
-
-                &__img {
-                    width: 100%;
-                    height: 295px;
-                    background-size: contain;
-                    background-repeat: no-repeat;
-                    background-position: center;
-                    border-radius: 5px;
-                }
-
-                &__name {
+                gap: 7px;
+    
+                &__title {
+                    position: relative;
                     @extend %font-text;
-                    text-align: center;
+    
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        left: 0;
+                        right: 0;
+                        bottom: 0;
+                        height: 1.5px;
+                        background: $font-color-blue;
+                    }
+                }
+    
+                &__inputs {
+                    display: flex;
+                    align-items: center;
+                    gap: 5px;
+    
+                    &__dash {
+                        @extend %font-text-values;
+                    }
+    
+                    &__minPrice,
+                    &__maxPrice {
+                        width: 100px;
+                        padding: 2px 0 2px 5px;
+                        @extend %font-text-values;
+                        box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.15);
+                        border: none;
+                        border-radius: 5px;
+                    }
+                }
+            }
+    
+            &__clear {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 7px;
+                @extend %font-text;
+                color: #EAEFF9;
+                background: #1D3564; 
+                border-radius: 5px;
+                cursor: pointer;
+                box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.15);
+                transition: 0.3s;
+
+                &:hover {
+                    box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.3);
                 }
 
-                &__description {
+                &:active {
+                    transform: translate(3px, 3px);
+                }
+            }
+        }
+    
+        &__panel {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 75%;
+    
+            &__title {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                @extend %font-title;
+
+                &:after {
+                    display: block;
+                    content: '';
+                    flex-grow: 1;
+                    height: 4px;
+                    border-bottom: 4px solid $font-color-blue;
+                }
+            }
+    
+            &__sorting {
+                display: flex;
+                gap: 10px;
+                @extend %font-text;
+    
+                &-increase,
+                &-decrease {
+                    font-weight: 400;
+                    cursor: pointer;
+                    transition: 0.3s;
+
+                    &:hover {
+                        color: $font-color-orange;
+                    }
+    
+                    &.active {
+                        text-decoration: underline;
+                    }
+                }
+            }
+    
+            &__cards {
+                display: flex;
+                gap: 40px 5%;
+                flex-wrap: wrap;
+    
+                &__card {
                     display: flex;
                     flex-direction: column;
-                    gap: 5px;
-                    @extend %font-text-values;
+                    gap: 20px;
+                    padding: 10px 10px 20px;
+                    width: 30%;
+                    background: $background;
+                    border-radius: 5px;
                     text-decoration: none;
-                }
+                    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.15);
+                    transition: 0.3s;
 
-                &__price {
-                    @extend %font-text;
-                    text-align: center;
+                    &:hover {
+                        box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.3);
+                    }
+    
+                    &__img {
+                        width: 100%;
+                        height: 284px;
+                        background-size: contain;
+                        background-repeat: no-repeat;
+                        background-position: center;
+                        border-radius: 5px;
+                    }
+    
+                    &__name {
+                        @extend %font-text;
+                        text-align: center;
+                    }
+    
+                    &__description {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 5px;
+                        @extend %font-text-values;
+                        text-decoration: none;
+                    }
+    
+                    &__price {
+                        @extend %font-text;
+                        text-align: center;
+                    }
                 }
             }
         }

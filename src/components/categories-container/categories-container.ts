@@ -4,15 +4,13 @@ import { Category } from '../../interfaces/index';
 
 import './categories-container.scss';
 
-class CategoryContainer extends Component {
+class CategoriesContainer extends Component {
   private categories: Category[];
   private categoriesLink: string;
   private container: Component;
   private filterBlock: Component;
   private panelCards: Component;
-  private titleContainer: Component;
   private title: Component;
-  private line: Component;
   private sortingContainer: Component;
   private sortingTitle: Component;
   private sortingIncrease: Component;
@@ -25,9 +23,11 @@ class CategoryContainer extends Component {
   private main: Component;
   private arrow: Component;
   private currentCategory: Component;
+  content: Component;
+  pseudoBlock: Component;
   
   constructor(parentNode: HTMLElement, categoriesLink: string) {
-    super(parentNode, 'div', ['category-container']);
+    super(parentNode, 'div', ['categories-container']);
     this.categoriesLink = categoriesLink;
     this.categories = [] as Category[];
     // search for training clicked which was clicked (with the help of trainingLink)
@@ -40,30 +40,32 @@ class CategoryContainer extends Component {
     this.definePrices();
     this.sortingValue = '';
 
-    this.navigation = new Component(this.element, 'div', ['category-container__navigation']);
-    this.main = new Component(this.navigation.element, 'a', ['category-container__navigation__main'], 'Главная');
+    this.container = new Component(this.element, 'div', ['categories-container__container']);
+
+    this.navigation = new Component(this.container.element, 'div', ['categories-container__navigation']);
+    this.main = new Component(this.navigation.element, 'a', ['categories-container__navigation__main'], 'Главная');
     this.main.element.setAttribute('href', '#/');
-    this.arrow = new Component(this.navigation.element, 'div', ['category-container__navigation__arrow']);
+    this.arrow = new Component(this.navigation.element, 'div', ['categories-container__navigation__arrow']);
     this.arrow.element.style.backgroundImage = 'url("./assets/svg/arrow-link.svg")';
-    this.currentCategory = new Component(this.navigation.element, 'a', ['category-container__navigation__current-category'], `${this.categories[0].name.split(' ')[0]}`);
+    this.currentCategory = new Component(this.navigation.element, 'a', ['categories-container__navigation__current-category'], `${this.categories[0].name.split('|')[0]}`);
 
-    this.container = new Component(this.element, 'div', ['category-container__container']);
+    this.content = new Component(this.container.element, 'div', ['categories-container__content']);
 
-    this.filterBlock = new Component(this.container.element, 'div', ['category-container__filter']);
+    this.pseudoBlock = new Component(this.content.element, 'div', ['categories-container__content__pseudo']);
+
+    this.filterBlock = new Component(this.content.element, 'div', ['categories-container__content__filter']);
     this.createFilters();
-    this.clearButton = new Component(this.filterBlock.element, 'div', ['category-container__filter__clear'], 'Сбросить настройки');
-    this.panelCards = new Component(this.container.element, 'div', ['category-container__panel']);
+    this.clearButton = new Component(this.filterBlock.element, 'div', ['categories-container__content__filter__clear'], 'Сбросить настройки');
+    this.panelCards = new Component(this.content.element, 'div', ['categories-container__content__panel']);
 
-    this.titleContainer = new Component(this.panelCards.element, 'div', ['category-container__panel__title-cont']);
-    this.title = new Component(this.titleContainer.element, 'h2', ['category-container__panel__title-cont__title'], `${this.categories[0].name.split(' ')[0]}`);
-    this.line = new Component(this.titleContainer.element, 'div', ['category-container__panel__title-cont__line']);
+    this.title = new Component(this.panelCards.element, 'h2', ['categories-container__content__panel__title'], `${this.categories[0].name.split('|')[0]}`);
 
-    this.sortingContainer = new Component(this.panelCards.element, 'div', ['category-container__panel__sorting']);
-    this.sortingTitle = new Component(this.sortingContainer.element, 'p', ['category-container__panel__sorting-title'], 'Сортировать по стоимости:');
-    this.sortingIncrease = new Component(this.sortingContainer.element, 'p', ['category-container__panel__sorting-increase'], 'по возрастанию');
-    this.sortingDecrease = new Component(this.sortingContainer.element, 'p', ['category-container__panel__sorting-decrease'], 'по убыванию');
+    this.sortingContainer = new Component(this.panelCards.element, 'div', ['categories-container__content__panel__sorting']);
+    this.sortingTitle = new Component(this.sortingContainer.element, 'p', ['categories-container__content__panel__sorting-title'], 'Сортировать по стоимости:');
+    this.sortingIncrease = new Component(this.sortingContainer.element, 'p', ['categories-container__content__panel__sorting-increase'], 'по возрастанию');
+    this.sortingDecrease = new Component(this.sortingContainer.element, 'p', ['categories-container__content__panel__sorting-decrease'], 'по убыванию');
 
-    this.cards = new Component(this.panelCards.element, 'div', ['category-container__panel__cards']);
+    this.cards = new Component(this.panelCards.element, 'div', ['categories-container__content__panel__cards']);
     this.defineCards();
 
     this.filterBlock.element.addEventListener('input', (e) => {
@@ -83,11 +85,11 @@ class CategoryContainer extends Component {
         if ((e.target as HTMLElement).className.includes('increase') && !((e.target as HTMLElement).classList.contains('active'))) {
           this.sortingValue = 'increase';
           (e.target as HTMLElement).classList.add('active');
-          document.querySelector('.category-container__panel__sorting-decrease')?.classList.remove('active');
+          document.querySelector('.categories-container__content__panel__sorting-decrease')?.classList.remove('active');
         } else if ((e.target as HTMLElement).className.includes('decrease') && !((e.target as HTMLElement).classList.contains('active'))) {
           this.sortingValue = 'decrease';
           (e.target as HTMLElement).classList.add('active');
-          document.querySelector('.category-container__panel__sorting-increase')?.classList.remove('active');
+          document.querySelector('.categories-container__content__panel__sorting-increase')?.classList.remove('active');
         } else if ((e.target as HTMLElement).className.includes('increase') && (e.target as HTMLElement).classList.contains('active')) {
           this.sortingValue = '';
           (e.target as HTMLElement).classList.remove('active');
@@ -102,14 +104,15 @@ class CategoryContainer extends Component {
 
   private createFilters() {
     // price
-    const filterItem = new Component(this.filterBlock.element, 'div', ['category-container__filter__filter-item']);
-    const title = new Component(filterItem.element, 'h4', ['category-container__filter__filter-item__title'], 'Цена');
-    const inputBlock = new Component(filterItem.element, 'div', ['category-container__filter__filter-item__inputs']);
-    const minPrice = new Component(inputBlock.element, 'input', ['category-container__filter__filter-item__inputs__minPrice', 'number']);
+    const filterItem = new Component(this.filterBlock.element, 'div', ['categories-container__content__filter__filter-item']);
+    const title = new Component(filterItem.element, 'h4', ['categories-container__content__filter__filter-item__title'], 'Цена');
+    const inputBlock = new Component(filterItem.element, 'div', ['categories-container__content__filter__filter-item__inputs']);
+    const minPrice = new Component(inputBlock.element, 'input', ['categories-container__content__filter__filter-item__inputs__minPrice', 'number']);
     minPrice.element.setAttribute('type', 'number');
     minPrice.element.setAttribute('value', `${this.prices[0]}`);
-    const dash = new Component(inputBlock.element, 'p', ['category-container__filter__filter-item__inputs__dash'], '-');
-    const maxPrice = new Component(inputBlock.element, 'input', ['category-container__filter__filter-item__inputs__maxPrice', 'number']);
+    const dash = new Component(inputBlock.element, 'p', ['categories-container__content__filter__filter-item__inputs__dash']);
+    dash.element.innerHTML = '&#8212';
+    const maxPrice = new Component(inputBlock.element, 'input', ['categories-container__content__filter__filter-item__inputs__maxPrice', 'number']);
     maxPrice.element.setAttribute('type', 'number');
     maxPrice.element.setAttribute('value', `${this.prices[1]}`);
   }
@@ -117,8 +120,8 @@ class CategoryContainer extends Component {
   private defineCards() {
     let cards = [];
     // filter by price
-    const minPrice = document.querySelector('.category-container__filter__filter-item__inputs__minPrice');
-    const maxPrice = document.querySelector('.category-container__filter__filter-item__inputs__maxPrice');
+    const minPrice = document.querySelector('.categories-container__content__filter__filter-item__inputs__minPrice');
+    const maxPrice = document.querySelector('.categories-container__content__filter__filter-item__inputs__maxPrice');
     for (let elem of this.categories) {
       for (let item of elem.cards) {
         if (item.price >= Number((minPrice as HTMLInputElement).value) && item.price <= Number((maxPrice as HTMLInputElement).value)) {
@@ -142,38 +145,38 @@ class CategoryContainer extends Component {
 
   private createCards(cards: Category["cards"]) {
     this.cards.element.innerHTML = '';
+    let i = 1;
     for (let elem of cards) {
-      const card = new Component(this.cards.element, 'a', ['category-container__panel__cards__card']);
+      const card = new Component(this.cards.element, 'a', ['categories-container__content__panel__cards__card']);
       card.element.setAttribute('href', `#/catalog/${this.categoriesLink}/${elem.preLink}/${elem.link}`);
-      const photo = new Component(card.element, 'div', ['category-container__panel__cards__card__img']);
+      const photo = new Component(card.element, 'div', ['categories-container__content__panel__cards__card__img']);
       photo.element.style.backgroundImage = `url('./assets/img/${elem.photo[0]}/1.${elem.photo[1]}')`;
-      const name = new Component(card.element, 'p', ['category-container__panel__cards__card__name'], `${elem.name}`);
-      const description = new Component(card.element, 'div', ['category-container__panel__cards__card__description']);
-      const vendorCode = new Component(description.element, 'p', ['category-container__panel__cards__card__vendor-code']);
+      const name = new Component(card.element, 'p', ['categories-container__content__panel__cards__card__name'], `${elem.name}`);
+      const description = new Component(card.element, 'div', ['categories-container__content__panel__cards__card__description']);
+      const vendorCode = new Component(description.element, 'p', ['categories-container__content__panel__cards__card__vendor-code']);
       vendorCode.element.innerHTML = `<u>Артикул</u>: ${(elem.link).toUpperCase()}`;
-      const presence = new Component(description.element, 'p', ['category-container__panel__cards__card__presence'], `${elem.presence}`);
-      switch(elem.presence) {
-        case 'на складе':
-          presence.element.style.color = 'green';
-          break;
-        default:
-          presence.element.style.color = 'orange';
-          break;
+      const presence = new Component(description.element, 'p', ['categories-container__content__panel__cards__card__presence']);
+      presence.element.innerHTML = `<u>Наличие</u>: <span class='categories-container-create-color-${i}'>${elem.presence}</span>`;
+      if (elem.presence === 'на складе') {
+        (document.querySelector(`.categories-container-create-color-${i}`) as HTMLSpanElement).style.color = 'green';
+      } else {
+        (document.querySelector(`.categories-container-create-color-${i}`) as HTMLSpanElement).style.color = 'orange';
       }
-      const price = new Component(card.element, 'p', ['category-container__panel__cards__card__price'], `${elem.price} BYN/шт.`);
+      const price = new Component(card.element, 'p', ['categories-container__content__panel__cards__card__price'], `${elem.price} BYN/шт.`);
+      i++;
     }
   }
 
   private clearFilters() {
     // make price by default
-    const minPrice = document.querySelector('.category-container__filter__filter-item__inputs__minPrice');
-    const maxPrice = document.querySelector('.category-container__filter__filter-item__inputs__maxPrice');
+    const minPrice = document.querySelector('.categories-container__content__filter__filter-item__inputs__minPrice');
+    const maxPrice = document.querySelector('.categories-container__content__filter__filter-item__inputs__maxPrice');
     (minPrice as HTMLInputElement).value = `${this.prices[0]}`;
     (maxPrice as HTMLInputElement).value = `${this.prices[1]}`;
     //make sorting by default
     this.sortingValue = '';
-    document.querySelector('.category-container__panel__sorting-increase')?.classList.remove('active');
-    document.querySelector('.category-container__panel__sorting-decrease')?.classList.remove('active');
+    document.querySelector('.categories-container__content__panel__sorting-increase')?.classList.remove('active');
+    document.querySelector('.categories-container__content__panel__sorting-decrease')?.classList.remove('active');
     this.defineCards();
   }
 
@@ -195,4 +198,4 @@ class CategoryContainer extends Component {
   }
 }
 
-export default CategoryContainer;
+export default CategoriesContainer;

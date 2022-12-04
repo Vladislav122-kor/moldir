@@ -1,6 +1,7 @@
 import Component from '../../utils/component';
 import { Card } from '../../../src/interfaces/index';
 import Goods from '../../assets/files/goods';
+import PopularGoods from '../main-container/popular-goods/popular-goods';
 
 import './card-container.scss';
 
@@ -30,8 +31,8 @@ class CardContainer extends Component {
   detailed: Component;
   about: Component;
   additional: Component;
-  cards: Component;
-  sameTitle: Component;
+  popularGoods: PopularGoods;
+  sameBlock: Component;
   
   constructor(parentNode: HTMLElement, cardLink: string) {
     super(parentNode, 'div', ['card-container']);
@@ -44,8 +45,10 @@ class CardContainer extends Component {
         for (let item of elem.cards) {
           if (item.link === this.cardLink.split('/')[4]) {
             this.card = item;
+            break;
           }
         }
+        break;
       }
     }
     this.container = new Component(this.element, 'div', ['card-container__container']);
@@ -54,11 +57,11 @@ class CardContainer extends Component {
     this.main.element.setAttribute('href', '#/');
     this.arrow_1 = new Component(this.navigation.element, 'div', ['card-container__navigation__arrow']);
     this.arrow_1.element.style.backgroundImage = 'url("./assets/svg/arrow-link.svg")';
-    this.preCategory = new Component(this.navigation.element, 'a', ['card-container__navigation__pre-category'], `${this.categoryName.split(' ')[0]}`);
+    this.preCategory = new Component(this.navigation.element, 'a', ['card-container__navigation__pre-category'], `${this.categoryName.split('|')[0]}`);
     this.preCategory.element.setAttribute('href', `#/catalog/${this.cardLink.split('/')[2]}`);
     this.arrow_1 = new Component(this.navigation.element, 'div', ['card-container__navigation__arrow']);
     this.arrow_1.element.style.backgroundImage = 'url("./assets/svg/arrow-link.svg")';
-    this.currentCategory = new Component(this.navigation.element, 'a', ['card-container__navigation__current-category'], `${this.categoryName}`);
+    this.currentCategory = new Component(this.navigation.element, 'a', ['card-container__navigation__current-category'], `${this.categoryName.split('|').join('')}`);
     this.currentCategory.element.setAttribute('href', `#/catalog/${this.cardLink.split('/')[2]}/${this.cardLink.split('/')[3]}`);
     this.arrow_1 = new Component(this.navigation.element, 'div', ['card-container__navigation__arrow']);
     this.arrow_1.element.style.backgroundImage = 'url("./assets/svg/arrow-link.svg")';
@@ -76,11 +79,11 @@ class CardContainer extends Component {
     this.startDescription = new Component(this.startBlock.element, 'div',['card-container__content__start-block__start-des']);
     this.price = new Component(this.startDescription.element, 'p',['card-container__content__start-block__start-des__price'], `${this.card.price} BYN/шт.`);
     this.presence = new Component(this.startDescription.element, 'p',['card-container__content__start-block__start-des__presence']);
-    this.presence.element.innerHTML = `<u>Наличие</u>: <span class='create-color'>${this.card.presence}</span>`;
+    this.presence.element.innerHTML = `<u>Наличие</u>: <span class='card-container-create-color'>${this.card.presence}</span>`;
     if (this.card.presence === 'на складе') {
-      (document.querySelector('.create-color') as HTMLSpanElement).style.color = 'green';
+      (document.querySelector('.card-container-create-color') as HTMLSpanElement).style.color = 'green';
     } else {
-      (document.querySelector('.create-color') as HTMLSpanElement).style.color = 'orange';
+      (document.querySelector('.card-container-create-color') as HTMLSpanElement).style.color = 'orange';
     }
     this.vendorCode = new Component(this.startDescription.element, 'p',['card-container__content__start-block__start-des__vendorCode']);
     this.vendorCode.element.innerHTML = `<u>Артикул</u>: ${(this.card.link).toUpperCase()}`;
@@ -92,13 +95,17 @@ class CardContainer extends Component {
     this.about = new Component(this.content.element, 'div', ['card-container__content__about']);
     this.about.element.id = 'characteristics';
     this.additional = new Component(this.about.element, 'p', ['card-container__content__about__additional']);
-    this.additional.element.innerHTML = `<b>Дополнительно:</b> ${this.card.additional}`;
+    if (this.card.additional) { this.additional.element.innerHTML = `<b>Дополнительно:\n</b> ${this.card.additional}` }
+    
     this.characteristics = new Component(this.about.element, 'div', ['card-container__content__about__characteristics']);
     this.createCharacteristics();
 
-    this.sameTitle = new Component(this.content.element, 'h3', ['card-container__content__same-title'], 'Похожие товары');
-    this.cards = new Component(this.content.element, 'div', ['card-container__content__cards']);
-    this.createCards();
+    this.sameBlock = new Component(this.content.element, 'div', ['card-container__content__same']);
+    if (this.card.same[0]) {
+      this.createCards();
+    }
+
+    this.popularGoods = new PopularGoods(this.element);
   }
 
   private createPhotos() {
@@ -143,29 +150,30 @@ class CardContainer extends Component {
   }
 
   private createCards() {
+    const sameTitle = new Component(this.sameBlock.element, 'h3', ['card-container__content__same__same-title'], 'Похожие товары');
+    const cards = new Component(this.sameBlock.element, 'div', ['card-container__content__same__cards']);
     for (let elem of Goods) {
       if (elem.link === this.cardLink.split('/')[3]) {
+        let i = 1;
         for (let item of elem.cards) {
           if (this.card.same.includes(item.link)) {
-            const card = new Component(this.cards.element, 'a', ['card-container__content__cards__card']);
-            card.element.setAttribute('href', `#/catalog/${this.cardLink.split('/')[3]}/${item.preLink}/${item.link}`);
-            const photo = new Component(card.element, 'div', ['card-container__content__cards__card__img']);
+            const card = new Component(cards.element, 'a', ['card-container__content__same__cards__card']);
+            card.element.setAttribute('href', `#/catalog/${this.cardLink.split('/')[2]}/${item.preLink}/${item.link}`);
+            const photo = new Component(card.element, 'div', ['card-container__content__same__cards__card__img']);
             photo.element.style.backgroundImage = `url('./assets/img/${item.photo[0]}/1.${item.photo[1]}')`;
-            const name = new Component(card.element, 'p', ['card-container__content__cards__card__name'], `${item.name}`);
-            const description = new Component(card.element, 'div', ['card-container__content__cards__card__description']);
-            const vendorCode = new Component(description.element, 'p', ['card-container__content__cards__card__vendor-code']);
+            const name = new Component(card.element, 'p', ['card-container__content__same__cards__card__name'], `${item.name}`);
+            const description = new Component(card.element, 'div', ['card-container__content__same__cards__card__description']);
+            const vendorCode = new Component(description.element, 'p', ['card-container__content__same__cards__card__vendor-code']);
             vendorCode.element.innerHTML = `<u>Артикул</u>: ${(item.link).toUpperCase()}`;
-            const presence = new Component(description.element, 'p', ['card-container__content__cards__card__presence']);
-            presence.element.innerHTML = `<u>Наличие</u>: <span class='create-color-create'>${item.presence}</span>`;
-            switch(item.presence) {
-              case 'на складе':
-                (document.querySelector('.create-color-create') as HTMLSpanElement).style.color = 'green';
-                break;
-              default:
-                (document.querySelector('.create-color-create') as HTMLSpanElement).style.color = 'orange';
-                break;
+            const presence = new Component(description.element, 'p', ['card-container__content__same__cards__card__presence']);
+            presence.element.innerHTML = `<u>Наличие</u>: <span class='card-container-create-color-card-${i}'>${item.presence}</span>`;
+            if (item.presence === 'на складе') {
+              (document.querySelector(`.card-container-create-color-card-${i}`) as HTMLSpanElement).style.color = 'green';
+            } else {
+              (document.querySelector(`.card-container-create-color-card-${i}`) as HTMLSpanElement).style.color = 'orange';
             }
-            const price = new Component(card.element, 'p', ['category-container__panel__cards__card__price'], `${item.price} BYN/шт.`);
+            const price = new Component(card.element, 'p', ['card-container__content__same__cards__card__price'], `${item.price} BYN/шт.`);
+            i++;
           }
         }
         break;

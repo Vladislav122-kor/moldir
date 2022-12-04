@@ -7,8 +7,8 @@ $background: #1D3564;
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 700;
-    font-size: 4rem;
-    line-height: 5rem;
+    font-size: 3.5rem;
+    line-height: 4rem;
     color: $font-color-grey;
 }
 
@@ -40,7 +40,7 @@ $background: #1D3564;
         &:after {
             display: block;
             content: '';
-            width: 100%;
+            flex-grow: 1;
             height: 4px;
             border-bottom: 4px solid $background;
         }
@@ -58,6 +58,12 @@ $background: #1D3564;
             background-position: center;
             border-radius: 5px;
             text-decoration: none;
+            box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.15);
+            transition: 0.3s;
+
+            &:hover {
+                box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.3);
+            }
 
             &__title {
                 @extend %font-text;

@@ -93,7 +93,7 @@ class Router {
       );
       (currentRoute || this.defaultRoute).component();
     } else if (currentRouteName.split('/').length === 5) {
-      this.cardLink = currentRouteName;//currentRouteName.split('/').splice(3, 2).join('/');
+      this.cardLink = currentRouteName;
       const currentRoute = this.routes.find(
         (page) => page.name === '/catalog/category/goods/card',
       );

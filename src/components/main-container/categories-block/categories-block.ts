@@ -23,9 +23,9 @@ class CategoriesBlock extends Component {
     private createCards() {
         for (let elem of goods) {
             const card = new Component(this.cards.element, 'a', ['categories-block__cards__card']);
-            card.element.setAttribute('href', `#/catalog/${elem.link}`);
+            card.element.setAttribute('href', `#/catalog/${elem.link.split('_')[0]}/${elem.link}`);
             card.element.style.backgroundImage = `linear-gradient( rgba(0, 0, 0, 0.7), rgba(29, 53, 100, 0.15) ), url('./assets/img/${elem.photo}')`;
-            const cardTitle = new Component(card.element, 'p', ['categories-block__cards__card__title'], `${elem.name}`);
+            const cardTitle = new Component(card.element, 'p', ['categories-block__cards__card__title'], `${elem.name.split('|').join('')}`);
         }
     }
 

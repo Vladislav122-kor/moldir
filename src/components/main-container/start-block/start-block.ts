@@ -4,7 +4,6 @@ import './start-block.scss';
 
 class StartBlock extends Component {
   private container: Component;
-
   private text: Component;
 
   constructor(parentNode: HTMLElement) {

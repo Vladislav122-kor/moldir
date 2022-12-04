@@ -76,6 +76,12 @@ $background: #071633;
             display: flex;
             flex-direction: column;
             gap: 20px;
+
+            &__element {
+                @extend %font-text;
+                font-weight: 400;
+                color: $font-color-white;
+            }
         }
     }
 }
