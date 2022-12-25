@@ -23,9 +23,8 @@ class CategoryContainer extends Component {
   private main: Component;
   private arrow_1: Component;
   private currentCategory: Component;
-  preCategory: Component;
-  content: Component;
-  pseudoBlock: Component;
+  private preCategory: Component;
+  private content: Component;
   
   constructor(parentNode: HTMLElement, categoryLink: string) {
     super(parentNode, 'div', ['category-container']);
@@ -55,8 +54,6 @@ class CategoryContainer extends Component {
     this.currentCategory = new Component(this.navigation.element, 'a', ['category-container__navigation__current-category'], `${this.category.name.split('|').join('')}`);
 
     this.content = new Component(this.container.element, 'div', ['category-container__content']);
-
-    this.pseudoBlock = new Component(this.content.element, 'div', ['category-container__content__pseudo']);
 
     this.filterBlock = new Component(this.content.element, 'div', ['category-container__content__filter']);
     this.createFilters();
@@ -166,6 +163,7 @@ class CategoryContainer extends Component {
         (document.querySelector(`.category-container-create-color-${i}`) as HTMLSpanElement).style.color = 'orange';
       }
       const price = new Component(card.element, 'p', ['category-container__content__panel__cards__card__price'], `${elem.price} BYN/шт.`);
+      i++;
     }
   }
 

@@ -95,7 +95,7 @@ class CardContainer extends Component {
     this.about = new Component(this.content.element, 'div', ['card-container__content__about']);
     this.about.element.id = 'characteristics';
     this.additional = new Component(this.about.element, 'p', ['card-container__content__about__additional']);
-    if (this.card.additional) { this.additional.element.innerHTML = `<b>Дополнительно:\n</b> ${this.card.additional}` }
+    if (this.card.additional) { this.additional.element.innerHTML = `<b>Дополнительно:</b> ${this.card.additional}` }
     
     this.characteristics = new Component(this.about.element, 'div', ['card-container__content__about__characteristics']);
     this.createCharacteristics();

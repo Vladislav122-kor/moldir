@@ -1,6 +1,7 @@
 $font-family: 'Montserrat', sans-serif;
 $font-color-blue: #1D3564;
 $font-color-grey: #252E39;
+$font-color-orange: #DFA974;
 $background: #EAEFF9;
 
 %font-title {
@@ -39,10 +40,12 @@ $background: #EAEFF9;
         &__logo-cont {
             display: flex;
             flex-direction: column;
-            align-items: center;
+            align-items: flex-start;
 
             &__logo {
-                @extend %font-title;
+                width: 150px;
+                height: 50px;
+                background-size: contain;
             }
 
             &__title {
@@ -64,6 +67,11 @@ $background: #EAEFF9;
                     font-size: 2.5rem;
                     font-weight: 400;
                     text-decoration: none;
+                    transition: 0.3s;
+
+                    &:hover {
+                        color: $font-color-orange;
+                    }
                 }
     
                 &__text {
@@ -185,12 +193,18 @@ $background: #EAEFF9;
             display: flex;
             justify-content: space-between;
             width: 100%;
-            max-width: 615px;
+            max-width: 315px;
 
             &__element {
                 @extend %font-text;
                 font-weight: 400;
                 color: $background;
+                text-decoration: none;
+                transition: 0.5s;
+
+                &:hover {
+                    color: $font-color-orange;
+                }
             }
         }
     }

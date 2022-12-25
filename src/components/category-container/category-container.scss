@@ -78,17 +78,10 @@ $background: #EAEFF9;
         justify-content: space-between;
         gap: 5%;
 
-        &__pseudo {
-            width: 23.5%;
-            background: $background;
-            border-radius: 5px;
-        }
-
         &__filter {
             display: flex;
             flex-direction: column;
             gap: 25px;
-            position: fixed;
             width: 20%;
             padding: 20px;
             background: $background;

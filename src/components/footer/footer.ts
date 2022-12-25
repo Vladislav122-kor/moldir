@@ -4,27 +4,16 @@ import './footer.scss';
 
 class Footer extends Component {
     private container: Component;
-
     private logoContainer: Component;
-
     private logo: Component;
-
     private title: Component;
-
     private instagram: Component;
-
     private phoneContainer: Component;
-
     private phone: Component;
-
     private phoneText: Component;
-
     private emailContainer: Component;
-
     private email: Component;
-
     private emailText: Component;
-
     private navigation: Component;
   
     constructor(parentNode: HTMLElement) {
@@ -53,11 +42,12 @@ class Footer extends Component {
     }
 
     private createNavElements() {
-        const navNames: string[] = ['о нас', 'доставка и оплата', 'для сотрудничества', 'контакты'];
-        const navLinks: string[] = [];
+        const navNames: string[] = ['доставка и оплата', 'контакты'];
+        const navLinks: string[] = ['#/delivery_and_payment', '#/contacts'];
 
         for (let i: number = 0; i < navNames.length; i += 1) {
             const element = new Component(this.navigation.element, 'a', ['footer__container__nav__element'], `${navNames[i]}`);
+            element.element.setAttribute('href', `${navLinks[i]}`);
         }
     }
 }

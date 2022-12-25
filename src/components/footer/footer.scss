@@ -81,6 +81,12 @@ $background: #071633;
                 @extend %font-text;
                 font-weight: 400;
                 color: $font-color-white;
+                text-decoration: none;
+                transition: 0.3s;
+
+                &:hover {
+                    color: $font-color-orange;
+                }
             }
         }
     }

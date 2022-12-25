@@ -23,8 +23,7 @@ class CategoriesContainer extends Component {
   private main: Component;
   private arrow: Component;
   private currentCategory: Component;
-  content: Component;
-  pseudoBlock: Component;
+  private content: Component;
   
   constructor(parentNode: HTMLElement, categoriesLink: string) {
     super(parentNode, 'div', ['categories-container']);
@@ -50,8 +49,6 @@ class CategoriesContainer extends Component {
     this.currentCategory = new Component(this.navigation.element, 'a', ['categories-container__navigation__current-category'], `${this.categories[0].name.split('|')[0]}`);
 
     this.content = new Component(this.container.element, 'div', ['categories-container__content']);
-
-    this.pseudoBlock = new Component(this.content.element, 'div', ['categories-container__content__pseudo']);
 
     this.filterBlock = new Component(this.content.element, 'div', ['categories-container__content__filter']);
     this.createFilters();

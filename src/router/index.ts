@@ -3,6 +3,8 @@ import Main from '../pages/main/main';
 import Categories from '../pages/categories/categories';
 import Category from '../pages/category/category';
 import Card from '../pages/card/card';
+import DeliveryAndPayment from '../pages/delivery-and-payment/delivery-and-payment';
+import Contacts from '../pages/contacts/contacts';
 
 class Router {
   private readonly routes: Array<IRoute>;
@@ -15,6 +17,8 @@ class Router {
   private categoriesPage: Categories | undefined;
   private categoryPage: Category | undefined;
   private cardPage: Card | undefined;
+  private deliveryAndPayment: DeliveryAndPayment | undefined;
+  private contacts: Contacts | undefined;
 
   constructor(private rootElement: HTMLElement) {
     this.categoriesLink = '';
@@ -25,8 +29,6 @@ class Router {
       {
         name: '/',
         component: () => {
-          //document.querySelectorAll('.header__nav-element').forEach((item) => item.classList.remove('active'));
-          //document.querySelector('.header__link-main')?.classList.add('active');
           this.mainPage = new Main(this.rootElement);
           this.rootElement.append(this.mainPage.element);
         },
@@ -35,8 +37,6 @@ class Router {
       {
         name: '/catalog/categories',
         component: () => {
-          //document.querySelectorAll('.header__nav-element').forEach((item) => item.classList.remove('active'));
-          //document.querySelector('.header__link-trainings')?.classList.add('active');
           this.categoriesPage = new Categories(this.rootElement, this.categoriesLink);
           this.rootElement.append(this.categoriesPage.element);
         },
@@ -45,8 +45,6 @@ class Router {
       {
         name: '/catalog/category/goods',
         component: () => {
-          //document.querySelectorAll('.header__nav-element').forEach((item) => item.classList.remove('active'));
-          //document.querySelector('.header__link-trainings')?.classList.add('active');
           this.categoryPage = new Category(this.rootElement, this.categoryLink);
           this.rootElement.append(this.categoryPage.element);
         },
@@ -55,10 +53,24 @@ class Router {
       {
         name: '/catalog/category/goods/card',
         component: () => {
-          //document.querySelectorAll('.header__nav-element').forEach((item) => item.classList.remove('active'));
-          //document.querySelector('.header__link-trainings')?.classList.add('active');
           this.cardPage = new Card(this.rootElement, this.cardLink);
           this.rootElement.append(this.cardPage.element);
+        },
+      },
+
+      {
+        name: '/delivery_and_payment',
+        component: () => {
+          this.deliveryAndPayment = new DeliveryAndPayment(this.rootElement);
+          this.rootElement.append(this.deliveryAndPayment.element);
+        },
+      },
+
+      {
+        name: '/contacts',
+        component: () => {
+          this.contacts = new Contacts(this.rootElement);
+          this.rootElement.append(this.contacts.element);
         },
       },
     ];
