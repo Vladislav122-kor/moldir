@@ -24,6 +24,7 @@ class CategoriesContainer extends Component {
   private arrow: Component;
   private currentCategory: Component;
   private content: Component;
+  private sortingButtons: Component;
   
   constructor(parentNode: HTMLElement, categoriesLink: string) {
     super(parentNode, 'div', ['categories-container']);
@@ -59,8 +60,9 @@ class CategoriesContainer extends Component {
 
     this.sortingContainer = new Component(this.panelCards.element, 'div', ['categories-container__content__panel__sorting']);
     this.sortingTitle = new Component(this.sortingContainer.element, 'p', ['categories-container__content__panel__sorting-title'], 'Сортировать по стоимости:');
-    this.sortingIncrease = new Component(this.sortingContainer.element, 'p', ['categories-container__content__panel__sorting-increase'], 'по возрастанию');
-    this.sortingDecrease = new Component(this.sortingContainer.element, 'p', ['categories-container__content__panel__sorting-decrease'], 'по убыванию');
+    this.sortingButtons = new Component(this.sortingContainer.element, 'div', ['categories-container__content__panel__sorting-buttons']);
+    this.sortingIncrease = new Component(this.sortingButtons.element, 'p', ['categories-container__content__panel__sorting-buttons__sorting-increase'], 'по возрастанию');
+    this.sortingDecrease = new Component(this.sortingButtons.element, 'p', ['categories-container__content__panel__sorting-buttons__sorting-decrease'], 'по убыванию');
 
     this.cards = new Component(this.panelCards.element, 'div', ['categories-container__content__panel__cards']);
     this.defineCards();
@@ -82,11 +84,11 @@ class CategoriesContainer extends Component {
         if ((e.target as HTMLElement).className.includes('increase') && !((e.target as HTMLElement).classList.contains('active'))) {
           this.sortingValue = 'increase';
           (e.target as HTMLElement).classList.add('active');
-          document.querySelector('.categories-container__content__panel__sorting-decrease')?.classList.remove('active');
+          document.querySelector('.categories-container__content__panel__sorting-buttons__sorting-decrease')?.classList.remove('active');
         } else if ((e.target as HTMLElement).className.includes('decrease') && !((e.target as HTMLElement).classList.contains('active'))) {
           this.sortingValue = 'decrease';
           (e.target as HTMLElement).classList.add('active');
-          document.querySelector('.categories-container__content__panel__sorting-increase')?.classList.remove('active');
+          document.querySelector('.categories-container__content__panel__sorting-buttons__sorting-increase')?.classList.remove('active');
         } else if ((e.target as HTMLElement).className.includes('increase') && (e.target as HTMLElement).classList.contains('active')) {
           this.sortingValue = '';
           (e.target as HTMLElement).classList.remove('active');

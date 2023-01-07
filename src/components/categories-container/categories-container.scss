@@ -74,13 +74,13 @@ $background: #EAEFF9;
     &__content {
         display: flex;
         justify-content: space-between;
-        gap: 5%;
+        gap: 2%;
 
         &__filter {
             display: flex;
             flex-direction: column;
             gap: 25px;
-            width: 20%;
+            width: 25%;
             padding: 20px;
             background: $background;
             border-radius: 5px;
@@ -116,7 +116,7 @@ $background: #EAEFF9;
     
                     &__minPrice,
                     &__maxPrice {
-                        width: 100px;
+                        width: 40%;
                         padding: 2px 0 2px 5px;
                         @extend %font-text-values;
                         box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.15);
@@ -132,6 +132,7 @@ $background: #EAEFF9;
                 align-items: center;
                 padding: 7px;
                 @extend %font-text;
+                text-align: center;
                 color: #EAEFF9;
                 background: #1D3564; 
                 border-radius: 5px;
@@ -153,7 +154,7 @@ $background: #EAEFF9;
             display: flex;
             flex-direction: column;
             gap: 20px;
-            width: 75%;
+            width: 73%;
     
             &__title {
                 display: flex;
@@ -174,34 +175,40 @@ $background: #EAEFF9;
                 display: flex;
                 gap: 10px;
                 @extend %font-text;
-    
-                &-increase,
-                &-decrease {
-                    font-weight: 400;
-                    cursor: pointer;
-                    transition: 0.3s;
 
-                    &:hover {
-                        color: $font-color-orange;
-                    }
+                &-buttons {
+                    display: flex;
+                    justify-content: center;
+                    gap: 20px;
+
+                    &__sorting-increase,
+                    &__sorting-decrease {
+                        font-weight: 400;
+                        cursor: pointer;
+                        transition: 0.3s;
     
-                    &.active {
-                        text-decoration: underline;
+                        &:hover {
+                            color: $font-color-orange;
+                        }
+        
+                        &.active {
+                            text-decoration: underline;
+                        }
                     }
                 }
             }
     
             &__cards {
                 display: flex;
-                gap: 40px 5%;
+                gap: 20px 2%;
                 flex-wrap: wrap;
     
                 &__card {
                     display: flex;
                     flex-direction: column;
                     gap: 20px;
-                    padding: 10px 10px 20px;
-                    width: 30%;
+                    padding: 20px;
+                    width: 32%;
                     background: $background;
                     border-radius: 5px;
                     text-decoration: none;
@@ -241,5 +248,58 @@ $background: #EAEFF9;
                 }
             }
         }
+    }
+}
+
+@media(max-width: 1200px) {
+    .categories-container__content__panel__cards__card {
+        width: 49%;
+    }
+}
+
+@media(max-width: 900px) {
+    .categories-container__content__filter {
+        width: 35%;
+    }
+
+    .categories-container__content__panel {
+        width: 63%;
+    }
+
+    .categories-container__content__panel__sorting {
+        flex-direction: column;
+        justify-content: center;
+
+        &-title {
+            text-align: center;
+        }
+    }
+
+    .categories-container__content__panel__cards__card {
+        width: 100%;
+    }
+}
+
+@media(max-width: 680px) {
+    .categories-container__content__filter {
+        align-self: center;
+        width: 80%;
+    }
+
+    .categories-container__content {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .categories-container__content__panel {
+        width: 100%;
+    }
+}
+
+@media(max-width: 380px) {
+    .categories-container__content__panel__sorting-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
     }
 }

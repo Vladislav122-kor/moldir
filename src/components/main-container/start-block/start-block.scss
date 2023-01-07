@@ -18,13 +18,39 @@ $font-color: #EAEFF9;
     background-position: center;
 
     &__container {
+        display: flex;
+        justify-content: flex-end;
         width: 100%;
         max-width: 1440px;
         margin: 10px auto 0;
-        padding: 365px 20px 40px 788px;
+        padding: 500px 20px 40px;
 
         &__text {
+            max-width: 620px;
             @extend %font-style;
+        }
+    }
+}
+
+@media(max-width: 750px) {
+    .start-block__container {
+        padding: 380px 20px 40px;
+
+        &__text {
+            max-width: 100%;
+            font-size: 4rem;
+            line-height: 5.5rem;
+        }
+    }
+}
+
+@media(max-width: 480px) {
+    .start-block__container {
+        padding: 250px 20px 40px;
+
+        &__text {
+            font-size: 2.5rem;
+            line-height: 3.7rem;
         }
     }
 }

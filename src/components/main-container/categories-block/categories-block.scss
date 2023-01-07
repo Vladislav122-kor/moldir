@@ -72,3 +72,31 @@ $background: #1D3564;
         }
     }
 }
+
+@media(max-width: 1150px) {
+    .categories-block__cards {
+        gap: 20px 2%;
+
+        &__card {
+            width: 23.5%;
+        }
+    }
+}
+
+@media(max-width: 950px) {
+    .categories-block__cards__card {
+        width: 32%;
+    }
+}
+
+@media(max-width: 700px) {
+    .categories-block__cards__card {
+        width: 49%;
+    }
+}
+
+@media(max-width: 480px) {
+    .categories-block__cards__card {
+        width: 100%;
+    }
+}

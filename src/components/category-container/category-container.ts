@@ -25,6 +25,7 @@ class CategoryContainer extends Component {
   private currentCategory: Component;
   private preCategory: Component;
   private content: Component;
+  private sortingButtons: Component;
   
   constructor(parentNode: HTMLElement, categoryLink: string) {
     super(parentNode, 'div', ['category-container']);
@@ -64,8 +65,9 @@ class CategoryContainer extends Component {
 
     this.sortingContainer = new Component(this.panelCards.element, 'div', ['category-container__content__panel__sorting']);
     this.sortingTitle = new Component(this.sortingContainer.element, 'p', ['category-container__content__panel__sorting-title'], 'Сортировать по стоимости:');
-    this.sortingIncrease = new Component(this.sortingContainer.element, 'p', ['category-container__content__panel__sorting-increase'], 'по возрастанию');
-    this.sortingDecrease = new Component(this.sortingContainer.element, 'p', ['category-container__content__panel__sorting-decrease'], 'по убыванию');
+    this.sortingButtons = new Component(this.sortingContainer.element, 'div', ['category-container__content__panel__sorting-buttons']);
+    this.sortingIncrease = new Component(this.sortingButtons.element, 'p', ['category-container__content__panel__sorting-buttons__sorting-increase'], 'по возрастанию');
+    this.sortingDecrease = new Component(this.sortingButtons.element, 'p', ['category-container__content__panel__sorting-buttons__sorting-decrease'], 'по убыванию');
 
     this.cards = new Component(this.panelCards.element, 'div', ['category-container__content__panel__cards']);
     this.defineCards();

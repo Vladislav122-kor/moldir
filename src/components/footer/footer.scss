@@ -30,45 +30,43 @@ $background: #071633;
         justify-content: space-between;
         align-items: center;
         flex-wrap: wrap;
-        gap: 15px 20px;
+        gap: 15px 40px;
         max-width: 1440px;
         margin: 0 auto;
         padding: 40px 20px;
 
-        &__logo-cont {
+        &__contacts {
             display: flex;
             flex-direction: column;
-            align-items: center;
+            gap: 20px;
 
-            &__logo {
-                @extend %font-title;
+            &__logo-cont {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                &__logo {
+                    @extend %font-title;
+                }
+    
+                &__title {
+                    @extend %font-text;
+                }
             }
 
-            &__title {
-                @extend %font-text;
-            }
+            &__contacts-cont {
+                display: flex;
+                gap: 20px;
 
-            &__instagram {
-                width: 4rem;
-                height: 4rem;
-                align-self: flex-start;
-            }
-        }
-
-        &__phone-cont,
-        &__email-cont {
-                
-            &__phone,
-            &__email {
-                @extend %font-title;
-                font-weight: 400;
-                color: $font-color-orange;
-                text-decoration: none;
-            }
-
-            &__text {
-                @extend %font-text;
-                font-weight: 400;
+                &__insta,
+                &__phone,
+                &__email {
+                    width: 4rem;
+                    height: 4rem;
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                }
             }
         }
 
@@ -89,5 +87,13 @@ $background: #071633;
                 }
             }
         }
+    }
+}
+
+@media(max-width: 450px) {
+    .footer__container {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 50px;
     }
 }

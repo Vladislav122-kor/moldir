@@ -11,12 +11,6 @@ class Header extends Component {
     private logoContainer: Component;
     private logo: Component;
     private title: Component;
-    private phoneContainer: Component;
-    private phone: Component;
-    private phoneText: Component;
-    private emailContainer: Component;
-    private email: Component;
-    private emailText: Component;
     private button: Component;
     private buttonText: Component;
     private buttonBurgerContainer: Component;
@@ -24,6 +18,9 @@ class Header extends Component {
     private navigation: Component;
     private categories: Component;
     private contacts: Component;
+    instagram: Component;
+    phone: Component;
+    email: Component;
   
     constructor(parentNode: HTMLElement) {
         super(parentNode, 'div', ['header']);
@@ -42,15 +39,12 @@ class Header extends Component {
 
         this.contacts = new Component(this.informationPanelContainer.element, 'div', ['header__info-panel__contacts']);
 
-        this.phoneContainer = new Component(this.contacts.element, 'div', ['header__info-panel__contacts__phone-cont']);
-        this.phone = new Component(this.phoneContainer.element, 'a', ['header__info-panel__contacts__phone-cont__phone'], '+375 29 123 45 67');
-        this.phone.element.setAttribute('href', 'tel:+375291234567');
-        this.phoneText = new Component(this.phoneContainer.element, 'p', ['header__info-panel__contacts__phone-cont__text'], 'Ежедневно с 08:00 до 21:00');
-
-        this.emailContainer = new Component(this.contacts.element, 'div', ['header__info-panel__contacts__email-cont']);
-        this.email = new Component(this.emailContainer.element, 'a', ['header__info-panel__contacts__email-cont__email'], 'the.best.san@technica.by');
-        this.email.element.setAttribute('href', 'mailto:the.best.san@technica.by');
-        this.emailText = new Component(this.emailContainer.element, 'p', ['header__info-panel__contacts__email-cont__text'], 'Круглосуточно');
+        this.instagram = new Component(this.contacts.element, 'div', ['header__info-panel__contacts-insta']);
+        this.instagram.element.style.backgroundImage = 'url("./assets/svg/insta-grey.svg")';
+        this.phone = new Component(this.contacts.element, 'div', ['header__info-panel__contacts-phone']);
+        this.phone.element.style.backgroundImage = 'url("./assets/svg/phone-grey.svg")';
+        this.email = new Component(this.contacts.element, 'div', ['header__info-panel__contacts-email']);
+        this.email.element.style.backgroundImage = 'url("./assets/svg/email-grey.svg")';
 
         this.button = new Component(this.navigationPanelContainer.element, 'div', ['header__nav-panel__button']);
         this.buttonText = new Component(this.button.element, 'p', ['header__nav-panel__button__text'], 'Каталог');
@@ -71,7 +65,7 @@ class Header extends Component {
     }
 
     private createNavElements() {
-        const navNames: string[] = ['доставка и оплата', 'контакты'];
+        const navNames: string[] = ['Доставка и оплата', 'Контакты'];
         const navLinks: string[] = ['#/delivery_and_payment', '#/contacts'];
         for (let i: number = 0; i < navNames.length; i += 1) {
             const element = new Component(this.navigation.element, 'a', ['header__nav-panel__nav__element'], `${navNames[i]}`);

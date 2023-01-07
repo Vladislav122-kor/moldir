@@ -59,14 +59,14 @@ $background: #EAEFF9;
     &__cards {
         display: flex;
         flex-wrap: wrap;
-        gap: 20px 4%;
+        gap: 20px 2%;
 
         &__card {
             display: flex;
             flex-direction: column;
             gap: 20px;
             padding: 20px;
-            width: 22%;
+            width: 23.5%;
             background: $background;
             border-radius: 5px;
             text-decoration: none;
@@ -105,5 +105,27 @@ $background: #EAEFF9;
                 text-align: center;
             }
         }
+    }
+}
+
+@media(max-width: 1150px) {
+    .popular-goods__cards__card {
+        width: 32%;
+    }
+}
+
+@media(max-width: 850px) {
+    .popular-goods__cards {
+        gap: 20px 4%;
+
+        &__card {
+            width: 48%;
+        }
+    }
+}
+
+@media(max-width: 550px) {
+    .popular-goods__cards__card {
+        width: 100%;
     }
 }
