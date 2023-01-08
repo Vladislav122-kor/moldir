@@ -40,6 +40,13 @@ $background: #EAEFF9;
         max-width: 1440px;
         margin: 0 auto;
         padding: 40px 20px;
+
+        &__scroll-up {
+            position: fixed;
+            bottom: 5%;
+            left: 85%;
+            opacity: 0.9;
+        }
     }
 
     &__navigation {
@@ -169,6 +176,10 @@ $background: #EAEFF9;
                     height: 4px;
                     border-bottom: 4px solid $font-color-blue;
                 }
+            }
+
+            &__count {
+                @extend %font-text;
             }
     
             &__sorting {

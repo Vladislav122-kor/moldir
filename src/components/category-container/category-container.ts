@@ -1,6 +1,7 @@
 import Component from '../../utils/component';
 import Goods from '../../assets/files/goods';
 import { Category } from '../../../src/interfaces/index';
+import ScrollUp from '../../instruments/scrollUp/scrollUp';
 
 import './category-container.scss';
 
@@ -26,7 +27,9 @@ class CategoryContainer extends Component {
   private preCategory: Component;
   private content: Component;
   private sortingButtons: Component;
-  
+  private count: Component;
+  private scrollUp: ScrollUp;
+
   constructor(parentNode: HTMLElement, categoryLink: string) {
     super(parentNode, 'div', ['category-container']);
     this.categoryLink = categoryLink;
@@ -35,7 +38,7 @@ class CategoryContainer extends Component {
     Goods.forEach((item) => {
       if (item.link === this.categoryLink) { this.category = item }
     });
-    
+
     // define default prices for filter
     this.prices = [0, 0];
     this.definePrices();
@@ -63,6 +66,8 @@ class CategoryContainer extends Component {
 
     this.title = new Component(this.panelCards.element, 'h2', ['category-container__content__panel__title'], `${this.category.name.split('|').join('')}`);
 
+    this.count = new Component(this.panelCards.element, 'p', ['category-container__content__panel__count']);
+
     this.sortingContainer = new Component(this.panelCards.element, 'div', ['category-container__content__panel__sorting']);
     this.sortingTitle = new Component(this.sortingContainer.element, 'p', ['category-container__content__panel__sorting-title'], 'Сортировать по стоимости:');
     this.sortingButtons = new Component(this.sortingContainer.element, 'div', ['category-container__content__panel__sorting-buttons']);
@@ -71,6 +76,9 @@ class CategoryContainer extends Component {
 
     this.cards = new Component(this.panelCards.element, 'div', ['category-container__content__panel__cards']);
     this.defineCards();
+
+    this.scrollUp = new ScrollUp(this.container.element);
+    this.scrollUp.element.classList.add('category-container__container__scroll-up');
 
     this.filterBlock.element.addEventListener('input', (e) => {
       if ((e.target as HTMLElement).classList.contains('number')) {
@@ -142,6 +150,7 @@ class CategoryContainer extends Component {
       default:
         break;
     }
+    this.count.element.innerHTML = `Найдено товаров: ${cards.length}`;
     this.createCards(cards);
   }
 

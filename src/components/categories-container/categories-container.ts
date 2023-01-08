@@ -1,6 +1,7 @@
 import Component from '../../utils/component';
 import Goods from '../../assets/files/goods';
 import { Category } from '../../interfaces/index';
+import ScrollUp from '../../instruments/scrollUp/scrollUp';
 
 import './categories-container.scss';
 
@@ -25,6 +26,8 @@ class CategoriesContainer extends Component {
   private currentCategory: Component;
   private content: Component;
   private sortingButtons: Component;
+  private count: Component;
+  private scrollUp: ScrollUp;
   
   constructor(parentNode: HTMLElement, categoriesLink: string) {
     super(parentNode, 'div', ['categories-container']);
@@ -58,6 +61,8 @@ class CategoriesContainer extends Component {
 
     this.title = new Component(this.panelCards.element, 'h2', ['categories-container__content__panel__title'], `${this.categories[0].name.split('|')[0]}`);
 
+    this.count = new Component(this.panelCards.element, 'p', ['category-container__content__panel__count']);
+
     this.sortingContainer = new Component(this.panelCards.element, 'div', ['categories-container__content__panel__sorting']);
     this.sortingTitle = new Component(this.sortingContainer.element, 'p', ['categories-container__content__panel__sorting-title'], 'Сортировать по стоимости:');
     this.sortingButtons = new Component(this.sortingContainer.element, 'div', ['categories-container__content__panel__sorting-buttons']);
@@ -66,6 +71,9 @@ class CategoriesContainer extends Component {
 
     this.cards = new Component(this.panelCards.element, 'div', ['categories-container__content__panel__cards']);
     this.defineCards();
+
+    this.scrollUp = new ScrollUp(this.container.element);
+    this.scrollUp.element.classList.add('category-container__container__scroll-up');
 
     this.filterBlock.element.addEventListener('input', (e) => {
       if ((e.target as HTMLElement).classList.contains('number')) {
@@ -139,6 +147,7 @@ class CategoriesContainer extends Component {
       default:
         break;
     }
+    this.count.element.innerHTML = `Найдено товаров: ${cards.length}`;
     this.createCards(cards);
   }
 
