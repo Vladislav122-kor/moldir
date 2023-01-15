@@ -1,5 +1,6 @@
 import Component from '../../utils/component';
 import Goods from '../../assets/files/goods';
+//import Searching from '../../instruments/searching/searching';
 
 import './header.scss';
 
@@ -18,9 +19,10 @@ class Header extends Component {
     private navigation: Component;
     private categories: Component;
     private contacts: Component;
-    instagram: Component;
-    phone: Component;
-    email: Component;
+    private instagram: Component;
+    private phone: Component;
+    private email: Component;
+    //private searching: Searching;
   
     constructor(parentNode: HTMLElement) {
         super(parentNode, 'div', ['header']);
@@ -45,6 +47,9 @@ class Header extends Component {
         this.phone.element.style.backgroundImage = 'url("./assets/svg/phone-grey.svg")';
         this.email = new Component(this.contacts.element, 'div', ['header__info-panel__contacts-email']);
         this.email.element.style.backgroundImage = 'url("./assets/svg/email-grey.svg")';
+
+        //this.searching = new Searching(this.informationPanelContainer.element);
+        //this.searching.element.classList.add('header__info-panel__searching');
 
         this.button = new Component(this.navigationPanelContainer.element, 'div', ['header__nav-panel__button']);
         this.buttonText = new Component(this.button.element, 'p', ['header__nav-panel__button__text'], 'Каталог');

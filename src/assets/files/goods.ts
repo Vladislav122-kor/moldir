@@ -1,6 +1,6 @@
 import { Category } from '../../../src/interfaces/index';
 
-const exchangeRates: number = 2.4336;
+const exchangeRates: number = 2.626;
 
 /*fetch('https://www.nbrb.by/api/exrates/rates/431')
       .then((res) => {
@@ -32,7 +32,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-307',
                 preLink: 'rakoviny_vstraivaemye_sverhu',
-                same: ['']
+                same: ['mln-308']
             },
 
             {
@@ -45,7 +45,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-308',
                 preLink: 'rakoviny_vstraivaemye_sverhu',
-                same: ['']
+                same: ['mln-307']
             },
 
             {
@@ -137,7 +137,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-320301',
                 preLink: 'rakoviny_nakladnye_belye',
-                same: ['']
+                same: ['mln-7734', 'mln-78197']
             },
 
             {
@@ -150,7 +150,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-320306',
                 preLink: 'rakoviny_nakladnye_belye',
-                same: ['']
+                same: ['mln-320309', 'mln-7291', 'mln-7440a', 'mln-7657', 'mln-78112']
             },
 
             {
@@ -163,7 +163,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-320308',
                 preLink: 'rakoviny_nakladnye_belye',
-                same: ['']
+                same: ['mln-a462', 'mln-78239']
             },
 
             {
@@ -176,7 +176,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-320309',
                 preLink: 'rakoviny_nakladnye_belye',
-                same: ['']
+                same: ['mln-320306', 'mln-7291', 'mln-7440a', 'mln-7657', 'mln-78112']
             },
 
             {
@@ -189,7 +189,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-320314',
                 preLink: 'rakoviny_nakladnye_belye',
-                same: ['']
+                same: ['mln-7686']
             },
 
             {
@@ -202,7 +202,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-320315',
                 preLink: 'rakoviny_nakladnye_belye',
-                same: ['']
+                same: ['mln-320317', 'mln-a457', 'mln-5006']
             },
 
             {
@@ -215,7 +215,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-320317',
                 preLink: 'rakoviny_nakladnye_belye',
-                same: ['']
+                same: ['mln-320315', 'mln-a457', 'mln-5006']
             },
 
             {
@@ -228,7 +228,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-320318',
                 preLink: 'rakoviny_nakladnye_belye',
-                same: ['']
+                same: ['mln-7050h', 'mln-a465', 'mln-78102', 'mln-78104']
             },
 
             {
@@ -241,7 +241,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-a457',
                 preLink: 'rakoviny_nakladnye_belye',
-                same: ['']
+                same: ['mln-320315', 'mln-320317', 'mln-5006']
             },
 
             {
@@ -254,7 +254,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-320339',
                 preLink: 'rakoviny_nakladnye_belye',
-                same: ['']
+                same: ['mln-7078d', 'mln-78114', 'mln-78433']
             },
 
             {
@@ -267,7 +267,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-320352',
                 preLink: 'rakoviny_nakladnye_belye',
-                same: ['']
+                same: ['mln-78160', 'mln-78329', 'mln-a500a', 'mln-a500b']
             },
 
             {
@@ -280,7 +280,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-5006',
                 preLink: 'rakoviny_nakladnye_belye',
-                same: ['']
+                same: ['mln-320315', 'mln-320317', 'mln-a457']
             },
 
             {
@@ -293,7 +293,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-7005a',
                 preLink: 'rakoviny_nakladnye_belye',
-                same: ['']
+                same: ['mln-7033', 'mln-7295', 'mln-7063b', 'mln-78355', 'mln-a054', 'mln-a064', 'mln-a121']
             },
 
             {
@@ -306,7 +306,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-7033',
                 preLink: 'rakoviny_nakladnye_belye',
-                same: ['']
+                same: ['mln-7005a', 'mln-7063b', 'mln-7295', 'mln-78355', 'mln-a054', 'mln-a064', 'mln-a121']
             },
 
             {
@@ -319,7 +319,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-7050h',
                 preLink: 'rakoviny_nakladnye_belye',
-                same: ['']
+                same: ['mln-320318', 'mln-a465', 'mln-78102', 'mln-78104']
             },
 
             {
@@ -332,7 +332,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-7063b',
                 preLink: 'rakoviny_nakladnye_belye',
-                same: ['']
+                same: ['mln-7005a', 'mln-7033', 'mln-7295', 'mln-78355', 'mln-a054', 'mln-a064', 'mln-a121']
             },
 
             {
@@ -345,7 +345,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-7078d',
                 preLink: 'rakoviny_nakladnye_belye',
-                same: ['']
+                same: ['mln-320339', 'mln-78114', 'mln-78433']
             },
 
             {
@@ -358,7 +358,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-7235',
                 preLink: 'rakoviny_nakladnye_belye',
-                same: ['']
+                same: ['mln-7861', 'mln-e408', 'mln-e407']
             },
 
             {
@@ -371,7 +371,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-7291',
                 preLink: 'rakoviny_nakladnye_belye',
-                same: ['']
+                same: ['mln-320306', 'mln-320309', 'mln-7440a', 'mln-7657', 'mln-78112']
             },
 
             {
@@ -384,7 +384,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-7295',
                 preLink: 'rakoviny_nakladnye_belye',
-                same: ['']
+                same: ['mln-7005a', 'mln-7033', 'mln-7063b', 'mln-78355', 'mln-a121', 'mln-a064', 'mln-a054']
             },
 
             {
@@ -397,7 +397,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-7440a',
                 preLink: 'rakoviny_nakladnye_belye',
-                same: ['']
+                same: ['mln-320306', 'mln-320309', 'mln-7291', 'mln-7657', 'mln-78112']
             },
 
             {
@@ -410,7 +410,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-7657',
                 preLink: 'rakoviny_nakladnye_belye',
-                same: ['']
+                same: ['mln-320306', 'mln-320309', 'mln-7291', 'mln-7440a', 'mln-78112']
             },
 
             {
@@ -423,7 +423,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-7686',
                 preLink: 'rakoviny_nakladnye_belye',
-                same: ['']
+                same: ['mln-320314']
             },
 
             {
@@ -436,7 +436,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-7734',
                 preLink: 'rakoviny_nakladnye_belye',
-                same: ['']
+                same: ['mln-320301', 'mln-78197']
             },
 
             {
@@ -449,7 +449,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-78102',
                 preLink: 'rakoviny_nakladnye_belye',
-                same: ['']
+                same: ['mln-320318', 'mln-7050h', 'mln-a465', 'mln-78104']
             },
 
             {
@@ -462,7 +462,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-78104',
                 preLink: 'rakoviny_nakladnye_belye',
-                same: ['']
+                same: ['mln-320318', 'mln-7050h', 'mln-a465', 'mln-78102']
             },
 
             {
@@ -475,7 +475,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-78112',
                 preLink: 'rakoviny_nakladnye_belye',
-                same: ['']
+                same: ['mln-320306', 'mln-320309', 'mln-7291', 'mln-7440a', 'mln-7657']
             },
 
             {
@@ -488,7 +488,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-78114',
                 preLink: 'rakoviny_nakladnye_belye',
-                same: ['']
+                same: ['mln-320339', 'mln-7078d', 'mln-78433']
             },
 
             {
@@ -514,7 +514,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-78159',
                 preLink: 'rakoviny_nakladnye_belye',
-                same: ['']
+                same: ['mln-a500c', 'mln-78344', 'mln-7811a']
             },
 
             {
@@ -527,7 +527,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-78160',
                 preLink: 'rakoviny_nakladnye_belye',
-                same: ['']
+                same: ['mln-320352', 'mln-78329', 'mln-a500a', 'mln-a500b']
             },
 
             {
@@ -540,7 +540,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-78197',
                 preLink: 'rakoviny_nakladnye_belye',
-                same: ['']
+                same: ['mln-320301', 'mln-7734']
             },
 
             {
@@ -553,20 +553,20 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-78239',
                 preLink: 'rakoviny_nakladnye_belye',
-                same: ['']
+                same: ['mln-a462', 'mln-320308']
             },
 
             {
                 id: 34,
-                photo: ['mln-78329_a500a', 'jpg', '3'],
-                name: 'Накладная раковина mln-78329 (a500a)',
+                photo: ['mln-78329', 'jpg', '3'],
+                name: 'Накладная раковина mln-78329',
                 price: parseFloat((80.61 * exchangeRates).toFixed(2)),
-                characteristics: [ ['Отверстие под перелив', ['нет']], ['Отверстие под смеситель', ['нет']], ['Тип', ['накладная']], ['Форма', ['овальная']], ['Ширина, мм', ['600']], ['Глубина, мм', ['380']], ['Высота, мм', ['138']], ['Цвет', ['белый']] ],
+                characteristics: [ ['Отверстие под перелив', ['нет']], ['Отверстие под смеситель', ['нет']], ['Тип', ['накладная']], ['Форма', ['прямоугольная']], ['Ширина, мм', ['600']], ['Глубина, мм', ['380']], ['Высота, мм', ['138']], ['Цвет', ['белый']] ],
                 additional: '',
                 presence: 'под заказ',
-                link: 'mln-78329_a500a',
+                link: 'mln-78329',
                 preLink: 'rakoviny_nakladnye_belye',
-                same: ['']
+                same: ['mln-320352', 'mln-78160', 'mln-a500a', 'mln-a500b']
             },
 
             {
@@ -579,7 +579,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-78344',
                 preLink: 'rakoviny_nakladnye_belye',
-                same: ['']
+                same: ['mln-a500c', 'mln-78159', 'mln-7811a']
             },
 
             {
@@ -605,7 +605,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-78355',
                 preLink: 'rakoviny_nakladnye_belye',
-                same: ['']
+                same: ['mln-7005a', 'mln-7033', 'mln-7063b', 'mln-7295', 'mln-a054', 'mln-a064', 'mln-a121']
             },
 
             {
@@ -618,7 +618,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-78433',
                 preLink: 'rakoviny_nakladnye_belye',
-                same: ['']
+                same: ['mln-320339', 'mln-7078d', 'mln-78114']
             },
 
             {
@@ -631,7 +631,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-7861',
                 preLink: 'rakoviny_nakladnye_belye',
-                same: ['']
+                same: ['mln-7235', 'mln-e408', 'mln-e407']
             },
 
             {
@@ -644,7 +644,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-a054',
                 preLink: 'rakoviny_nakladnye_belye',
-                same: ['']
+                same: ['mln-7005a', 'mln-7033', 'mln-7063b', 'mln-7295', 'mln-78355', 'mln-a064', 'mln-a121']
             },
 
             {
@@ -657,7 +657,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-a064',
                 preLink: 'rakoviny_nakladnye_belye',
-                same: ['']
+                same: ['mln-7005a', 'mln-7033', 'mln-7063b', 'mln-7295', 'mln-78355', 'mln-a054', 'mln-a121']
             },
 
             {
@@ -670,7 +670,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-a121',
                 preLink: 'rakoviny_nakladnye_belye',
-                same: ['']
+                same: ['mln-7005a', 'mln-7033', 'mln-7063b', 'mln-7295', 'mln-78355', 'mln-a054', 'mln-a064']
             },
 
             {
@@ -683,7 +683,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-a462',
                 preLink: 'rakoviny_nakladnye_belye',
-                same: ['']
+                same: ['mln-320308', 'mln-78239']
             },
 
             {
@@ -696,7 +696,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-a465',
                 preLink: 'rakoviny_nakladnye_belye',
-                same: ['']
+                same: ['mln-320318', 'mln-7050h', 'mln-78102', 'mln-78104']
             },
 
             {
@@ -709,7 +709,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-a482a',
                 preLink: 'rakoviny_nakladnye_belye',
-                same: ['']
+                same: ['mln-a482b']
             },
 
             {
@@ -722,7 +722,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-a482b',
                 preLink: 'rakoviny_nakladnye_belye',
-                same: ['']
+                same: ['mln-a482a']
             },
 
             {
@@ -735,7 +735,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-a500a',
                 preLink: 'rakoviny_nakladnye_belye',
-                same: ['']
+                same: ['mln-320352', 'mln-78160', 'mln-78329', 'mln-a500b']
             },
 
             {
@@ -748,7 +748,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-a500b',
                 preLink: 'rakoviny_nakladnye_belye',
-                same: ['']
+                same: ['mln-320352', 'mln-78160', 'mln-78329', 'mln-a500a']
             },
 
             {
@@ -761,7 +761,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-a500c',
                 preLink: 'rakoviny_nakladnye_belye',
-                same: ['']
+                same: ['mln-78344', 'mln-78159', 'mln-7811a']
             },
 
             {
@@ -774,7 +774,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-a550',
                 preLink: 'rakoviny_nakladnye_belye',
-                same: ['']
+                same: ['mln-a562']
             },
 
             {
@@ -787,7 +787,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-a562',
                 preLink: 'rakoviny_nakladnye_belye',
-                same: ['']
+                same: ['mln-a550']
             },
 
             {
@@ -813,7 +813,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-e407',
                 preLink: 'rakoviny_nakladnye_belye',
-                same: ['']
+                same: ['mln-7235', 'mln-7861', 'mln-e408']
             },
 
             {
@@ -826,7 +826,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-e408',
                 preLink: 'rakoviny_nakladnye_belye',
-                same: ['']
+                same: ['mln-7235', 'mln-7861', 'mln-e407']
             },
         ]
     },
@@ -1067,7 +1067,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-7811amb',
                 preLink: 'rakoviny_nakladnye_cvetnye',
-                same: ['']
+                same: ['mln-a500c', 'mln-78159', 'mln-78344']
             },
 
             {

@@ -1,0 +1,51 @@
+$font-family: 'Montserrat', sans-serif;
+$font-color-button: #EAEFF9;
+$font-color-input: #252E39;
+$background_button: #1D3564;
+$background_input: #EAEFF9;
+$border: #252E39;
+
+%font-text-button {
+    font-family: $font-family;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.5rem;
+    line-height: 2rem;
+    color: $font-color-button;
+}
+
+%font-text-input {
+    font-family: $font-family;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.3rem;
+    line-height: 1.8rem;
+    color: $font-color-input;
+}
+
+.searching {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+
+    &__input {
+        width: 250px;
+        padding: 6px 10px;
+        @extend %font-text-input;
+        border: 1px solid $border;
+        border-radius: 5px;
+        background: $background_input;
+    }
+
+    &__button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 60px;
+        height: 30px;
+        @extend %font-text-button;
+        background: $background_button;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+}
