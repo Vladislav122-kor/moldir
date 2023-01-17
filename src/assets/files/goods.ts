@@ -1,6 +1,6 @@
 import { Category } from '../../../src/interfaces/index';
 
-const exchangeRates: number = 2.626;
+const exchangeRates: number = 2.6162;
 
 /*fetch('https://www.nbrb.by/api/exrates/rates/431')
       .then((res) => {
@@ -859,7 +859,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-107b',
                 preLink: 'rakoviny_nakladnye_cvetnye',
-                same: ['']
+                same: ['mln-a428-cv14', 'mln-t4004-b9', 'mln-t4005-b9']
             },
 
             {
@@ -885,7 +885,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-320353mb',
                 preLink: 'rakoviny_nakladnye_cvetnye',
-                same: ['']
+                same: ['mln-320353mdg', 'mln-a419-cgrw-m', 'mln-d4837br']
             },
 
             {
@@ -898,7 +898,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-320353mdg',
                 preLink: 'rakoviny_nakladnye_cvetnye',
-                same: ['']
+                same: ['mln-320353mb', 'mln-a419-cgrw-m', 'mln-d4837br']
             },
 
             {
@@ -911,7 +911,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-320355mg',
                 preLink: 'rakoviny_nakladnye_cvetnye',
-                same: ['']
+                same: ['mln-320356mdg', 'mln-320356mg', 'mln-7167mb']
             },
 
             {
@@ -924,7 +924,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-320356mdg',
                 preLink: 'rakoviny_nakladnye_cvetnye',
-                same: ['']
+                same: ['mln-320355mg', 'mln-320356mg', 'mln-7167mb']
             },
 
             {
@@ -937,7 +937,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-320356mg',
                 preLink: 'rakoviny_nakladnye_cvetnye',
-                same: ['']
+                same: ['mln-320355mg', 'mln-320356mdg', 'mln-7167mb']
             },
 
             {
@@ -950,7 +950,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-320357mg',
                 preLink: 'rakoviny_nakladnye_cvetnye',
-                same: ['']
+                same: ['mln-7076b', 'mln-7076bm', 'mln-7078cbk-m', 'mln-a373l-gsw', 'ring380']
             },
 
             {
@@ -963,7 +963,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-7020-b1',
                 preLink: 'rakoviny_nakladnye_cvetnye',
-                same: ['']
+                same: ['mln-7020-b5', 'mln-t4006-b1', 'mln-t4006-b6', 'mln-t4006-b8', 'mln-t4022-g28']
             },
 
             {
@@ -976,7 +976,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-7020-b5',
                 preLink: 'rakoviny_nakladnye_cvetnye',
-                same: ['']
+                same: ['mln-7020-b1', 'mln-t4006-b1', 'mln-t4006-b6', 'mln-t4006-b8', 'mln-t4022-g28']
             },
 
             {
@@ -989,7 +989,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-7076b',
                 preLink: 'rakoviny_nakladnye_cvetnye',
-                same: ['']
+                same: ['mln-320357mg', 'mln-7076bm', 'mln-7078cbk-m', 'mln-a373l-gsw', 'ring380']
             },
 
             {
@@ -1002,7 +1002,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-7076bm',
                 preLink: 'rakoviny_nakladnye_cvetnye',
-                same: ['']
+                same: ['mln-320357mg', 'mln-7076b', 'mln-7078cbk-m', 'mln-a373l-gsw', 'ring380']
             },
 
             {
@@ -1015,7 +1015,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-7078cbk-m',
                 preLink: 'rakoviny_nakladnye_cvetnye',
-                same: ['']
+                same: ['mln-320357mg', 'mln-7076b', 'mln-7076bm', 'mln-a373l-gsw', 'ring380']
             },
 
             {
@@ -1028,7 +1028,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-7138mb',
                 preLink: 'rakoviny_nakladnye_cvetnye',
-                same: ['']
+                same: ['mln-7138mg', 'mln-7811amb', 'mln-a433-cbk-m']
             },
 
             {
@@ -1041,7 +1041,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-7138mg',
                 preLink: 'rakoviny_nakladnye_cvetnye',
-                same: ['']
+                same: ['mln-7138mb', 'mln-7811amb', 'mln-a433-cbk-m']
             },
 
             {
@@ -1054,7 +1054,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-7167mb',
                 preLink: 'rakoviny_nakladnye_cvetnye',
-                same: ['']
+                same: ['mln-320355mg', 'mln-320356mdg', 'mln-320356mg']
             },
 
             {
@@ -1067,7 +1067,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-7811amb',
                 preLink: 'rakoviny_nakladnye_cvetnye',
-                same: ['mln-a500c', 'mln-78159', 'mln-78344']
+                same: ['mln-7138mb', 'mln-7138mg', 'mln-a433-cbk-m']
             },
 
             {
@@ -1080,7 +1080,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-a373l-gsw',
                 preLink: 'rakoviny_nakladnye_cvetnye',
-                same: ['']
+                same: ['mln-320357mg', 'mln-7076b', 'mln-7076bm', 'mln-7078cbk-m', 'ring380']
             },
 
             {
@@ -1093,7 +1093,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-a419-cgrw-m',
                 preLink: 'rakoviny_nakladnye_cvetnye',
-                same: ['']
+                same: ['mln-320353mb', 'mln-320353mdg', 'mln-d4837br']
             },
 
             {
@@ -1106,7 +1106,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-a428-cv14',
                 preLink: 'rakoviny_nakladnye_cvetnye',
-                same: ['']
+                same: ['mln-107b', 'mln-t4004-b9', 'mln-t4005-b9']
             },
 
             {
@@ -1119,7 +1119,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-a433-cbk-m',
                 preLink: 'rakoviny_nakladnye_cvetnye',
-                same: ['']
+                same: ['mln-7138mb', 'mln-7138mg', 'mln-7811amb']
             },
 
             {
@@ -1132,7 +1132,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-t4004-b9',
                 preLink: 'rakoviny_nakladnye_cvetnye',
-                same: ['']
+                same: ['mln-107b', 'mln-a428-cv14', 'mln-t4005-b9']
             },
 
             {
@@ -1145,7 +1145,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-t4005-b9',
                 preLink: 'rakoviny_nakladnye_cvetnye',
-                same: ['']
+                same: ['mln-107b', 'mln-a428-cv14', 'mln-t4005-b9']
             },
 
             {
@@ -1158,7 +1158,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-t4006-b1',
                 preLink: 'rakoviny_nakladnye_cvetnye',
-                same: ['']
+                same: ['mln-7020-b1', 'mln-7020-b5', 'mln-t4006-b6', 'mln-t4006-b8', 'mln-t4022-g28']
             },
 
             {
@@ -1171,7 +1171,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-t4006-b6',
                 preLink: 'rakoviny_nakladnye_cvetnye',
-                same: ['']
+                same: ['mln-7020-b1', 'mln-7020-b5', 'mln-t4006-b1', 'mln-t4006-b8', 'mln-t4022-g28']
             },
 
             {
@@ -1184,7 +1184,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-t4006-b8',
                 preLink: 'rakoviny_nakladnye_cvetnye',
-                same: ['']
+                same: ['mln-7020-b1', 'mln-7020-b5', 'mln-t4006-b1', 'mln-t4006-b6', 'mln-t4022-g28']
             },
 
             {
@@ -1197,7 +1197,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-t4022-g28',
                 preLink: 'rakoviny_nakladnye_cvetnye',
-                same: ['']
+                same: ['mln-7020-b1', 'mln-7020-b5', 'mln-t4006-b1', 'mln-t4006-b6', 'mln-t4006-b8']
             },
 
             {
@@ -1210,7 +1210,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'ring380',
                 preLink: 'rakoviny_nakladnye_cvetnye',
-                same: ['']
+                same: ['mln-320357mg', 'mln-7076b', 'mln-7076bm', 'mln-7078cbk-m', 'mln-a373l-gsw']
             },
 
             {
@@ -1223,7 +1223,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-d4837br',
                 preLink: 'rakoviny_nakladnye_cvetnye',
-                same: ['']
+                same: ['mln-320353mb', 'mln-320353mdg', 'mln-a419-cgrw-m']
             },
         ]
     },
@@ -1243,7 +1243,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-7717x',
                 preLink: 'rakoviny_podvesnye',
-                same: ['']
+                same: ['mln-7781', 'mln-a301', 'mln-e601']
             },
 
             {
@@ -1256,7 +1256,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-7781',
                 preLink: 'rakoviny_podvesnye',
-                same: ['']
+                same: ['mln-7717x', 'mln-a301', 'mln-e601']
             },
 
             {
@@ -1269,7 +1269,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-7782',
                 preLink: 'rakoviny_podvesnye',
-                same: ['']
+                same: ['mln-7782b']
             },
 
             {
@@ -1282,7 +1282,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-7782b',
                 preLink: 'rakoviny_podvesnye',
-                same: ['']
+                same: ['mln-7782']
             },
 
             {
@@ -1295,7 +1295,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-78014d',
                 preLink: 'rakoviny_podvesnye',
-                same: ['']
+                same: ['mln-a265', 'mln-e604']
             },
 
             {
@@ -1308,7 +1308,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-78204l',
                 preLink: 'rakoviny_podvesnye',
-                same: ['']
+                same: ['mln-78204r', 'mln-78404l', 'mln-7954l', 'mln-7954r', 'mln-a311l', 'mln-a311r']
             },
 
             {
@@ -1321,7 +1321,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-78204r',
                 preLink: 'rakoviny_podvesnye',
-                same: ['']
+                same: ['mln-78204l', 'mln-78404l', 'mln-7954l', 'mln-7954r', 'mln-a311l', 'mln-a311r']
             },
 
             {
@@ -1347,7 +1347,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-78404l',
                 preLink: 'rakoviny_podvesnye',
-                same: ['']
+                same: ['mln-78204l', 'mln-78204r', 'mln-7954l', 'mln-7954r', 'mln-a311l', 'mln-a311r']
             },
 
             {
@@ -1360,7 +1360,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-7954l',
                 preLink: 'rakoviny_podvesnye',
-                same: ['']
+                same: ['mln-78204l', 'mln-78204r', 'mln-78404l', 'mln-7954r', 'mln-a311l', 'mln-a311r']
             },
 
             {
@@ -1373,7 +1373,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-7954r',
                 preLink: 'rakoviny_podvesnye',
-                same: ['']
+                same: ['mln-78204l', 'mln-78204r', 'mln-78404l', 'mln-7954l', 'mln-a311l', 'mln-a311r']
             },
 
             {
@@ -1386,7 +1386,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-a265',
                 preLink: 'rakoviny_podvesnye',
-                same: ['']
+                same: ['mln-78014d', 'mln-e604']
             },
 
             {
@@ -1399,7 +1399,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-a301',
                 preLink: 'rakoviny_podvesnye',
-                same: ['']
+                same: ['mln-7717x', 'mln-7781', 'mln-e601']
             },
 
             {
@@ -1412,7 +1412,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-a311l',
                 preLink: 'rakoviny_podvesnye',
-                same: ['']
+                same: ['mln-78204l', 'mln-78204r', 'mln-78404l', 'mln-7954l', 'mln-7954r', 'mln-a311r']
             },
 
             {
@@ -1425,7 +1425,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-a311r',
                 preLink: 'rakoviny_podvesnye',
-                same: ['']
+                same: ['mln-78204l', 'mln-78204r', 'mln-78404l', 'mln-7954l', 'mln-7954r', 'mln-a311l']
             },
 
             {
@@ -1438,7 +1438,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-e601',
                 preLink: 'rakoviny_podvesnye',
-                same: ['']
+                same: ['mln-7717x', 'mln-7781', 'mln-a301']
             },
 
             {
@@ -1451,7 +1451,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-e604',
                 preLink: 'rakoviny_podvesnye',
-                same: ['']
+                same: ['mln-78014d', 'mln-a265']
             },
         ]
     },
@@ -1471,7 +1471,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-b125',
                 preLink: 'rakoviny_napolnye',
-                same: ['']
+                same: ['mln-b156']
             },
 
             {
@@ -1484,7 +1484,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-b156',
                 preLink: 'rakoviny_napolnye',
-                same: ['']
+                same: ['mln-b125']
             },
         ]
     },
@@ -1517,7 +1517,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-e60',
                 preLink: 'rakoviny_stoleshnicy',
-                same: ['']
+                same: ['mln-e70', 'mln-e80', 'mln-e90']
             },
 
             {
@@ -1530,7 +1530,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-e70',
                 preLink: 'rakoviny_stoleshnicy',
-                same: ['']
+                same: ['mln-e60', 'mln-e80', 'mln-e90']
             },
 
             {
@@ -1543,7 +1543,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-e80',
                 preLink: 'rakoviny_stoleshnicy',
-                same: ['']
+                same: ['mln-e60', 'mln-e70', 'mln-e90']
             },
 
             {
@@ -1556,7 +1556,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-e90',
                 preLink: 'rakoviny_stoleshnicy',
-                same: ['']
+                same: ['mln-e60', 'mln-e70', 'mln-e80']
             },
 
             {
@@ -1569,7 +1569,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-f60',
                 preLink: 'rakoviny_stoleshnicy',
-                same: ['']
+                same: ['mln-f70', 'mln-f80', 'mln-f90', 'mln-f100']
             },
 
             {
@@ -1582,7 +1582,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-f70',
                 preLink: 'rakoviny_stoleshnicy',
-                same: ['']
+                same: ['mln-f60', 'mln-f80', 'mln-f90', 'mln-f100']
             },
 
             {
@@ -1595,7 +1595,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-f80',
                 preLink: 'rakoviny_stoleshnicy',
-                same: ['']
+                same: ['mln-f60', 'mln-f70', 'mln-f90', 'mln-f100']
             },
 
             {
@@ -1608,7 +1608,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-f90',
                 preLink: 'rakoviny_stoleshnicy',
-                same: ['']
+                same: ['mln-f60', 'mln-f70', 'mln-f80', 'mln-f100']
             },
 
             {
@@ -1621,7 +1621,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-f100',
                 preLink: 'rakoviny_stoleshnicy',
-                same: ['']
+                same: ['mln-f60', 'mln-f70', 'mln-f80', 'mln-f90']
             },
 
             {
@@ -1634,7 +1634,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-r70',
                 preLink: 'rakoviny_stoleshnicy',
-                same: ['']
+                same: ['mln-r80']
             },
 
             {
@@ -1647,7 +1647,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-r80',
                 preLink: 'rakoviny_stoleshnicy',
-                same: ['']
+                same: ['mln-r70']
             },
 
             {
@@ -1660,7 +1660,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-s50',
                 preLink: 'rakoviny_stoleshnicy',
-                same: ['']
+                same: ['mln-s60x', 'mln-s75', 'mln-s80', 'mln-s90']
             },
 
             {
@@ -1673,7 +1673,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-s60x',
                 preLink: 'rakoviny_stoleshnicy',
-                same: ['']
+                same: ['mln-s50', 'mln-s75', 'mln-s80', 'mln-s90']
             },
 
             {
@@ -1686,7 +1686,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-s75',
                 preLink: 'rakoviny_stoleshnicy',
-                same: ['']
+                same: ['mln-s50', 'mln-s60x', 'mln-s80', 'mln-s90']
             },
 
             {
@@ -1699,7 +1699,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-s80',
                 preLink: 'rakoviny_stoleshnicy',
-                same: ['']
+                same: ['mln-s50', 'mln-s60x', 'mln-s75', 'mln-s90']
             },
 
             {
@@ -1712,7 +1712,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-s90',
                 preLink: 'rakoviny_stoleshnicy',
-                same: ['']
+                same: ['mln-s50', 'mln-s60x', 'mln-s75', 'mln-s80']
             },
         ]
     },
@@ -1771,7 +1771,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'd4545h',
                 preLink: 'kuhonnye_mojki_1,2_mm',
-                same: ['']
+                same: ['d4545hg']
             },
 
             {
@@ -1784,7 +1784,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'd4545hg',
                 preLink: 'kuhonnye_mojki_1,2_mm',
-                same: ['']
+                same: ['d4545h']
             },
 
             {
@@ -1797,7 +1797,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'd5138hb',
                 preLink: 'kuhonnye_mojki_1,2_mm',
-                same: ['']
+                same: ['d5138hg', 'd5138h']
             },
 
             {
@@ -1810,7 +1810,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'd5138hg',
                 preLink: 'kuhonnye_mojki_1,2_mm',
-                same: ['']
+                same: ['d5138hb', 'd5138h']
             },
 
             {
@@ -1823,7 +1823,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'd5138h',
                 preLink: 'kuhonnye_mojki_1,2_mm',
-                same: ['']
+                same: ['d5138hb', 'd5138hg']
             },
         ]
     },
@@ -1835,6 +1835,19 @@ const goods: Category[] = [
         cards: [
             {
                 id: 1,
+                photo: ['d5050h', 'jpg', '4'],
+                name: 'Кухонная мойка 3/200 серебро d5050h',
+                price: parseFloat((113.05 * exchangeRates).toFixed(2)),
+                characteristics: [ ['Отверстие под перелив', ['да']], ['Отверстие под смеситель', ['да']], ['Тип', ['врезная']], ['Форма', ['квадратная']], ['Толщина стали борта, мм', ['3']], ['Толщина стали чаши, мм', ['1,2']], ['Сифон в комплекте', ['да']], ['Ширина, мм', ['500']], ['Глубина, мм', ['500']], ['Высота, мм', ['200']], ['Цвет', ['серебро']] ],
+                additional: 'Квадратная кухонная мойка с небольшой платформой для смесителя и моющих средств компактно впишется в интерьер современной кухни. Глубокая вместительная чаша справится с большим объемом посуды. Толстая сталь, устойчивая к высоким температурам, легко выдержит горячие сковороды и кастрюли. Мойка практична и гигиенична. Поддерживать ее чистоту проще благодаря скругленным внутренним углам и конструкции дна с небольшим уклоном, который не позволяет воде застаиваться в чаше. Широкий диаметр слива препятствует возникновению засоров, а наличие отверстия для перелива делает использование мойки более безопасным. Снижение шума от воды при эксплуатации мойки обеспечивают изоляционный слой и накладки на обратной стороны мойки. Благодаря им использование мойки становится тихим и комфортным. Мойка комплектуется сифоном с выводом для подключения к канализации и набором для базового способа монтажа. Базовым способом монтажа для мойки является установка сверху в вырезанное в столешнице отверстие. Однако данная модель подходит для установки под столешницу. В таком случае крепежи приобретаются отдельно.',
+                presence: 'под заказ',
+                link: 'd5050h',
+                preLink: 'kuhonnye_mojki_3_mm',
+                same: ['d5050hg']
+            },
+
+            {
+                id: 2,
                 photo: ['d5050hg', 'jpg', '4'],
                 name: 'Кухонная мойка 3/200 золото d5050hg',
                 price: parseFloat((236.68 * exchangeRates).toFixed(2)),
@@ -1843,11 +1856,11 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'd5050hg',
                 preLink: 'kuhonnye_mojki_3_mm',
-                same: ['']
+                same: ['d5050h']
             },
 
             {
-                id: 2,
+                id: 3,
                 photo: ['d5343h', 'jpg', '4'],
                 name: 'Кухонная мойка 3/220 серебро d5343h',
                 price: parseFloat((168.98 * exchangeRates).toFixed(2)),
@@ -1856,11 +1869,11 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'd5343h',
                 preLink: 'kuhonnye_mojki_3_mm',
-                same: ['']
+                same: ['d5343hb', 'd5343hc', 'd5343hg']
             },
 
             {
-                id: 3,
+                id: 4,
                 photo: ['d5343hb', 'jpg', '8'],
                 name: 'Кухонная мойка 3/220 графит d5343hb',
                 price: parseFloat((265.68 * exchangeRates).toFixed(2)),
@@ -1869,11 +1882,11 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'd5343hb',
                 preLink: 'kuhonnye_mojki_3_mm',
-                same: ['']
+                same: ['d5343h', 'd5343hc', 'd5343hg']
             },
 
             {
-                id: 4,
+                id: 5,
                 photo: ['d5343hc', 'jpg', '8'],
                 name: 'Кухонная мойка 3/220 бронза d5343hc',
                 price: parseFloat((235.05 * exchangeRates).toFixed(2)),
@@ -1882,11 +1895,11 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'd5343hc',
                 preLink: 'kuhonnye_mojki_3_mm',
-                same: ['']
+                same: ['d5343h', 'd5343hb', 'd5343hg']
             },
 
             {
-                id: 5,
+                id: 6,
                 photo: ['d5343hg', 'jpg', '3'],
                 name: 'Кухонная мойка 3/220 золото d5343hg',
                 price: parseFloat((258.35 * exchangeRates).toFixed(2)),
@@ -1895,11 +1908,11 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'd5343hg',
                 preLink: 'kuhonnye_mojki_3_mm',
-                same: ['']
+                same: ['d5343h', 'd5343hb', 'd5343hc']
             },
 
             {
-                id: 6,
+                id: 7,
                 photo: ['d6045h', 'jpg', '3'],
                 name: 'Кухонная мойка 3/220 серебро d6045h',
                 price: parseFloat((186.72 * exchangeRates).toFixed(2)),
@@ -1908,11 +1921,11 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'd6045h',
                 preLink: 'kuhonnye_mojki_3_mm',
-                same: ['']
+                same: ['d6045h+4', 'd6045hc', 'd6545hb']
             },
 
             {
-                id: 7,
+                id: 8,
                 photo: ['d6045h+4', 'jpg', '8'],
                 name: 'Кухонная мойка 5 в 1 3/220 серебро d6045h+4',
                 price: parseFloat((203.70 * exchangeRates).toFixed(2)),
@@ -1921,11 +1934,11 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'd6045h+4',
                 preLink: 'kuhonnye_mojki_3_mm',
-                same: ['']
+                same: ['d6045h', 'd6045hc', 'd6545hb']
             },
 
             {
-                id: 8,
+                id: 9,
                 photo: ['d6045hc', 'jpg', '2'],
                 name: 'Кухонная мойка 3/220 бронза d6045hc',
                 price: parseFloat((259.24 * exchangeRates).toFixed(2)),
@@ -1934,11 +1947,11 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'd6045hc',
                 preLink: 'kuhonnye_mojki_3_mm',
-                same: ['']
+                same: ['d6045h', 'd6045h+4', 'd6545hb']
             },
 
             {
-                id: 9,
+                id: 10,
                 photo: ['d6545hb', 'jpg', '3'],
                 name: 'Кухонная мойка 3/220 графит d6545hb',
                 price: parseFloat((278.57 * exchangeRates).toFixed(2)),
@@ -1947,11 +1960,11 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'd6545hb',
                 preLink: 'kuhonnye_mojki_3_mm',
-                same: ['']
+                same: ['d6045h', 'd6045h+4', 'd6045hc']
             },
 
             {
-                id: 10,
+                id: 11,
                 photo: ['d6545hc', 'jpg', '2'],
                 name: 'Кухонная мойка 3/220 бронза d6545hc',
                 price: parseFloat((267.31 * exchangeRates).toFixed(2)),
@@ -1960,11 +1973,11 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'd6545hc',
                 preLink: 'kuhonnye_mojki_3_mm',
-                same: ['']
+                same: ['d6545hg']
             },
 
             {
-                id: 11,
+                id: 12,
                 photo: ['d6545hg', 'jpg', '3'],
                 name: 'Кухонная мойка 3/220 золото d6545hg',
                 price: parseFloat((265.68 * exchangeRates).toFixed(2)),
@@ -1973,11 +1986,11 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'd6545hg',
                 preLink: 'kuhonnye_mojki_3_mm',
-                same: ['']
+                same: ['d6545hc']
             },
 
             {
-                id: 12,
+                id: 13,
                 photo: ['d7851h-l', 'jpg', '3'],
                 name: 'Кухонная мойка 3/200 серебро d7851h-l',
                 price: parseFloat((209.27 * exchangeRates).toFixed(2)),
@@ -1986,11 +1999,11 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'd7851h-l',
                 preLink: 'kuhonnye_mojki_3_mm',
-                same: ['']
+                same: ['d7851hb-l', 'd7851hb-r', 'd7851hg-l', 'd7851hg-r']
             },
 
             {
-                id: 13,
+                id: 14,
                 photo: ['d7851hb-l', 'jpg', '3'],
                 name: 'Кухонная мойка 3/200 графит d7851hb-l',
                 price: parseFloat((291.47 * exchangeRates).toFixed(2)),
@@ -1999,11 +2012,11 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'd7851hb-l',
                 preLink: 'kuhonnye_mojki_3_mm',
-                same: ['']
+                same: ['d7851h-l', 'd7851hb-r', 'd7851hg-l', 'd7851hg-r']
             },
 
             {
-                id: 14,
+                id: 15,
                 photo: ['d7851hb-r', 'jpg', '3'],
                 name: 'Кухонная мойка 3/200 графит d7851hb-r',
                 price: parseFloat((291.47 * exchangeRates).toFixed(2)),
@@ -2012,11 +2025,11 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'd7851hb-r',
                 preLink: 'kuhonnye_mojki_3_mm',
-                same: ['']
+                same: ['d7851h-l', 'd7851hb-l', 'd7851hg-l', 'd7851hg-r']
             },
 
             {
-                id: 15,
+                id: 16,
                 photo: ['d7851hg-l', 'jpg', '3'],
                 name: 'Кухонная мойка 3/200 золото d7851hg-l',
                 price: parseFloat((291.47 * exchangeRates).toFixed(2)),
@@ -2025,11 +2038,11 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'd7851hg-l',
                 preLink: 'kuhonnye_mojki_3_mm',
-                same: ['']
+                same: ['d7851h-l', 'd7851hb-l', 'd7851hb-r', 'd7851hg-r']
             },
 
             {
-                id: 16,
+                id: 17,
                 photo: ['d7851hg-r', 'jpg', '3'],
                 name: 'Кухонная мойка 3/200 золото d7851hg-r',
                 price: parseFloat((291.47 * exchangeRates).toFixed(2)),
@@ -2038,11 +2051,11 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'd7851hg-r',
                 preLink: 'kuhonnye_mojki_3_mm',
-                same: ['']
+                same: ['d7851h-l', 'd7851hb-l', 'd7851hb-r', 'd7851hg-l']
             },
 
             {
-                id: 17,
+                id: 18,
                 photo: ['h3844', 'jpg', '8'],
                 name: 'Кухонная мойка с коландером 3/200 серебро h3844',
                 price: parseFloat((108 * exchangeRates).toFixed(2)),
@@ -2051,11 +2064,11 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'h3844',
                 preLink: 'kuhonnye_mojki_3_mm',
-                same: ['']
+                same: ['h4345', 'h4444', 'h4453', 'h4538', 'h4745', 'h5245', 'h5844']
             },
 
             {
-                id: 18,
+                id: 19,
                 photo: ['h4050', 'jpg', '8'],
                 name: 'Кухонная мойка с коландером 3/200 серебро h4050',
                 price: parseFloat((110.39 * exchangeRates).toFixed(2)),
@@ -2064,11 +2077,11 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'h4050',
                 preLink: 'kuhonnye_mojki_3_mm',
-                same: ['']
+                same: ['h5045', 'h6151', 'h6545', 'h6845']
             },
 
             {
-                id: 19,
+                id: 20,
                 photo: ['h4345', 'jpg', '3'],
                 name: 'Кухонная мойка с коландером 3/200 серебро h4345',
                 price: parseFloat((108 * exchangeRates).toFixed(2)),
@@ -2077,11 +2090,11 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'h4345',
                 preLink: 'kuhonnye_mojki_3_mm',
-                same: ['']
+                same: ['h3844', 'h4444', 'h4453', 'h4538', 'h4745', 'h5245', 'h5844']
             },
 
             {
-                id: 20,
+                id: 21,
                 photo: ['h4444', 'jpg', '3'],
                 name: 'Кухонная мойка с коландером 3/200 серебро h4444',
                 price: parseFloat((110.09 * exchangeRates).toFixed(2)),
@@ -2090,11 +2103,11 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'h4444',
                 preLink: 'kuhonnye_mojki_3_mm',
-                same: ['']
+                same: ['h3844', 'h4345', 'h4453', 'h4538', 'h4745', 'h5245', 'h5844']
             },
 
             {
-                id: 21,
+                id: 22,
                 photo: ['h4453', 'jpg', '3'],
                 name: 'Кухонная мойка с коландером 3/200 серебро h4453',
                 price: parseFloat((113.30 * exchangeRates).toFixed(2)),
@@ -2103,11 +2116,11 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'h4453',
                 preLink: 'kuhonnye_mojki_3_mm',
-                same: ['']
+                same: ['h3844', 'h4345', 'h4444', 'h4538', 'h4745', 'h5245', 'h5844']
             },
 
             {
-                id: 22,
+                id: 23,
                 photo: ['h4538', 'jpg', '8'],
                 name: 'Кухонная мойка с коландером 3/200 серебро h4538',
                 price: parseFloat((110.09 * exchangeRates).toFixed(2)),
@@ -2116,11 +2129,11 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'h4538',
                 preLink: 'kuhonnye_mojki_3_mm',
-                same: ['']
+                same: ['h3844', 'h4345', 'h4444', 'h4453', 'h4745', 'h5245', 'h5844']
             },
 
             {
-                id: 23,
+                id: 24,
                 photo: ['h4745', 'jpg', '3'],
                 name: 'Кухонная мойка с коландером 3/200 серебро h4745',
                 price: parseFloat((110.82 * exchangeRates).toFixed(2)),
@@ -2129,11 +2142,11 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'h4745',
                 preLink: 'kuhonnye_mojki_3_mm',
-                same: ['']
+                same: ['h3844', 'h4345', 'h4444', 'h4453', 'h4538', 'h5245', 'h5844']
             },
 
             {
-                id: 24,
+                id: 25,
                 photo: ['h5045', 'jpg', '8'],
                 name: 'Кухонная мойка с коландером 3/200 серебро h5045',
                 price: parseFloat((117.78 * exchangeRates).toFixed(2)),
@@ -2142,11 +2155,11 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'h5045',
                 preLink: 'kuhonnye_mojki_3_mm',
-                same: ['']
+                same: ['h4050', 'h6151', 'h6545', 'h6845']
             },
 
             {
-                id: 25,
+                id: 26,
                 photo: ['h5245', 'jpg', '8'],
                 name: 'Кухонная мойка с коландером 3/200 серебро h5245',
                 price: parseFloat((112.57 * exchangeRates).toFixed(2)),
@@ -2155,11 +2168,11 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'h5245',
                 preLink: 'kuhonnye_mojki_3_mm',
-                same: ['']
+                same: ['h3844', 'h4345', 'h4444', 'h4453', 'h4538', 'h4745', 'h5844']
             },
 
             {
-                id: 26,
+                id: 27,
                 photo: ['h57544', 'jpg', '8'],
                 name: 'Кухонная мойка с коландером 3/200 серебро h57544',
                 price: parseFloat((146.47 * exchangeRates).toFixed(2)),
@@ -2168,11 +2181,11 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'h57544',
                 preLink: 'kuhonnye_mojki_3_mm',
-                same: ['']
+                same: ['h575485s', 'h6151s', 'h80544']
             },
 
             {
-                id: 27,
+                id: 28,
                 photo: ['h575485s', 'jpg', '3'],
                 name: 'Кухонная мойка с коландером 3/200 серебро h575485s',
                 price: parseFloat((146.47 * exchangeRates).toFixed(2)),
@@ -2181,11 +2194,11 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'h575485s',
                 preLink: 'kuhonnye_mojki_3_mm',
-                same: ['']
+                same: ['h57544', 'h6151s', 'h80544']
             },
 
             {
-                id: 28,
+                id: 29,
                 photo: ['h5844', 'jpg', '8'],
                 name: 'Кухонная мойка с коландером 3/200 серебро h5844',
                 price: parseFloat((115.03 * exchangeRates).toFixed(2)),
@@ -2194,11 +2207,11 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'h5844',
                 preLink: 'kuhonnye_mojki_3_mm',
-                same: ['']
+                same: ['h3844', 'h4345', 'h4444', 'h4453', 'h4538', 'h4745', 'h5245']
             },
 
             {
-                id: 29,
+                id: 30,
                 photo: ['h6151', 'jpg', '8'],
                 name: 'Кухонная мойка с коландером 3/200 серебро h6151',
                 price: parseFloat((123.91 * exchangeRates).toFixed(2)),
@@ -2207,11 +2220,11 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'h6151',
                 preLink: 'kuhonnye_mojki_3_mm',
-                same: ['']
+                same: ['h4050', 'h5045', 'h6545', 'h6845']
             },
 
             {
-                id: 30,
+                id: 31,
                 photo: ['h6151s', 'jpg', '3'],
                 name: 'Кухонная мойка с коландером 3/200 серебро h6151s',
                 price: parseFloat((141.91 * exchangeRates).toFixed(2)),
@@ -2220,11 +2233,11 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'h6151s',
                 preLink: 'kuhonnye_mojki_3_mm',
-                same: ['']
+                same: ['h57544', 'h575485s', 'h80544']
             },
 
             {
-                id: 31,
+                id: 32,
                 photo: ['h6545', 'jpg', '8'],
                 name: 'Кухонная мойка с коландером 3/200 серебро h6545',
                 price: parseFloat((138.36 * exchangeRates).toFixed(2)),
@@ -2233,11 +2246,11 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'h6545',
                 preLink: 'kuhonnye_mojki_3_mm',
-                same: ['']
+                same: ['h4050', 'h5045', 'h6151', 'h6845']
             },
 
             {
-                id: 32,
+                id: 33,
                 photo: ['h6845', 'jpg', '3'],
                 name: 'Кухонная мойка с коландером 3/200 серебро h6845',
                 price: parseFloat((139.98 * exchangeRates).toFixed(2)),
@@ -2246,11 +2259,11 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'h6845',
                 preLink: 'kuhonnye_mojki_3_mm',
-                same: ['']
+                same: ['h4050', 'h5045', 'h6151', 'h6545']
             },
 
             {
-                id: 33,
+                id: 34,
                 photo: ['h80544', 'jpg', '3'],
                 name: 'Кухонная мойка с коландером 3/200 серебро h80544',
                 price: parseFloat((165.17 * exchangeRates).toFixed(2)),
@@ -2259,11 +2272,11 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'h80544',
                 preLink: 'kuhonnye_mojki_3_mm',
-                same: ['']
+                same: ['h57544', 'h575485s', 'h6151s']
             },
 
             {
-                id: 34,
+                id: 35,
                 photo: ['r4050h', 'jpg', '8'],
                 name: 'Кухонная мойка 3/200 серебро r4050h',
                 price: parseFloat((110.39 * exchangeRates).toFixed(2)),
@@ -2271,19 +2284,6 @@ const goods: Category[] = [
                 additional: '',
                 presence: 'под заказ',
                 link: 'r4050h',
-                preLink: 'kuhonnye_mojki_3_mm',
-                same: ['']
-            },
-
-            {
-                id: 35,
-                photo: ['d5050h', 'jpg', '4'],
-                name: 'Кухонная мойка 3/200 серебро d5050h',
-                price: parseFloat((113.05 * exchangeRates).toFixed(2)),
-                characteristics: [ ['Отверстие под перелив', ['да']], ['Отверстие под смеситель', ['да']], ['Тип', ['врезная']], ['Форма', ['квадратная']], ['Толщина стали борта, мм', ['3']], ['Толщина стали чаши, мм', ['1,2']], ['Комплектация', ['сифон']], ['Ширина, мм', ['500']], ['Глубина, мм', ['500']], ['Высота, мм', ['200']], ['Цвет', ['серебро']] ],
-                additional: 'Квадратная кухонная мойка с небольшой платформой для смесителя и моющих средств компактно впишется в интерьер современной кухни. Глубокая вместительная чаша справится с большим объемом посуды. Толстая сталь, устойчивая к высоким температурам, легко выдержит горячие сковороды и кастрюли. Мойка практична и гигиенична. Поддерживать ее чистоту проще благодаря скругленным внутренним углам и конструкции дна с небольшим уклоном, который не позволяет воде застаиваться в чаше. Широкий диаметр слива препятствует возникновению засоров, а наличие отверстия для перелива делает использование мойки более безопасным. Снижение шума от воды при эксплуатации мойки обеспечивают изоляционный слой и накладки на обратной стороны мойки. Благодаря им использование мойки становится тихим и комфортным. Мойка комплектуется сифоном с выводом для подключения к канализации и набором для базового способа монтажа. Базовым способом монтажа для мойки является установка сверху в вырезанное в столешнице отверстие. Однако данная модель подходит для установки под столешницу. В таком случае крепежи приобретаются отдельно.',
-                presence: 'под заказ',
-                link: 'd5050h',
                 preLink: 'kuhonnye_mojki_3_mm',
                 same: ['']
             },
@@ -2298,7 +2298,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 's7240h',
                 preLink: 'kuhonnye_mojki_3_mm',
-                same: ['']
+                same: ['s7240hb', 's7240hg']
             },
 
             {
@@ -2311,7 +2311,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 's7240hb',
                 preLink: 'kuhonnye_mojki_3_mm',
-                same: ['']
+                same: ['s7240h', 's7240hg']
             },
 
             {
@@ -2324,7 +2324,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 's7240hg',
                 preLink: 'kuhonnye_mojki_3_mm',
-                same: ['']
+                same: ['s7240h', 's7240hb']
             },
 
             {
@@ -2337,7 +2337,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 's7843h',
                 preLink: 'kuhonnye_mojki_3_mm',
-                same: ['']
+                same: ['s7843h+4', 's7843hb', 's7843hg']
             },
 
             {
@@ -2350,7 +2350,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 's7843h+4',
                 preLink: 'kuhonnye_mojki_3_mm',
-                same: ['']
+                same: ['s7843h', 's7843hb', 's7843hg']
             },
 
             {
@@ -2363,7 +2363,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 's7843hb',
                 preLink: 'kuhonnye_mojki_3_mm',
-                same: ['']
+                same: ['s7843h', 's7843h+4', 's7843hg']
             },
 
             {
@@ -2376,7 +2376,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 's7843hg',
                 preLink: 'kuhonnye_mojki_3_mm',
-                same: ['']
+                same: ['s7843h', 's7843h+4', 's7843hb']
             },
 
             {
@@ -2389,7 +2389,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 's8045hb',
                 preLink: 'kuhonnye_mojki_3_mm',
-                same: ['']
+                same: ['s8045hg']
             },
 
             {
@@ -2402,7 +2402,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 's8045hg',
                 preLink: 'kuhonnye_mojki_3_mm',
-                same: ['']
+                same: ['s8045hb']
             },
         ]
     },
@@ -2422,7 +2422,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-tb20-1',
                 preLink: 'donnye_klapany_bez_pereliva',
-                same: ['']
+                same: ['mln-tb50-1']
             },
 
             {
@@ -2435,7 +2435,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-330303br',
                 preLink: 'donnye_klapany_bez_pereliva',
-                same: ['']
+                same: ['mln-330304g', 'mln-330300mb', 'mln-330300b']
             },
 
             {
@@ -2448,7 +2448,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-tb50-1',
                 preLink: 'donnye_klapany_bez_pereliva',
-                same: ['']
+                same: ['mln-tb20-1']
             },
 
             {
@@ -2461,7 +2461,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-330304g',
                 preLink: 'donnye_klapany_bez_pereliva',
-                same: ['']
+                same: ['mln-330303br', 'mln-330300mb', 'mln-330300b']
             },
 
             {
@@ -2474,7 +2474,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-330300mb',
                 preLink: 'donnye_klapany_bez_pereliva',
-                same: ['']
+                same: ['mln-330303br', 'mln-330304g', 'mln-330300b']
             },
 
             {
@@ -2487,7 +2487,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-tb52-1',
                 preLink: 'donnye_klapany_bez_pereliva',
-                same: ['']
+                same: ['mln-tb18m-1']
             },
 
             {
@@ -2500,7 +2500,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-tb18m-1',
                 preLink: 'donnye_klapany_bez_pereliva',
-                same: ['']
+                same: ['mln-tb52-1']
             },
 
             {
@@ -2513,7 +2513,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-330300b',
                 preLink: 'donnye_klapany_bez_pereliva',
-                same: ['']
+                same: ['mln-330303br', 'mln-330304g', 'mln-330300mb']
             },
         ]
     },
@@ -2533,7 +2533,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-335301',
                 preLink: 'donnye_klapany_s_perelivom',
-                same: ['']
+                same: ['mln-335302ch', 'mln-335300b']
             },
 
             {
@@ -2559,7 +2559,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-335302ch',
                 preLink: 'donnye_klapany_s_perelivom',
-                same: ['']
+                same: ['mln-335301', 'mln-335300b']
             },
 
             {
@@ -2572,7 +2572,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-335300b',
                 preLink: 'donnye_klapany_s_perelivom',
-                same: ['']
+                same: ['mln-335301', 'mln-335302ch']
             },
 
             {
