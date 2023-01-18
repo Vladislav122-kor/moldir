@@ -56,16 +56,17 @@ $background: #EAEFF9;
         &__contacts {
             display: flex;
             justify-content: space-between;
-            gap: 40px;
+            gap: 20px;
 
             &-insta,
             &-phone,
             &-email {
-                width: 4rem;
-                height: 4rem;
+                width: 5rem;
+                height: 5rem;
                 background-size: contain;
                 background-repeat: no-repeat;
                 background-position: center;
+                cursor: pointer;
             }
         }
     }

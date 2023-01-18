@@ -28,10 +28,13 @@ class Footer extends Component {
         this.contactsContainer = new Component(this.contacts.element, 'div', ['footer__container__contacts__contacts-cont']);
         this.instagram = new Component(this.contactsContainer.element, 'a', ['footer__container__contacts__contacts-cont__insta']);
         this.instagram.element.style.backgroundImage = 'url("./assets/svg/insta-orange.svg")';
+        this.instagram.element.setAttribute('href', 'https://www.instagram.com/moldir.opt/');
+        this.instagram.element.setAttribute('target', '_blank');
         this.phone = new Component(this.contactsContainer.element, 'a', ['footer__container__contacts__contacts-cont__phone']);
         this.phone.element.style.backgroundImage = 'url("./assets/svg/phone-orange.svg")';
         this.email = new Component(this.contactsContainer.element, 'a', ['footer__container__contacts__contacts-cont__email']);
         this.email.element.style.backgroundImage = 'url("./assets/svg/email-orange.svg")';
+        this.email.element.setAttribute('href', 'mailto:moldir.minsk@mail.ru');
 
         this.navigation = new Component(this.container.element, 'div', ['footer__container__nav']);
         this.createNavElements();

@@ -41,12 +41,15 @@ class Header extends Component {
 
         this.contacts = new Component(this.informationPanelContainer.element, 'div', ['header__info-panel__contacts']);
 
-        this.instagram = new Component(this.contacts.element, 'div', ['header__info-panel__contacts-insta']);
-        this.instagram.element.style.backgroundImage = 'url("./assets/svg/insta-grey.svg")';
-        this.phone = new Component(this.contacts.element, 'div', ['header__info-panel__contacts-phone']);
-        this.phone.element.style.backgroundImage = 'url("./assets/svg/phone-grey.svg")';
-        this.email = new Component(this.contacts.element, 'div', ['header__info-panel__contacts-email']);
-        this.email.element.style.backgroundImage = 'url("./assets/svg/email-grey.svg")';
+        this.instagram = new Component(this.contacts.element, 'a', ['header__info-panel__contacts-insta']);
+        this.instagram.element.style.backgroundImage = 'url("./assets/svg/insta-blue.svg")';
+        this.instagram.element.setAttribute('href', 'https://www.instagram.com/moldir.opt/');
+        this.instagram.element.setAttribute('target', '_blank');
+        this.phone = new Component(this.contacts.element, 'a', ['header__info-panel__contacts-phone']);
+        this.phone.element.style.backgroundImage = 'url("./assets/svg/phone-blue.svg")';
+        this.email = new Component(this.contacts.element, 'a', ['header__info-panel__contacts-email']);
+        this.email.element.style.backgroundImage = 'url("./assets/svg/email-blue.svg")';
+        this.email.element.setAttribute('href', 'mailto:moldir.minsk@mail.ru');
 
         //this.searching = new Searching(this.informationPanelContainer.element);
         //this.searching.element.classList.add('header__info-panel__searching');
