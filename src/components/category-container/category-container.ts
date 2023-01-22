@@ -97,11 +97,11 @@ class CategoryContainer extends Component {
         if ((e.target as HTMLElement).className.includes('increase') && !((e.target as HTMLElement).classList.contains('active'))) {
           this.sortingValue = 'increase';
           (e.target as HTMLElement).classList.add('active');
-          document.querySelector('.category-container__content__panel__sorting-decrease')?.classList.remove('active');
+          document.querySelector('.category-container__content__panel__sorting-buttons__sorting-decrease')?.classList.remove('active');
         } else if ((e.target as HTMLElement).className.includes('decrease') && !((e.target as HTMLElement).classList.contains('active'))) {
           this.sortingValue = 'decrease';
           (e.target as HTMLElement).classList.add('active');
-          document.querySelector('.category-container__content__panel__sorting-increase')?.classList.remove('active');
+          document.querySelector('.category-container__content__panel__sorting-buttons__sorting-increase')?.classList.remove('active');
         } else if ((e.target as HTMLElement).className.includes('increase') && (e.target as HTMLElement).classList.contains('active')) {
           this.sortingValue = '';
           (e.target as HTMLElement).classList.remove('active');

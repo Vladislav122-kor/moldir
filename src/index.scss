@@ -10,22 +10,8 @@ html {
 }
 
 body {
-    //font-size: 1.6rem;
-    /*&::-webkit-scrollbar {
-        width: 0px;
-    }*/
     #root,
     #wt-sky-root {
         display: none;
     }
-    //-webkit-touch-callout: none; // iOS Safari
-    //-webkit-user-select: none; //Chrome/Safari/Opera
-    //-khtml-user-select: none; // Konqueror 
-    //-moz-user-select: none; // Firefox
-    //-ms-user-select: none; // Internet Explorer/Edge
-    //user-select: none; // Non-prefixed version, currently not supported by any browser
-}
-
-body.active {
-    overflow-y: hidden;
 }

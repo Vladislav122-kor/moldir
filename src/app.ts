@@ -5,7 +5,6 @@ import Footer from './components/footer/footer';
 
 class App {
   private main;
-
   private router;
 
   constructor(private rootElement: HTMLElement) {
@@ -20,7 +19,6 @@ class App {
     this.router.initRouter();
   }
 
-  
 }
 
 export default App;

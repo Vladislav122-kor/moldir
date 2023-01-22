@@ -43,10 +43,11 @@ $background: #071633;
             &__logo-cont {
                 display: flex;
                 flex-direction: column;
-                align-items: center;
 
                 &__logo {
-                    @extend %font-title;
+                    width: 150px;
+                    height: 50px;
+                    background-size: contain;
                 }
     
                 &__title {
@@ -58,15 +59,12 @@ $background: #071633;
                 display: flex;
                 gap: 20px;
 
-                &__insta,
-                &__phone,
-                &__email {
-                    width: 4.5rem;
-                    height: 4.5rem;
+                &__svg {
+                    width: 4rem;
+                    height: 4rem;
                     background-size: contain;
                     background-repeat: no-repeat;
                     background-position: center;
-                    cursor: pointer;
                 }
             }
         }

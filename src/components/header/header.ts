@@ -19,9 +19,6 @@ class Header extends Component {
     private navigation: Component;
     private categories: Component;
     private contacts: Component;
-    private instagram: Component;
-    private phone: Component;
-    private email: Component;
     //private searching: Searching;
   
     constructor(parentNode: HTMLElement) {
@@ -40,16 +37,7 @@ class Header extends Component {
         this.title = new Component(this.logoContainer.element, 'p', ['header__info-panel__logo-cont__title'], 'Интернет-магазин');
 
         this.contacts = new Component(this.informationPanelContainer.element, 'div', ['header__info-panel__contacts']);
-
-        this.instagram = new Component(this.contacts.element, 'a', ['header__info-panel__contacts-insta']);
-        this.instagram.element.style.backgroundImage = 'url("./assets/svg/insta-blue.svg")';
-        this.instagram.element.setAttribute('href', 'https://www.instagram.com/moldir.opt/');
-        this.instagram.element.setAttribute('target', '_blank');
-        this.phone = new Component(this.contacts.element, 'a', ['header__info-panel__contacts-phone']);
-        this.phone.element.style.backgroundImage = 'url("./assets/svg/phone-blue.svg")';
-        this.email = new Component(this.contacts.element, 'a', ['header__info-panel__contacts-email']);
-        this.email.element.style.backgroundImage = 'url("./assets/svg/email-blue.svg")';
-        this.email.element.setAttribute('href', 'mailto:moldir.minsk@mail.ru');
+        this.createContacts();
 
         //this.searching = new Searching(this.informationPanelContainer.element);
         //this.searching.element.classList.add('header__info-panel__searching');
@@ -92,6 +80,23 @@ class Header extends Component {
             }
             const element = new Component(this.categories.element, 'a', ['header__nav-panel__button__categories__element'], `${elem.name.split('|').join('')}`);
             element.element.setAttribute('href', `#/catalog/${elem.link.split('_')[0]}/${elem.link}`);
+        }
+    }
+
+    private createContacts() {
+        const photos = ['phone-blue.svg', 'email-blue.svg', 'insta-blue.svg'];
+        const urls = ['tel:+375445053949', 'mailto:moldir.minsk@mail.ru', 'https://www.instagram.com/moldir.opt/'];
+        const texts = ['+375 44 505 39 49', 'moldir.minsk@mail.ru', 'moldir.opt'];
+        for (let i = 0; i < urls.length; i++) {
+            const block = new Component(this.contacts.element, 'a', [`header__info-panel__contacts__block`]);
+            block.element.setAttribute('href', `${urls[i]}`);
+            const svg = new Component(block.element, 'div', [`header__info-panel__contacts__block-svg`]);
+            svg.element.style.backgroundImage = `url("./assets/svg/${photos[i]}")`;
+            const text = new Component(block.element, 'p', [`header__info-panel__contacts__block-text`]);
+            text.element.innerHTML = `${texts[i]}`;
+            if (photos[i].includes('insta')) {
+                block.element.setAttribute('target', '_blank');
+            }
         }
     }
 }
