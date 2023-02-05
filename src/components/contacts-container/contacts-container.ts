@@ -8,7 +8,7 @@ class ContactsContainer extends Component {
     private contactsBlock: Component;
     
     constructor(parentNode: HTMLElement) {
-        super(parentNode, 'div', ['contacts-container']);
+        super(parentNode, 'section', ['contacts-container']);
 
         this.container = new Component(this.element, 'div', ['contacts-container__container']);
         //this.map = new Component(this.container.element, 'div', ['contacts-container__map']);

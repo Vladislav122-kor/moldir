@@ -3,20 +3,11 @@ $font-color-white: #EAEFF9;
 $font-color-orange: #DFA974;
 $background: #071633;
 
-%font-title {
-    font-family: $font-family;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 2.7rem;
-    line-height: 3.7rem;
-    color: $font-color-white;
-}
-
 %font-text {
     font-family: $font-family;
     font-style: normal;
     font-weight: 700;
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     line-height: 2.3rem;
     color: $font-color-white;
 }
@@ -27,23 +18,28 @@ $background: #071633;
 
     &__container {
         display: flex;
-        justify-content: space-between;
-        align-items: center;
-        flex-wrap: wrap;
-        gap: 15px 40px;
+        flex-direction: column;
+        gap: 40px;
         max-width: 1440px;
         margin: 0 auto;
         padding: 40px 20px;
+    }
+
+    &__nav-panel {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
 
         &__contacts {
             display: flex;
             flex-direction: column;
             gap: 20px;
-
+    
             &__logo-cont {
                 display: flex;
                 flex-direction: column;
-
+    
                 &__logo {
                     width: 150px;
                     height: 50px;
@@ -54,45 +50,60 @@ $background: #071633;
                     @extend %font-text;
                 }
             }
-
-            &__contacts-cont {
-                display: flex;
-                gap: 20px;
-
-                &__svg {
-                    width: 4rem;
-                    height: 4rem;
-                    background-size: contain;
-                    background-repeat: no-repeat;
-                    background-position: center;
-                }
+        }
+    
+        &__contacts-cont {
+            display: flex;
+            gap: 20px;
+    
+            &__svg {
+                width: 4rem;
+                height: 4rem;
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: center;
             }
         }
-
+    
         &__nav {
             display: flex;
             flex-direction: column;
-            gap: 20px;
-
+            gap: 10px;
+            align-items: flex-end;
+    
             &__element {
                 @extend %font-text;
                 font-weight: 400;
                 color: $font-color-white;
                 text-decoration: none;
                 transition: 0.3s;
-
+    
                 &:hover {
                     color: $font-color-orange;
                 }
             }
         }
     }
+
+    &__address {
+        @extend %font-text;
+        font-weight: 400;
+        font-size: 1rem;
+        line-height: 1.6rem;
+        text-align: center;
+    }
 }
 
-@media(max-width: 450px) {
-    .footer__container {
+@media(max-width: 600px) {
+    .footer__nav-panel {
         flex-direction: column;
+        gap: 20px;
         align-items: flex-start;
-        gap: 50px;
+
+        &__contacts-cont,
+        &__nav {
+            align-items: center;
+            align-self: center;
+        }
     }
 }

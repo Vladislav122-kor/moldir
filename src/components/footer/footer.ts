@@ -9,34 +9,47 @@ class Footer extends Component {
     private logo: Component;
     private title: Component;
     private contactsContainer: Component;
+    private address: Component;
     private navigation: Component;
+    navPanel: Component;
+    cardsLogos: HTMLImageElement;
   
     constructor(parentNode: HTMLElement) {
-        super(parentNode, 'div', ['footer']);
+        super(parentNode, 'footer', ['footer']);
 
         this.container = new Component(this.element, 'div', ['footer__container']);
 
-        this.contacts = new Component(this.container.element, 'div', ['footer__container__contacts']);
+        this.navPanel = new Component(this.container.element, 'div', ['footer__nav-panel']);
 
-        this.logoContainer = new Component(this.contacts.element, 'div', ['footer__container__contacts__logo-cont']);
-        this.logo = new Component(this.logoContainer.element, 'a', ['footer__container__contacts__logo-cont__logo']);
+        this.contacts = new Component(this.navPanel.element, 'div', ['footer__nav-panel__contacts']);
+        this.logoContainer = new Component(this.contacts.element, 'div', ['footer__nav-panel__contacts__logo-cont']);
+        this.logo = new Component(this.logoContainer.element, 'a', ['footer__nav-panel__contacts__logo-cont__logo']);
         this.logo.element.style.backgroundImage = 'url("./assets/img/logo.png")';
         this.logo.element.setAttribute('href', '#/');
-        this.title = new Component(this.logoContainer.element, 'p', ['footer__container__contacts__logo-cont__title'], 'Интернет-магазин');
+        this.title = new Component(this.logoContainer.element, 'p', ['footer__nav-panel__contacts__logo-cont__title'], 'Интернет-магазин');
 
-        this.contactsContainer = new Component(this.contacts.element, 'div', ['footer__container__contacts__contacts-cont']);
+        this.contactsContainer = new Component(this.navPanel.element, 'div', ['footer__nav-panel__contacts-cont']);
         this.createContacts();
 
-        this.navigation = new Component(this.container.element, 'div', ['footer__container__nav']);
+        this.navigation = new Component(this.navPanel.element, 'nav', ['footer__nav-panel__nav']);
         this.createNavElements();
+
+        this.cardsLogos = document.createElement('img');
+        this.cardsLogos.src = "./assets/img/cards_horizontal.png";
+        this.cardsLogos.setAttribute('width', '100%');
+        this.cardsLogos.setAttribute('alt', 'Логотипы карточек');
+        this.container.element.appendChild(this.cardsLogos);
+
+        this.address = new Component(this.container.element, 'p', ['footer__address']);
+        this.address.element.innerHTML = 'ООО "Молдир", УНП: 193639694<br>Юр. адрес: Республика Беларусь, 220019, г. Минск, пер. Монтажников 4-й, д. 5, пом. 18<br>Свидетельство о государственной регистрации № 193639694 от 05.08.2022 г. выдано Минским горисполкомом<br>Режим работы: 09:00 – 22:00. Телефон: 375 (44) 505 39 49. e-mail: moldir.minsk@mail.ru';
     }
 
     private createNavElements() {
-        const navNames: string[] = ['Доставка и оплата', 'Контакты'];
-        const navLinks: string[] = ['#/delivery_and_payment', '#/contacts'];
+        const navNames: string[] = ['Оплата и доставка', 'Возврат товара', 'Контакты'];
+        const navLinks: string[] = ['#/payment-and-delivery', '#/return', '#/contacts'];
 
         for (let i: number = 0; i < navNames.length; i += 1) {
-            const element = new Component(this.navigation.element, 'a', ['footer__container__nav__element'], `${navNames[i]}`);
+            const element = new Component(this.navigation.element, 'a', ['footer__nav-panel__nav__element'], `${navNames[i]}`);
             element.element.setAttribute('href', `${navLinks[i]}`);
         }
     }
@@ -45,7 +58,7 @@ class Footer extends Component {
         const photos = ['phone-orange.svg', 'email-orange.svg', 'insta-orange.svg'];
         const urls = ['tel:+375445053949', 'mailto:moldir.minsk@mail.ru', 'https://www.instagram.com/moldir.opt/'];
         for (let i = 0; i < urls.length; i++) {
-            const svg = new Component(this.contactsContainer.element, 'a', ['footer__container__contacts__contacts-cont__svg']);
+            const svg = new Component(this.contactsContainer.element, 'a', ['footer__nav-panel__contacts-cont__svg']);
             svg.element.setAttribute('href', `${urls[i]}`);
             svg.element.style.backgroundImage = `url("./assets/svg/${photos[i]}")`;
             if (photos[i].includes('insta')) {

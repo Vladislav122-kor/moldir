@@ -31,7 +31,7 @@ class CategoryContainer extends Component {
   private scrollUp: ScrollUp;
 
   constructor(parentNode: HTMLElement, categoryLink: string) {
-    super(parentNode, 'div', ['category-container']);
+    super(parentNode, 'section', ['category-container']);
     this.categoryLink = categoryLink;
     this.category = {} as Category;
     // search for training clicked which was clicked (with the help of trainingLink)
@@ -66,13 +66,13 @@ class CategoryContainer extends Component {
 
     this.title = new Component(this.panelCards.element, 'h2', ['category-container__content__panel__title'], `${this.category.name.split('|').join('')}`);
 
-    this.count = new Component(this.panelCards.element, 'p', ['category-container__content__panel__count']);
+    this.count = new Component(this.panelCards.element, 'div', ['category-container__content__panel__count']);
 
     this.sortingContainer = new Component(this.panelCards.element, 'div', ['category-container__content__panel__sorting']);
-    this.sortingTitle = new Component(this.sortingContainer.element, 'p', ['category-container__content__panel__sorting-title'], 'Сортировать по стоимости:');
+    this.sortingTitle = new Component(this.sortingContainer.element, 'div', ['category-container__content__panel__sorting-title'], 'Сортировать по стоимости:');
     this.sortingButtons = new Component(this.sortingContainer.element, 'div', ['category-container__content__panel__sorting-buttons']);
-    this.sortingIncrease = new Component(this.sortingButtons.element, 'p', ['category-container__content__panel__sorting-buttons__sorting-increase'], 'по возрастанию');
-    this.sortingDecrease = new Component(this.sortingButtons.element, 'p', ['category-container__content__panel__sorting-buttons__sorting-decrease'], 'по убыванию');
+    this.sortingIncrease = new Component(this.sortingButtons.element, 'div', ['category-container__content__panel__sorting-buttons__sorting-increase'], 'по возрастанию');
+    this.sortingDecrease = new Component(this.sortingButtons.element, 'div', ['category-container__content__panel__sorting-buttons__sorting-decrease'], 'по убыванию');
 
     this.cards = new Component(this.panelCards.element, 'div', ['category-container__content__panel__cards']);
     this.defineCards();
@@ -122,7 +122,7 @@ class CategoryContainer extends Component {
     const minPrice = new Component(inputBlock.element, 'input', ['category-container__content__filter__filter-item__inputs__minPrice', 'number']);
     minPrice.element.setAttribute('type', 'number');
     minPrice.element.setAttribute('value', `${this.prices[0]}`);
-    const dash = new Component(inputBlock.element, 'p', ['category-container__content__filter__filter-item__inputs__dash']);
+    const dash = new Component(inputBlock.element, 'div', ['category-container__content__filter__filter-item__inputs__dash']);
     dash.element.innerHTML = '&#8212';
     const maxPrice = new Component(inputBlock.element, 'input', ['category-container__content__filter__filter-item__inputs__maxPrice', 'number']);
     maxPrice.element.setAttribute('type', 'number');
@@ -200,10 +200,6 @@ class CategoryContainer extends Component {
         this.prices[1] = elem.price;
       }
     }
-  }
-
-  private clear() {
-    //this.container.element.innerHTML = '';
   }
 }
 

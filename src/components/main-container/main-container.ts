@@ -15,10 +15,6 @@ class MainContainer extends Component {
     this.categoriesBlock = new CategoriesBlock(this.element);
     this.popularGoods = new PopularGoods(this.element);
   }
-
-  private clear() {
-    // this.content.element.innerHTML = '';
-  }
 }
 
 export default MainContainer;

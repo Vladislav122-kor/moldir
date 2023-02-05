@@ -1,10 +1,12 @@
 import { IRoute } from '../interfaces';
-import Main from '../pages/main/main';
-import Categories from '../pages/categories/categories';
-import Category from '../pages/category/category';
-import Card from '../pages/card/card';
-import DeliveryAndPayment from '../pages/delivery-and-payment/delivery-and-payment';
-import Contacts from '../pages/contacts/contacts';
+import Main from '../components/main-container/main-container';
+import Categories from '../components/categories-container/categories-container';
+import Category from '../components/category-container/category-container';
+import Card from '../components/card-container/card-container';
+import PaymentAndDelivery from '../components/payment-and-delivery-container/payment-and-delivery-container';
+import ReturnGoods from '../components/return-goods-container/return-goods-container';
+import Contacts from '../components/contacts-container/contacts-container';
+import Melana from '../components/melana-container/melana-container';
 
 class Router {
   private readonly routes: Array<IRoute>;
@@ -12,13 +14,15 @@ class Router {
   private categoriesLink: string;
   private categoryLink: string;
   private cardLink: string;
-  // Pages
-  private mainPage: Main | undefined;
-  private categoriesPage: Categories | undefined;
-  private categoryPage: Category | undefined;
-  private cardPage: Card | undefined;
-  private deliveryAndPayment: DeliveryAndPayment | undefined;
-  private contacts: Contacts | undefined;
+  // Components
+  private mainComponent: Main | undefined;
+  private categoriesComponent: Categories | undefined;
+  private categoryComponent: Category | undefined;
+  private cardComponent: Card | undefined;
+  private paymentAndDeliveryComponent: PaymentAndDelivery | undefined;
+  private returnGoods: ReturnGoods | undefined;
+  private contactsComponent: Contacts | undefined;
+  private melanaComponent: Melana | undefined;
 
   constructor(private rootElement: HTMLElement) {
     this.categoriesLink = '';
@@ -29,48 +33,64 @@ class Router {
       {
         name: '/',
         component: () => {
-          this.mainPage = new Main(this.rootElement);
-          this.rootElement.append(this.mainPage.element);
+          this.mainComponent = new Main(this.rootElement);
+          this.rootElement.append(this.mainComponent.element);
         },
       },
 
       {
         name: '/catalog/categories',
         component: () => {
-          this.categoriesPage = new Categories(this.rootElement, this.categoriesLink);
-          this.rootElement.append(this.categoriesPage.element);
+          this.categoriesComponent = new Categories(this.rootElement, this.categoriesLink);
+          this.rootElement.append(this.categoriesComponent.element);
         },
       },
 
       {
         name: '/catalog/category/goods',
         component: () => {
-          this.categoryPage = new Category(this.rootElement, this.categoryLink);
-          this.rootElement.append(this.categoryPage.element);
+          this.categoryComponent = new Category(this.rootElement, this.categoryLink);
+          this.rootElement.append(this.categoryComponent.element);
         },
       },
 
       {
         name: '/catalog/category/goods/card',
         component: () => {
-          this.cardPage = new Card(this.rootElement, this.cardLink);
-          this.rootElement.append(this.cardPage.element);
+          this.cardComponent = new Card(this.rootElement, this.cardLink);
+          this.rootElement.append(this.cardComponent.element);
         },
       },
 
       {
-        name: '/delivery_and_payment',
+        name: '/payment-and-delivery',
         component: () => {
-          this.deliveryAndPayment = new DeliveryAndPayment(this.rootElement);
-          this.rootElement.append(this.deliveryAndPayment.element);
+          this.paymentAndDeliveryComponent = new PaymentAndDelivery(this.rootElement);
+          this.rootElement.append(this.paymentAndDeliveryComponent.element);
+        },
+      },
+
+      {
+        name: '/return',
+        component: () => {
+          this.returnGoods = new ReturnGoods(this.rootElement);
+          this.rootElement.append(this.returnGoods.element);
         },
       },
 
       {
         name: '/contacts',
         component: () => {
-          this.contacts = new Contacts(this.rootElement);
-          this.rootElement.append(this.contacts.element);
+          this.contactsComponent = new Contacts(this.rootElement);
+          this.rootElement.append(this.contactsComponent.element);
+        },
+      },
+
+      {
+        name: '/about-melana',
+        component: () => {
+          this.melanaComponent = new Melana(this.rootElement);
+          this.rootElement.append(this.melanaComponent.element);
         },
       },
     ];

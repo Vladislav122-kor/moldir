@@ -9,9 +9,12 @@ html {
     scroll-behavior: smooth;
 }
 
-body {
-    #root,
-    #wt-sky-root {
-        display: none;
-    }
+#root {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.main {
+    flex-grow: 1;
 }

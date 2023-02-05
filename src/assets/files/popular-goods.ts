@@ -1,6 +1,6 @@
 import { Card } from '../../../src/interfaces/index';
 
-const exchangeRates: number = 2.6162;
+const exchangeRates: number = 2.6744;
 
 const popularGoods: Card[] = [
     {

@@ -22,7 +22,7 @@ class Header extends Component {
     //private searching: Searching;
   
     constructor(parentNode: HTMLElement) {
-        super(parentNode, 'div', ['header']);
+        super(parentNode, 'header', ['header']);
 
         this.informationPanel = new Component(this.element, 'div', ['header__info-panel']);
         this.navigationPanel = new Component(this.element, 'div', ['header__nav-panel']);
@@ -56,13 +56,13 @@ class Header extends Component {
             }
         })
 
-        this.navigation = new Component(this.navigationPanelContainer.element, 'div', ['header__nav-panel__nav']);
+        this.navigation = new Component(this.navigationPanelContainer.element, 'nav', ['header__nav-panel__nav']);
         this.createNavElements();
     }
 
     private createNavElements() {
-        const navNames: string[] = ['Доставка и оплата', 'Контакты'];
-        const navLinks: string[] = ['#/delivery_and_payment', '#/contacts'];
+        const navNames: string[] = ['Оплата и доставка', 'Возврат товара', 'Контакты'];
+        const navLinks: string[] = ['#/payment-and-delivery', '#/return', '#/contacts'];
         for (let i: number = 0; i < navNames.length; i += 1) {
             const element = new Component(this.navigation.element, 'a', ['header__nav-panel__nav__element'], `${navNames[i]}`);
             element.element.setAttribute('href', `${navLinks[i]}`);

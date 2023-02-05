@@ -35,7 +35,7 @@ class CardContainer extends Component {
   private sameBlock: Component;
   
   constructor(parentNode: HTMLElement, cardLink: string) {
-    super(parentNode, 'div', ['card-container']);
+    super(parentNode, 'section', ['card-container']);
     this.cardLink = cardLink;
     this.categoryName = '';
     this.card = {} as Card;
@@ -86,11 +86,11 @@ class CardContainer extends Component {
       (document.querySelector('.card-container-create-color') as HTMLSpanElement).style.color = 'orange';
     }
     this.vendorCode = new Component(this.startDescription.element, 'p',['card-container__content__start-block__start-des__vendorCode']);
-    this.vendorCode.element.innerHTML = `<u>Артикул</u>: ${(this.card.link).toUpperCase()}`;
+    this.vendorCode.element.innerHTML = `<u>Гарантия</u>: 1 год`;
     this.detailed = new Component(this.startDescription.element, 'a',['card-container__content__start-block__start-des__detailed'], 'ПОДРОБНЕЕ О ТОВАРЕ');
     this.detailed.element.setAttribute('href', '#characteristics');
     this.deliveryBox = new Component(this.startDescription.element, 'div',['card-container__content__start-block__start-des__delivery-box']);
-    this.deliveryBox.element.innerHTML = 'Заказать товар можно по номеру +375 29 123 45 67 или вайбер на этот же номер.' + '\nДоставка осуществляется в пределах города Минска бесплатно. За пределы МКАД - 100% стоимости товара';
+    this.deliveryBox.element.innerHTML = 'Заказать товар можно по номеру телефона <b>+375 44 505 39 49</b> (звонок/Viber), через Instagram, или написав на почту moldir.minsk@mail.ru.<br>- С правилами оплаты и доставки товара можно ознакомиться в разделе <a href="#/payment-and-delivery">Оплата и доставка</a>.<br>- О производителе можно узнать <a href="#/about-melana">Здесь</a>.';
 
     this.about = new Component(this.content.element, 'div', ['card-container__content__about']);
     this.about.element.id = 'characteristics';
@@ -179,10 +179,6 @@ class CardContainer extends Component {
         break;
       }
     }
-  }
-
-  private clear() {
-    //this.container.element.innerHTML = '';
   }
 }
 

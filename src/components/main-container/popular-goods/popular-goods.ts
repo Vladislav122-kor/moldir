@@ -5,17 +5,14 @@ import './popular-goods.scss';
 
 class PopularGoods extends Component {
     private container: Component;
-    title: Component;
-    cards: Component;
+    private title: Component;
+    private cards: Component;
 
     constructor(parentNode: HTMLElement) {
-        super(parentNode, 'div', ['popular-goods']);
+        super(parentNode, 'section', ['popular-goods']);
 
         this.container = new Component(this.element, 'div', ['popular-goods__container']);
-
-        // create title
         this.title = new Component(this.container.element, 'h2', ['popular-goods__title'], 'Популярные товары');
-
         this.cards = new Component(this.container.element, 'div', ['popular-goods__cards']);
         this.createCards();
     }
@@ -41,10 +38,6 @@ class PopularGoods extends Component {
             const price = new Component(card.element, 'p', ['popular-goods__cards__card__price'], `${elem.price} BYN/шт.`);
             i++;
         }
-    }
-
-    private clear() {
-        // this.content.element.innerHTML = '';
     }
 }
 
