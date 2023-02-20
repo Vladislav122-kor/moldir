@@ -1,5 +1,5 @@
 import { Category } from '../../../src/interfaces/index';
-const exchangeRates: number = 2.6744;
+const exchangeRates: number = 2.8122;
 
 const goods: Category[] = [
     {
@@ -187,7 +187,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-320315',
                 preLink: 'rakoviny_nakladnye_belye',
-                same: ['mln-320317', 'mln-a457', 'mln-5006']
+                same: ['mln-320317', 'mln-a457', 'mln-5006', 'mln-5006x']
             },
 
             {
@@ -200,17 +200,17 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-320317',
                 preLink: 'rakoviny_nakladnye_belye',
-                same: ['mln-320315', 'mln-a457', 'mln-5006']
+                same: ['mln-320315', 'mln-a457', 'mln-5006', 'mln-5006x']
             },
 
             {
                 id: 8,
                 photo: ['mln-320318', 'jpg', '2'],
                 name: 'Накладная раковина mln-320318',
-                price: parseFloat((56.81 * exchangeRates).toFixed(2)),
+                price: 136.19,
                 characteristics: [ ['Материал', ['санкерамика']], ['Отверстие под перелив', ['нет']], ['Отверстие под смеситель', ['нет']], ['Тип', ['накладная']], ['Форма', ['прямоугольная']], ['Ширина, мм', ['510']], ['Глубина, мм', ['370']], ['Высота, мм', ['130']], ['Цвет', ['белый']], ['Производитель', ['Melana']] ],
                 additional: '',
-                presence: 'под заказ',
+                presence: 'на складе',
                 link: 'mln-320318',
                 preLink: 'rakoviny_nakladnye_belye',
                 same: ['mln-7050h', 'mln-a465', 'mln-78102', 'mln-78104']
@@ -226,7 +226,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-a457',
                 preLink: 'rakoviny_nakladnye_belye',
-                same: ['mln-320315', 'mln-320317', 'mln-5006']
+                same: ['mln-320315', 'mln-320317', 'mln-5006', 'mln-5006x']
             },
 
             {
@@ -239,7 +239,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-320339',
                 preLink: 'rakoviny_nakladnye_belye',
-                same: ['mln-7078d', 'mln-78114', 'mln-78433']
+                same: ['mln-7078d', 'mln-78114', 'mln-78433', 'mln-320300']
             },
 
             {
@@ -265,7 +265,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-5006',
                 preLink: 'rakoviny_nakladnye_belye',
-                same: ['mln-320315', 'mln-320317', 'mln-a457']
+                same: ['mln-320315', 'mln-320317', 'mln-a457', 'mln-5006x']
             },
 
             {
@@ -330,20 +330,20 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-7078d',
                 preLink: 'rakoviny_nakladnye_belye',
-                same: ['mln-320339', 'mln-78114', 'mln-78433']
+                same: ['mln-320339', 'mln-78114', 'mln-78433', 'mln-320300']
             },
 
             {
                 id: 18,
                 photo: ['mln-7235', 'jpg', '5'],
                 name: 'Накладная раковина mln-7235',
-                price: parseFloat((75.35 * exchangeRates).toFixed(2)),
+                price: 170.22,
                 characteristics: [ ['Материал', ['санкерамика']], ['Отверстие под перелив', ['нет']], ['Отверстие под смеситель', ['нет']], ['Тип', ['накладная']], ['Форма', ['прямоугольная']], ['Ширина, мм', ['650']], ['Глубина, мм', ['390']], ['Высота, мм', ['140']], ['Цвет', ['белый']], ['Производитель', ['Melana']] ],
                 additional: '',
-                presence: 'под заказ',
+                presence: 'на складе',
                 link: 'mln-7235',
                 preLink: 'rakoviny_nakladnye_belye',
-                same: ['mln-7861', 'mln-e408', 'mln-e407']
+                same: ['mln-7861', 'mln-e408', 'mln-e407', 'mln-78124']
             },
 
             {
@@ -473,7 +473,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-78114',
                 preLink: 'rakoviny_nakladnye_belye',
-                same: ['mln-320339', 'mln-7078d', 'mln-78433']
+                same: ['mln-320339', 'mln-7078d', 'mln-78433', 'mln-320300']
             },
 
             {
@@ -483,7 +483,7 @@ const goods: Category[] = [
                 price: parseFloat((68.97 * exchangeRates).toFixed(2)),
                 characteristics: [ ['Материал', ['санкерамика']], ['Отверстие под перелив', ['нет']], ['Отверстие под смеситель', ['нет']], ['Тип', ['накладная']], ['Форма', ['овальная']], ['Ширина, мм', ['605']], ['Глубина, мм', ['360']], ['Высота, мм', ['155']], ['Цвет', ['белый']], ['Производитель', ['Melana']] ],
                 additional: 'Накладная раковина с удлиненными краями выглядит элегантно и придает легкости интерьеру. Овальная глубокая чаша препятствует разлетанию брызг, что облегчает уход за прилегающими поверхностями. Накладная раковина легко монтируется и не требует особых усилий в уходе.',
-                presence: 'под заказ',
+                presence: 'на складе',
                 link: 'mln-7811a',
                 preLink: 'rakoviny_nakladnye_belye',
                 same: ['']
@@ -603,7 +603,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-78433',
                 preLink: 'rakoviny_nakladnye_belye',
-                same: ['mln-320339', 'mln-7078d', 'mln-78114']
+                same: ['mln-320339', 'mln-7078d', 'mln-78114', 'mln-320300']
             },
 
             {
@@ -616,7 +616,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-7861',
                 preLink: 'rakoviny_nakladnye_belye',
-                same: ['mln-7235', 'mln-e408', 'mln-e407']
+                same: ['mln-7235', 'mln-e408', 'mln-e407', 'mln-78124']
             },
 
             {
@@ -688,10 +688,10 @@ const goods: Category[] = [
                 id: 45,
                 photo: ['mln-a482a', 'jpg', '6'],
                 name: 'Накладная раковина mln-a482a',
-                price: parseFloat((63.95 * exchangeRates).toFixed(2)),
+                price: 144.98,
                 characteristics: [ ['Материал', ['санкерамика']], ['Отверстие под перелив', ['нет']], ['Отверстие под смеситель', ['нет']], ['Тип', ['накладная']], ['Форма', ['нестандартная']], ['Ширина, мм', ['540']], ['Глубина, мм', ['540']], ['Высота, мм', ['145']], ['Цвет', ['белый']], ['Производитель', ['Melana']] ],
                 additional: '',
-                presence: 'под заказ',
+                presence: 'на складе',
                 link: 'mln-a482a',
                 preLink: 'rakoviny_nakladnye_belye',
                 same: ['mln-a482b']
@@ -798,7 +798,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-e407',
                 preLink: 'rakoviny_nakladnye_belye',
-                same: ['mln-7235', 'mln-7861', 'mln-e408']
+                same: ['mln-7235', 'mln-7861', 'mln-e408', 'mln-78124']
             },
 
             {
@@ -811,7 +811,46 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-e408',
                 preLink: 'rakoviny_nakladnye_belye',
-                same: ['mln-7235', 'mln-7861', 'mln-e407']
+                same: ['mln-7235', 'mln-7861', 'mln-e407', 'mln-78124']
+            },
+
+            {
+                id: 55,
+                photo: ['mln-5006x', 'jpg', '4'],
+                name: 'Накладная раковина mln-5006x',
+                price: 167.52,
+                characteristics: [ ['Материал', ['санкерамика']], ['Отверстие под перелив', ['нет']], ['Отверстие под смеситель', ['нет']], ['Тип', ['накладная']], ['Форма', ['овальная']], ['Ширина, мм', ['480']], ['Глубина, мм', ['350']], ['Высота, мм', ['135']], ['Цвет', ['белый']], ['Производитель', ['Melana']] ],
+                additional: 'Овальная накладная раковина легко монтируется на столешницу. Широкая чаша не позволяет брызгам воды разлетаться, облегчая уход за прилегающими поверхностями. Модель будет прекрасно смотреться в ванной комнате с современным дизайном.',
+                presence: 'на складе',
+                link: 'mln-5006x',
+                preLink: 'rakoviny_nakladnye_belye',
+                same: ['mln-a457', 'mln-320315', 'mln-320317', 'mln-5006']
+            },
+
+            {
+                id: 56,
+                photo: ['mln-320300', 'jpg', '3'],
+                name: 'Накладная раковина mln-320300',
+                price: 194.68,
+                characteristics: [ ['Материал', ['санкерамика']], ['Отверстие под перелив', ['нет']], ['Отверстие под смеситель', ['нет']], ['Тип', ['накладная']], ['Форма', ['круглая']], ['Ширина, мм', ['360']], ['Глубина, мм', ['360']], ['Высота, мм', ['125']], ['Цвет', ['белый']], ['Производитель', ['Melana']] ],
+                additional: '',
+                presence: 'на складе',
+                link: 'mln-320300',
+                preLink: 'rakoviny_nakladnye_belye',
+                same: ['mln-320339', 'mln-78114', 'mln-7078d', 'mln-78433']
+            },
+
+            {
+                id: 57,
+                photo: ['mln-78124', 'jpg', '6'],
+                name: 'Накладная раковина mln-78124',
+                price: 199.87,
+                characteristics: [ ['Материал', ['санкерамика']], ['Отверстие под перелив', ['нет']], ['Отверстие под смеситель', ['нет']], ['Тип', ['накладная']], ['Форма', ['нестандартная']], ['Ширина, мм', ['665']], ['Глубина, мм', ['410']], ['Высота, мм', ['120']], ['Цвет', ['белый']], ['Производитель', ['Melana']] ],
+                additional: 'Широкая накладная раковина обеспечит комфорт от ее использования. Оригинальная форма модели украсит интерьер современной и классической ванной комнаты. Раковина выполнена из высококачественной глины. Она покрыта яркой белой глазурью, которая сохраняет первоначальные цвет и глянцевый блеск на долгие годы и делает раковину прочной и долговечной. Ухаживать за раковиной легко и приятно. Установка раковины не вызывает затруднений.',
+                presence: 'на складе',
+                link: 'mln-78124',
+                preLink: 'rakoviny_nakladnye_belye',
+                same: ['mln-7235', 'mln-7861', 'mln-e407', 'mln-e408']
             },
         ]
     },
@@ -1365,10 +1404,10 @@ const goods: Category[] = [
                 id: 12,
                 photo: ['mln-a265', 'jpg', '5'],
                 name: 'Подвесная раковина mln-a265',
-                price: parseFloat((62.51 * exchangeRates).toFixed(2)),
+                price: 145.59,
                 characteristics: [ ['Материал', ['санкерамика']], ['Отверстие под перелив', ['нет']], ['Отверстие под смеситель', ['есть']], ['Тип', ['подвесная']], ['Форма', ['овальная']], ['Ширина, мм', ['420']], ['Глубина, мм', ['280']], ['Высота, мм', ['120']], ['Цвет', ['белый']], ['Производитель', ['Melana']] ],
                 additional: '',
-                presence: 'под заказ',
+                presence: 'на складе',
                 link: 'mln-a265',
                 preLink: 'rakoviny_podvesnye',
                 same: ['mln-78014d', 'mln-e604']
@@ -2420,7 +2459,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-330303br',
                 preLink: 'donnye_klapany_bez_pereliva',
-                same: ['mln-330304g', 'mln-330300mb', 'mln-330300b']
+                same: ['mln-330304g', 'mln-330300mb', 'mln-330300b', 'mln-330302ch']
             },
 
             {
@@ -2440,13 +2479,13 @@ const goods: Category[] = [
                 id: 4,
                 photo: ['mln-330304g', 'jpg', '3'],
                 name: 'Донный клапан без перелива золото mln-330304g',
-                price: parseFloat((25.65 * exchangeRates).toFixed(2)),
+                price: 64.63,
                 characteristics: [ ['Отверстие под перелив', ['нет']], ['Ширина, мм', ['65']], ['Глубина, мм', ['65']], ['Высота, мм', ['90']], ['Цвет', ['золото']], ['Производитель', ['Melana']] ],
                 additional: 'Донный клапан выполнен из долговечной латуни. Механизм клик-клак позволяет перекрыть слив и набрать воду в раковине.',
-                presence: 'под заказ',
+                presence: 'на складе',
                 link: 'mln-330304g',
                 preLink: 'donnye_klapany_bez_pereliva',
-                same: ['mln-330303br', 'mln-330300mb', 'mln-330300b']
+                same: ['mln-330303br', 'mln-330300mb', 'mln-330300b', 'mln-330302ch']
             },
 
             {
@@ -2459,7 +2498,7 @@ const goods: Category[] = [
                 presence: 'под заказ',
                 link: 'mln-330300mb',
                 preLink: 'donnye_klapany_bez_pereliva',
-                same: ['mln-330303br', 'mln-330304g', 'mln-330300b']
+                same: ['mln-330303br', 'mln-330304g', 'mln-330300b', 'mln-330302ch']
             },
 
             {
@@ -2492,13 +2531,26 @@ const goods: Category[] = [
                 id: 8,
                 photo: ['mln-330300b', 'jpg', '3'],
                 name: 'Донный клапан без перелива черный mln-330300b',
-                price: parseFloat((26.04 * exchangeRates).toFixed(2)),
+                price: 60.65,
                 characteristics: [ ['Отверстие под перелив', ['нет']], ['Ширина, мм', ['65']], ['Глубина, мм', ['65']], ['Высота, мм', ['90']], ['Цвет', ['черный']], ['Производитель', ['Melana']] ],
                 additional: 'Донный клапан выполнен из долговечной латуни. Механизм клик-клак позволяет перекрыть слив и набрать воду в раковине.',
-                presence: 'под заказ',
+                presence: 'на складе',
                 link: 'mln-330300b',
                 preLink: 'donnye_klapany_bez_pereliva',
-                same: ['mln-330303br', 'mln-330304g', 'mln-330300mb']
+                same: ['mln-330303br', 'mln-330304g', 'mln-330300mb', 'mln-330302ch']
+            },
+
+            {
+                id: 9,
+                photo: ['mln-330302ch', 'jpg', '3'],
+                name: 'Донный клапан без перелива хром mln-330302ch',
+                price: 77.83,
+                characteristics: [ ['Отверстие под перелив', ['нет']], ['Ширина, мм', ['65']], ['Глубина, мм', ['65']], ['Высота, мм', ['90']], ['Цвет', ['хром']], ['Производитель', ['Melana']] ],
+                additional: 'Донный клапан выполнен из долговечной латуни. Механизм клик-клак позволяет перекрыть слив и набрать воду в раковине.',
+                presence: 'на складе',
+                link: 'mln-330302ch',
+                preLink: 'donnye_klapany_bez_pereliva',
+                same: ['mln-330303br', 'mln-330304g', 'mln-330300mb', 'mln-330300b']
             },
         ]
     },

@@ -1,14 +1,15 @@
 $font-family: 'Montserrat', sans-serif;
 $font-color-blue: #1D3564;
 $font-color-grey: #252E39;
+$font-color-orange: #DFA974;
 $background: #EAEFF9;
 
 %font-text {
     font-family: $font-family;
     font-style: normal;
     font-weight: 500;
-    font-size: 2.2rem;
-    line-height: 3.5rem;
+    font-size: 1.5rem;
+    line-height: 3rem;
     color: $font-color-grey;
 }
 
@@ -16,19 +17,68 @@ $background: #EAEFF9;
 
     &__container {
         display: flex;
-        gap: 120px;
+        flex-wrap: wrap;
         max-width: 1440px;
         margin: 0 auto;
         padding: 40px 20px;
     }
 
-    &__contacts-block {
+    &__contacts {
         display: flex;
         flex-direction: column;
-        gap: 20px;
+        justify-content: space-between;
+        width: 30%;
+        gap: 15px;
 
-        &__text {
-            @extend %font-text;
+        &__block {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+
+            &:hover {
+                .contacts-container__contacts__block-text {
+                    color: $font-color-orange;
+                }
+            }
+
+            &-svg {
+                width: 3rem;
+                height: 3rem;
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: center;
+                transition: 0.3s;
+            }
+            
+            &-text {
+                @extend %font-text;
+                font-size: 1.6rem;
+                transition: 0.3s;
+            }
+        }
+    }
+
+    &__about {
+        width: 70%;
+        @extend %font-text;
+    }
+}
+
+@media(max-width: 750px) {
+    .contacts-container {
+
+        &__container {
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        &__contacts {
+            width: 100%;
+        }
+
+        &__about {
+            width: 100%;
         }
     }
 }

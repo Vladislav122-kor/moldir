@@ -148,6 +148,7 @@ class CategoriesContainer extends Component {
         break;
     }
     this.count.element.innerHTML = `Найдено товаров: ${cards.length}`;
+    this.count.element.style.fontSize = '1.6rem';
     this.createCards(cards);
   }
 
@@ -157,20 +158,22 @@ class CategoriesContainer extends Component {
     for (let elem of cards) {
       const card = new Component(this.cards.element, 'a', ['categories-container__content__panel__cards__card']);
       card.element.setAttribute('href', `#/catalog/${this.categoriesLink}/${elem.preLink}/${elem.link}`);
-      const photo = new Component(card.element, 'div', ['categories-container__content__panel__cards__card__img']);
-      photo.element.style.backgroundImage = `url('./assets/img/${elem.photo[0]}/1.${elem.photo[1]}')`;
-      const name = new Component(card.element, 'p', ['categories-container__content__panel__cards__card__name'], `${elem.name}`);
-      const description = new Component(card.element, 'div', ['categories-container__content__panel__cards__card__description']);
-      const vendorCode = new Component(description.element, 'p', ['categories-container__content__panel__cards__card__vendor-code']);
-      vendorCode.element.innerHTML = `<u>Артикул</u>: ${(elem.link).toUpperCase()}`;
-      const presence = new Component(description.element, 'p', ['categories-container__content__panel__cards__card__presence']);
+      const photo = new Component(card.element, 'img', ['categories-container__content__panel__cards__card__img']);
+      (photo.element as HTMLImageElement).src = `./assets/img/${elem.photo[0]}/1.${elem.photo[1]}`;
+      (photo.element as HTMLImageElement).setAttribute('alt', 'Фото товара');
+      const textBlock = new Component(card.element, 'div', ['categories-container__content__panel__cards__card__text-block']);
+      const name = new Component(textBlock.element, 'p', ['categories-container__content__panel__cards__card__text-block__name'], `${elem.name}`);
+      const description = new Component(textBlock.element, 'div', ['categories-container__content__panel__cards__card__text-block__description']);
+      const producer = new Component(description.element, 'p', ['categories-container__content__panel__cards__card__text-block__producer']);
+      producer.element.innerHTML = `<u>${elem.characteristics[elem.characteristics.length - 1][0]}</u>: ${elem.characteristics[elem.characteristics.length - 1][1][0]}`;
+      const presence = new Component(description.element, 'p', ['categories-container__content__panel__cards__card__text-block__presence']);
       presence.element.innerHTML = `<u>Наличие</u>: <span class='categories-container-create-color-${i}'>${elem.presence}</span>`;
       if (elem.presence === 'на складе') {
         (document.querySelector(`.categories-container-create-color-${i}`) as HTMLSpanElement).style.color = 'green';
       } else {
-        (document.querySelector(`.categories-container-create-color-${i}`) as HTMLSpanElement).style.color = 'orange';
+        (document.querySelector(`.categories-container-create-color-${i}`) as HTMLSpanElement).style.color = '#DFA974';
       }
-      const price = new Component(card.element, 'p', ['categories-container__content__panel__cards__card__price'], `${elem.price} BYN/шт.`);
+      const price = new Component(textBlock.element, 'p', ['categories-container__content__panel__cards__card__text-block__price'], `${elem.price} BYN/шт.`);
       i++;
     }
   }
@@ -183,8 +186,8 @@ class CategoriesContainer extends Component {
     (maxPrice as HTMLInputElement).value = `${this.prices[1]}`;
     //make sorting by default
     this.sortingValue = '';
-    document.querySelector('.categories-container__content__panel__sorting-increase')?.classList.remove('active');
-    document.querySelector('.categories-container__content__panel__sorting-decrease')?.classList.remove('active');
+    document.querySelector('.categories-container__content__panel__sorting-buttons__sorting-increase')?.classList.remove('active');
+    document.querySelector('.categories-container__content__panel__sorting-buttons__sorting-decrease')?.classList.remove('active');
     this.defineCards();
   }
 

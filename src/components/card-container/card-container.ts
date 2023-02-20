@@ -23,7 +23,7 @@ class CardContainer extends Component {
   private startDescription: Component;
   private price: Component;
   private presence: Component;
-  private vendorCode: Component;
+  private guarantee: Component;
   private deliveryBox: Component;
   private characteristics: Component;
   private preCategory: Component;
@@ -33,6 +33,7 @@ class CardContainer extends Component {
   private additional: Component;
   private popularGoods: PopularGoods;
   private sameBlock: Component;
+  private startInfo: Component;
   
   constructor(parentNode: HTMLElement, cardLink: string) {
     super(parentNode, 'section', ['card-container']);
@@ -72,25 +73,26 @@ class CardContainer extends Component {
 
     this.startBlock = new Component(this.content.element, 'div',['card-container__content__start-block']);
     this.photoBlock = new Component(this.startBlock.element, 'div',['card-container__content__start-block__photo-block']);
-    this.photo = new Component(this.photoBlock.element, 'div',['card-container__content__start-block__photo-block__photo']);
-    this.photo.element.style.backgroundImage = `url("./assets/img/${this.card.photo[0]}/1.${this.card.photo[1]}")`;
+    this.photo = new Component(this.photoBlock.element, 'img',['card-container__content__start-block__photo-block__photo']);
+    (this.photo.element as HTMLImageElement).src = `./assets/img/${this.card.photo[0]}/1.${this.card.photo[1]}`;
+    (this.photo.element as HTMLImageElement).setAttribute('alt', 'Фото товара');
     this.photos = new Component(this.photoBlock.element, 'div',['card-container__content__start-block__photo-block__photos']);
     this.createPhotos();
     this.startDescription = new Component(this.startBlock.element, 'div',['card-container__content__start-block__start-des']);
     this.price = new Component(this.startDescription.element, 'p',['card-container__content__start-block__start-des__price'], `${this.card.price} BYN/шт.`);
-    this.presence = new Component(this.startDescription.element, 'p',['card-container__content__start-block__start-des__presence']);
-    this.presence.element.innerHTML = `<u>Наличие</u>: <span class='card-container-create-color'>${this.card.presence}</span>`;
+    this.startInfo = new Component(this.startDescription.element, 'div',['card-container__content__start-block__start-des__start-info']);
+    this.presence = new Component(this.startInfo.element, 'p',['card-container__content__start-block__start-des__presence']);
+    this.presence.element.innerHTML = `Наличие: <span class='card-container-create-color'>${this.card.presence}</span>`;
     if (this.card.presence === 'на складе') {
       (document.querySelector('.card-container-create-color') as HTMLSpanElement).style.color = 'green';
     } else {
-      (document.querySelector('.card-container-create-color') as HTMLSpanElement).style.color = 'orange';
+      (document.querySelector('.card-container-create-color') as HTMLSpanElement).style.color = '#DFA974';
     }
-    this.vendorCode = new Component(this.startDescription.element, 'p',['card-container__content__start-block__start-des__vendorCode']);
-    this.vendorCode.element.innerHTML = `<u>Гарантия</u>: 1 год`;
-    this.detailed = new Component(this.startDescription.element, 'a',['card-container__content__start-block__start-des__detailed'], 'ПОДРОБНЕЕ О ТОВАРЕ');
+    this.guarantee = new Component(this.startInfo.element, 'p',['card-container__content__start-block__start-des__guarantee'], 'Гарантия: 1 год');
+    this.detailed = new Component(this.startInfo.element, 'a',['card-container__content__start-block__start-des__detailed'], 'Характеристики');
     this.detailed.element.setAttribute('href', '#characteristics');
     this.deliveryBox = new Component(this.startDescription.element, 'div',['card-container__content__start-block__start-des__delivery-box']);
-    this.deliveryBox.element.innerHTML = 'Заказать товар можно по номеру телефона <b>+375 44 505 39 49</b> (звонок/Viber), через Instagram, или написав на почту moldir.minsk@mail.ru.<br>- С правилами оплаты и доставки товара можно ознакомиться в разделе <a href="#/payment-and-delivery">Оплата и доставка</a>.<br>- О производителе можно узнать <a href="#/about-melana">Здесь</a>.';
+    this.deliveryBox.element.innerHTML = 'Заказать товар можно по номеру телефона <b>+375 44 505 39 49</b> (звонок/Viber), через Instagram, или написав на почту moldir.minsk@mail.ru. Раздел "Корзина" временно не работает, приносим извинения за доставленные неудобства.<br>- С правилами оплаты и доставки товара можно ознакомиться в разделе <a href="#/payment-and-delivery">Оплата и доставка</a>.<br>- О производителе можно узнать <a href="#/about-melana">здесь</a>.';
 
     this.about = new Component(this.content.element, 'div', ['card-container__content__about']);
     this.about.element.id = 'characteristics';
@@ -130,7 +132,7 @@ class CardContainer extends Component {
           }
           (e.target as HTMLDivElement).classList.add('active');
           let number = (e.target as HTMLDivElement).dataset.number;
-          this.photo.element.style.backgroundImage = `url("./assets/img/${this.card.photo[0]}/${number}.${this.card.photo[1]}")`;
+          (this.photo.element as HTMLImageElement).src = `./assets/img/${this.card.photo[0]}/${number}.${this.card.photo[1]}`;
         }
       })
     }
@@ -159,20 +161,22 @@ class CardContainer extends Component {
           if (this.card.same.includes(item.link)) {
             const card = new Component(cards.element, 'a', ['card-container__content__same__cards__card']);
             card.element.setAttribute('href', `#/catalog/${this.cardLink.split('/')[2]}/${item.preLink}/${item.link}`);
-            const photo = new Component(card.element, 'div', ['card-container__content__same__cards__card__img']);
-            photo.element.style.backgroundImage = `url('./assets/img/${item.photo[0]}/1.${item.photo[1]}')`;
-            const name = new Component(card.element, 'p', ['card-container__content__same__cards__card__name'], `${item.name}`);
-            const description = new Component(card.element, 'div', ['card-container__content__same__cards__card__description']);
-            const vendorCode = new Component(description.element, 'p', ['card-container__content__same__cards__card__vendor-code']);
-            vendorCode.element.innerHTML = `<u>Артикул</u>: ${(item.link).toUpperCase()}`;
-            const presence = new Component(description.element, 'p', ['card-container__content__same__cards__card__presence']);
+            const photo = new Component(card.element, 'img', ['card-container__content__same__cards__card__img']);
+            (photo.element as HTMLImageElement).src = `./assets/img/${item.photo[0]}/1.${item.photo[1]}`;
+            (photo.element as HTMLImageElement).setAttribute('alt', 'Фото товара');
+            const textBlock = new Component(card.element, 'div', ['card-container__content__same__cards__card__text-block']);
+            const name = new Component(textBlock.element, 'p', ['card-container__content__same__cards__card__text-block__name'], `${item.name}`);
+            const description = new Component(textBlock.element, 'div', ['card-container__content__same__cards__card__text-block__description']);
+            const producer = new Component(description.element, 'p', ['card-container__content__same__cards__card__text-block__producer']);
+            producer.element.innerHTML = `<u>${item.characteristics[item.characteristics.length - 1][0]}</u>: ${item.characteristics[item.characteristics.length - 1][1][0]}`;
+            const presence = new Component(description.element, 'p', ['card-container__content__same__cards__card__text-block__presence']);
             presence.element.innerHTML = `<u>Наличие</u>: <span class='card-container-create-color-card-${i}'>${item.presence}</span>`;
             if (item.presence === 'на складе') {
               (document.querySelector(`.card-container-create-color-card-${i}`) as HTMLSpanElement).style.color = 'green';
             } else {
-              (document.querySelector(`.card-container-create-color-card-${i}`) as HTMLSpanElement).style.color = 'orange';
+              (document.querySelector(`.card-container-create-color-card-${i}`) as HTMLSpanElement).style.color = '#DFA974';
             }
-            const price = new Component(card.element, 'p', ['card-container__content__same__cards__card__price'], `${item.price} BYN/шт.`);
+            const price = new Component(textBlock.element, 'p', ['card-container__content__same__cards__card__text-block__price'], `${item.price} BYN/шт.`);
             i++;
           }
         }

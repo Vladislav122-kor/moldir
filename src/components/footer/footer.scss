@@ -19,7 +19,7 @@ $background: #071633;
     &__container {
         display: flex;
         flex-direction: column;
-        gap: 40px;
+        gap: 20px;
         max-width: 1440px;
         margin: 0 auto;
         padding: 40px 20px;
@@ -39,11 +39,32 @@ $background: #071633;
             &__logo-cont {
                 display: flex;
                 flex-direction: column;
+                align-items: flex-start;
+                gap: 5px;
+                width: 162px;
     
-                &__logo {
-                    width: 150px;
-                    height: 50px;
-                    background-size: contain;
+                &__logo-block {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    text-decoration: none;
+    
+                    &__logo {
+                        width: 28%;
+                    }
+    
+                    &__brand-name {
+                        @extend %font-text;
+                        font-size: 2.2rem;
+                        line-height: 3.2rem;
+                        transition: 0.3s;
+                    }
+    
+                    &:hover {
+                        .footer__nav-panel__contacts__logo-cont__logo-block__brand-name {
+                            color: $font-color-orange;
+                        }
+                    }
                 }
     
                 &__title {
@@ -68,7 +89,7 @@ $background: #071633;
         &__nav {
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 15px;
             align-items: flex-end;
     
             &__element {

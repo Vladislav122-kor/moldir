@@ -11,8 +11,10 @@ class Footer extends Component {
     private contactsContainer: Component;
     private address: Component;
     private navigation: Component;
-    navPanel: Component;
-    cardsLogos: HTMLImageElement;
+    private navPanel: Component;
+    private cardsLogos: HTMLImageElement;
+    private logoBlock: Component;
+    private brandName: Component;
   
     constructor(parentNode: HTMLElement) {
         super(parentNode, 'footer', ['footer']);
@@ -23,9 +25,11 @@ class Footer extends Component {
 
         this.contacts = new Component(this.navPanel.element, 'div', ['footer__nav-panel__contacts']);
         this.logoContainer = new Component(this.contacts.element, 'div', ['footer__nav-panel__contacts__logo-cont']);
-        this.logo = new Component(this.logoContainer.element, 'a', ['footer__nav-panel__contacts__logo-cont__logo']);
-        this.logo.element.style.backgroundImage = 'url("./assets/img/logo.png")';
-        this.logo.element.setAttribute('href', '#/');
+        this.logoBlock = new Component(this.logoContainer.element, 'a', ['footer__nav-panel__contacts__logo-cont__logo-block']);
+        this.logo = new Component(this.logoBlock.element, 'img', ['footer__nav-panel__contacts__logo-cont__logo-block__logo']);
+        (this.logo.element as HTMLImageElement).src = "./assets/img/logo_pink.png";
+        this.logoBlock.element.setAttribute('href', '#/');
+        this.brandName = new Component(this.logoBlock.element, 'p', ['footer__nav-panel__contacts__logo-cont__logo-block__brand-name'], 'S-klad.by');
         this.title = new Component(this.logoContainer.element, 'p', ['footer__nav-panel__contacts__logo-cont__title'], 'Интернет-магазин');
 
         this.contactsContainer = new Component(this.navPanel.element, 'div', ['footer__nav-panel__contacts-cont']);
@@ -41,7 +45,7 @@ class Footer extends Component {
         this.container.element.appendChild(this.cardsLogos);
 
         this.address = new Component(this.container.element, 'p', ['footer__address']);
-        this.address.element.innerHTML = 'ООО "Молдир", УНП: 193639694<br>Юр. адрес: Республика Беларусь, 220019, г. Минск, пер. Монтажников 4-й, д. 5, пом. 18<br>Свидетельство о государственной регистрации № 193639694 от 05.08.2022 г. выдано Минским горисполкомом<br>Режим работы: 09:00 – 22:00. Телефон: 375 (44) 505 39 49. e-mail: moldir.minsk@mail.ru';
+        this.address.element.innerHTML = 'ООО "Молдир", УНП: 193639694<br>Юр. адрес: Республика Беларусь, 220019, г. Минск, пер. Монтажников 4-й, д. 5, пом. 18<br>Свидетельство о государственной регистрации № 193639694 от 05.08.2022 г. выдано Минским горисполкомом<br>Режим работы: 09:00 – 20:00. Телефон: 375 (44) 505 39 49. e-mail: info@s-klad.by';
     }
 
     private createNavElements() {
@@ -56,7 +60,7 @@ class Footer extends Component {
 
     private createContacts() {
         const photos = ['phone-orange.svg', 'email-orange.svg', 'insta-orange.svg'];
-        const urls = ['tel:+375445053949', 'mailto:moldir.minsk@mail.ru', 'https://www.instagram.com/moldir.opt/'];
+        const urls = ['tel:+375445053949', 'mailto:info@s-klad.by', 'https://www.instagram.com/moldir.opt/'];
         for (let i = 0; i < urls.length; i++) {
             const svg = new Component(this.contactsContainer.element, 'a', ['footer__nav-panel__contacts-cont__svg']);
             svg.element.setAttribute('href', `${urls[i]}`);

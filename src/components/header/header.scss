@@ -13,30 +13,77 @@ $background: #EAEFF9;
     color: $font-color-grey;
 }
 
+%container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px 20px;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 20px 15px;
+}
+
+.dark {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    top: -100vh;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: 0.3s;
+    z-index: 1;
+
+    &.active {
+        top: 0;
+        cursor: pointer;
+        z-index: 1;
+
+        &:hover {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+    }
+}
+
 .header {
     
     &__info-panel {
 
         &__container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 15px 20px;
-            max-width: 1440px;
-            margin: 0 auto;
-            padding: 20px 15px;
+            @extend %container;
         }
 
         &__logo-cont {
             display: flex;
             flex-direction: column;
             align-items: flex-start;
+            gap: 5px;
+            width: 165px;
 
-            &__logo {
-                width: 150px;
-                height: 50px;
-                background-size: contain;
+            &__logo-block {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                text-decoration: none;
+                width: 162px;
+
+                &__logo {
+                    width: 28%;
+                }
+
+                &__brand-name {
+                    @extend %font-text;
+                    font-size: 2.2rem;
+                    line-height: 3.2rem;
+                    color: $font-color-blue;
+                    transition: 0.3s;
+                }
+
+                &:hover {
+                    .header__info-panel__logo-cont__logo-block__brand-name {
+                        color: $font-color-orange;
+                    }
+                }
             }
 
             &__title {
@@ -68,13 +115,11 @@ $background: #EAEFF9;
                     background-size: contain;
                     background-repeat: no-repeat;
                     background-position: center;
-                    transition: 0.3s;
                 }
                 
                 &-text {
                     @extend %font-text;
                     font-weight: 500;
-                    font-size: 1.6rem;
                     transition: 0.3s;
                 }
             }
@@ -85,12 +130,7 @@ $background: #EAEFF9;
         background: $font-color-blue;
 
         &__container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 20px;
-            max-width: 1440px;
-            margin: 0 auto;
+            @extend %container;
             padding: 13px 20px;
         }
 
@@ -107,6 +147,7 @@ $background: #EAEFF9;
             box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.15);
             cursor: pointer;
             transition: 0.3s;
+            z-index: 2;
 
             &:hover {
                 box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.3);
@@ -119,8 +160,10 @@ $background: #EAEFF9;
             &__categories {
                 display: none;
                 position: absolute;
+                width: 85vw;
+                max-width: 1400px;
+                min-width: 1140px;
                 padding: 10px;
-                width: 300px;
                 left: 0;
                 top: 45px;
                 background: $background;
@@ -129,23 +172,30 @@ $background: #EAEFF9;
 
                 &.active {
                     display: flex;
-                    flex-direction: column;
-                    gap: 7px;
-                    z-index: 1;
+                    flex-wrap: wrap;
+                    gap: 20px 4%;
+                    z-index: 2;
                 }
 
-                &__element {
-                    padding: 2px 5px;
-                    @extend %font-text;
-                    font-weight: 400;
-                    font-size: 1.5rem;
-                    cursor: pointer;
-                    text-decoration: none;
-                    border-radius: 5px;
+                &__elements-block {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 3px;
+                    width: 22%;
 
-                    &:hover {
-                        color: $background;
-                        background: $font-color-blue;
+                    &__element {
+                        padding: 2px 5px;
+                        @extend %font-text;
+                        font-weight: 400;
+                        font-size: 1.3rem;
+                        cursor: pointer;
+                        text-decoration: none;
+                        border-radius: 5px;
+    
+                        &:hover {
+                            color: $background;
+                            background: $font-color-blue;
+                        }
                     }
                 }
             }
@@ -209,14 +259,51 @@ $background: #EAEFF9;
     }
 }
 
+@media(max-width: 1200px) {
+    .header__nav-panel__button__categories {
+        width: 93vw;
+        min-width: 0;
+
+        &.active {
+            gap: 20px 5%;
+        }
+
+        &__elements-block {
+            width: 30%;
+        }
+    }
+}
+
+@media(max-width: 850px) {
+    .header__nav-panel__button__categories {
+        width: 91vw;
+
+        &__elements-block {
+            width: 45%;
+        }
+    }
+}
+
+@media(max-width: 590px) {
+    .header__nav-panel__button__categories {
+        width: 260px;
+
+        &__elements-block {
+            width: 100%;
+        }
+    }
+}
+
 @media(max-width: 680px) {
     .header__nav-panel__nav {
         flex-direction: column;
         gap: 10px;
         align-items: flex-end;
     }
+}
 
-    .header__nav-panel__nav__element {
-        text-align: right;
+@media(max-width: 380px) {
+    .header__nav-panel__nav {
+        align-items: flex-start;
     }
 }

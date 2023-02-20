@@ -1,4 +1,7 @@
 class Component {
+  addEventListener(arg0: string, openCategories: () => void) {
+      throw new Error('Method not implemented.');
+  }
   element: HTMLElement;
   
   constructor(

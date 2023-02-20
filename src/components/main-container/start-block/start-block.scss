@@ -15,7 +15,7 @@ $font-color: #EAEFF9;
 .start-block {
     width: 100%;
     background-size: cover;
-    background-position: center;
+    background-position: left center;
 
     &__container {
         display: flex;
@@ -44,7 +44,7 @@ $font-color: #EAEFF9;
     }
 }
 
-@media(max-width: 480px) {
+@media(max-width: 550px) {
     .start-block__container {
         padding: 250px 20px 40px;
 
