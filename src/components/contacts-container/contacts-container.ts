@@ -17,7 +17,7 @@ class ContactsContainer extends Component {
         this.contacts = new Component(this.container.element, 'div', ['contacts-container__contacts']);
         this.createContacts();
         this.about = new Component(this.container.element, 'div', ['contacts-container__about']);
-        this.about.element.innerHTML = `ООО "Молдир"<br>УНП: 193639694<br>Юридический адрес: Республика Беларусь, 220019, г. Минск, пер. Монтажников 4-й, д. 5, пом. 18<br>Свидетельство о государственной регистрации № 193639694 от 05.08.2022 г. выдано Минским горисполкомом<br>Режим работы: 09:00 – 22:00`;
+        this.about.element.innerHTML = 'ООО "Молдир", УНП: 193639694<br>Юр. адрес: 220019, Республика Беларусь, г. Минск, пер. Монтажников 4-й, д. 5, пом. 18<br>Свидетельство о государственной регистрации № 193639694 от 05.08.2022 г. выдано Минским горисполкомом<br>Интернет-магазин зарегистрирован в Торговом реестре РБ 27.02.2023<br>Режим работы: 09:00 – 20:00';
     }
 
     createContacts() {
