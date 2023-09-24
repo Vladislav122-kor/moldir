@@ -4,32 +4,40 @@ export interface IRoute {
 }
 
 export interface Category {
-  name: string,
-  photo: string,
-  link: string,
+  category: string[],
+  subCategory: string[],
   cards: {
-    id: number,
-    photo: string[],
+    id: string,
+    photoAmount: number,
     name: string,
     price: number,
     characteristics: [string, string[]][],
     additional: string,
     presence: string,
-    link: string,
-    preLink: string,
     same: string[]
   }[]
 }
 
 export interface Card {
-  id: number,
-  photo: string[],
+  id: string,
+  photoAmount: number,
   name: string,
   price: number,
   characteristics: [string, string[]][],
   additional: string,
   presence: string,
-  link: string,
-  preLink: string,
+  same: string[]
+}
+
+export interface PopularCard {
+  id: string,
+  photoAmount: number,
+  name: string,
+  price: number,
+  characteristics: [string, string[]][],
+  additional: string,
+  presence: string,
+  category: string[],
+  subCategory: string[],
   same: string[]
 }

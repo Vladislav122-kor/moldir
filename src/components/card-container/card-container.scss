@@ -32,7 +32,6 @@ $background: #EAEFF9;
 }
 
 .card-container {
-
     &__container {
         display: flex;
         flex-direction: column;
@@ -48,24 +47,15 @@ $background: #EAEFF9;
         align-items: center;
         gap: 10px;
 
-        &__main,
-        &__pre-category,
-        &__current-category,
-        &__current-card {
+        &__element {
             @extend %font-text;
             font-size: 1.3rem;
             text-decoration: none;
             transition: 0.3s;
-        }
 
-        &__main:hover,
-        &__pre-category:hover,
-        &__current-category:hover {
-            color: $font-color-orange;
-        }
-
-        &__current-card {
-            text-decoration: underline;
+            &.link:hover {
+                color: $font-color-orange;
+            }
         }
 
         &__arrow {
@@ -243,62 +233,8 @@ $background: #EAEFF9;
                 display: flex;
                 flex-wrap: wrap;
                 gap: 20px 2%;
-    
-                &__card {
-                    display: flex;
-                    flex-direction: column;
-                    gap: 20px;
-                    padding: 20px;
-                    width: 23.5%;
-                    background: $background;
-                    border-radius: 5px;
-                    text-decoration: none;
-                    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.15);
-                    transition: 0.3s;
-    
-                    &:hover {
-                        box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.3);
-                    }
-    
-                    &__img {
-                        width: 100%;
-                        border-radius: 5px;
-                    }
-
-                    &__text-block {
-                        display: flex;
-                        flex-direction: column;
-                        gap: 20px;
-                        justify-content: space-between;
-                        flex-grow: 1;
-
-                        &__name {
-                            @extend %font-text;
-                            text-align: center;
-                        }
-        
-                        &__description {
-                            display: flex;
-                            flex-direction: column;
-                            gap: 5px;
-                            @extend %font-text-values;
-                            text-decoration: none;
-                        }
-        
-                        &__price {
-                            @extend %font-text;
-                            text-align: center;
-                        }
-                    }
-                }
             }
         }
-    }
-}
-
-@media(max-width: 1150px) {
-    .card-container__content__same__cards__card {
-        width: 32%;
     }
 }
 
@@ -330,23 +266,6 @@ $background: #EAEFF9;
         }
     }
 }
-
-@media(max-width: 850px) {
-    .card-container__content__same__cards {
-        gap: 20px 4%;
-
-        &__card {
-            width: 48%;
-        }
-    }
-}
-
-@media(max-width: 550px) {
-    .card-container__content__same__cards__card {
-        width: 100%;
-    }
-}
-
 
 @media(max-width: 450px) {
     .card-container__content__same__same-title {

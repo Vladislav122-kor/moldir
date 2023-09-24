@@ -1,0 +1,77 @@
+$font-family: 'Montserrat', sans-serif;
+$font-color-blue: #1D3564;
+$font-color-grey: #252E39;
+$font-color-orange: #DFA974;
+$background: #EAEFF9;
+
+%font-title {
+    font-family: $font-family;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 2.4rem;
+    line-height: 3.4rem;
+    color: $font-color-grey;
+}
+
+%font-text {
+    font-family: $font-family;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 1.6rem;
+    line-height: 2.3rem;
+    color: $font-color-grey;
+}
+
+%font-text-values {
+    font-family: $font-family;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.5rem;
+    line-height: 2.3rem;
+    color: $font-color-grey;
+}
+
+&__sorting {
+    display: flex;
+    gap: 10px;
+    @extend %font-text;
+
+    &-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+
+        &__sorting-increase,
+        &__sorting-decrease {
+            font-weight: 400;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: 0.3s;
+
+            &:hover {
+                color: $font-color-orange;
+            }
+
+            &.active {
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+.categories-container__content__panel__sorting {
+    flex-direction: column;
+    justify-content: center;
+
+    &-title {
+        text-align: center;
+    }
+}
+
+@media(max-width: 380px) {
+    .categories-container__content__panel__sorting-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+    }
+}

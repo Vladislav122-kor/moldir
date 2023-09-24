@@ -22,17 +22,7 @@ $background: #EAEFF9;
     color: $font-color-grey;
 }
 
-%font-text-values {
-    font-family: $font-family;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 1.5rem;
-    line-height: 2.3rem;
-    color: $font-color-grey;
-}
-
 .category-container {
-
     &__container {
         display: flex;
         flex-direction: column;
@@ -51,26 +41,19 @@ $background: #EAEFF9;
 
     &__navigation {
         display: flex;
-        flex-wrap: wrap;
         align-items: center;
         gap: 10px;
+        flex-wrap: wrap;
 
-        &__main,
-        &__pre-category,
-        &__current-category {
+        &__element {
             @extend %font-text;
             font-size: 1.3rem;
             text-decoration: none;
             transition: 0.3s;
-        }
 
-        &__main:hover,
-        &__pre-category:hover {
-            color: $font-color-orange;
-        }
-
-        &__current-category {
-            text-decoration: underline;
+            &.link:hover {
+                color: $font-color-orange;
+            }
         }
 
         &__arrow {
@@ -85,80 +68,6 @@ $background: #EAEFF9;
         display: flex;
         justify-content: space-between;
         gap: 2%;
-
-        &__filter {
-            display: flex;
-            flex-direction: column;
-            gap: 25px;
-            width: 25%;
-            padding: 20px;
-            background: $background;
-            border-radius: 5px;
-    
-            &__filter-item {
-                display: flex;
-                flex-direction: column;
-                gap: 7px;
-    
-                &__title {
-                    position: relative;
-                    @extend %font-text;
-    
-                    &::after {
-                        content: '';
-                        position: absolute;
-                        left: 0;
-                        right: 0;
-                        bottom: 0;
-                        height: 1.5px;
-                        background: $font-color-blue;
-                    }
-                }
-    
-                &__inputs {
-                    display: flex;
-                    align-items: center;
-                    gap: 5px;
-    
-                    &__dash {
-                        @extend %font-text-values;
-                    }
-    
-                    &__minPrice,
-                    &__maxPrice {
-                        width: 40%;
-                        padding: 2px 0 2px 5px;
-                        @extend %font-text-values;
-                        box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.15);
-                        border: none;
-                        border-radius: 5px;
-                    }
-                }
-            }
-    
-            &__clear {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                padding: 7px;
-                @extend %font-text;
-                text-align: center;
-                color: #EAEFF9;
-                background: #1D3564; 
-                border-radius: 5px;
-                cursor: pointer;
-                box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.15);
-                transition: 0.3s;
-
-                &:hover {
-                    box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.3);
-                }
-
-                &:active {
-                    transform: translate(3px, 3px);
-                }
-            }
-        }
     
         &__panel {
             display: flex;
@@ -185,131 +94,37 @@ $background: #EAEFF9;
                 @extend %font-text;
             }
     
-            &__sorting {
-                display: flex;
-                gap: 10px;
-                @extend %font-text;
-
-                &-buttons {
-                    display: flex;
-                    justify-content: center;
-                    gap: 20px;
-
-                    &__sorting-increase,
-                    &__sorting-decrease {
-                        font-weight: 400;
-                        cursor: pointer;
-                        transition: 0.3s;
-    
-                        &:hover {
-                            color: $font-color-orange;
-                        }
-        
-                        &.active {
-                            text-decoration: underline;
-                        }
-                    }
-                }
-            }
-    
             &__cards {
                 display: flex;
                 gap: 20px 2%;
                 flex-wrap: wrap;
-    
-                &__card {
-                    display: flex;
-                    flex-direction: column;
-                    gap: 20px;
-                    padding: 20px;
-                    width: 32%;
-                    background: $background;
-                    border-radius: 5px;
-                    text-decoration: none;
-                    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.15);
-                    transition: 0.3s;
-
-                    &:hover {
-                        box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.3);
-                    }
-    
-                    &__img {
-                        width: 100%;
-                        border-radius: 5px;
-                    }
-
-                    &__text-block {
-                        display: flex;
-                        flex-direction: column;
-                        gap: 20px;
-                        justify-content: space-between;
-                        flex-grow: 1;
-
-                        &__name {
-                            @extend %font-text;
-                            text-align: center;
-                        }
-        
-                        &__description {
-                            display: flex;
-                            flex-direction: column;
-                            gap: 5px;
-                            @extend %font-text-values;
-                            text-decoration: none;
-                        }
-        
-                        &__price {
-                            @extend %font-text;
-                            text-align: center;
-                        }
-                    }
-                }
             }
         }
     }
 }
 
-@media(max-width: 1200px) {
-    .category-container__content__panel__cards__card {
-        width: 49%;
-    }
-}
-
 @media(max-width: 900px) {
-    .category-container__content__filter {
-        width: 35%;
-    }
-
     .category-container__content__panel {
         width: 63%;
     }
 
-    .category-container__content__panel__sorting {
-        flex-direction: column;
-        justify-content: center;
-
-        &-title {
-            text-align: center;
-        }
-    }
-
-    .category-container__content__panel__cards__card {
-        width: 100%;
+    .filters-container {
+        width: 35%;
     }
 }
 
 @media(max-width: 680px) {
-    .category-container__content__filter {
-        align-self: center;
-        width: 100%;
-    }
-
     .category-container__content {
         flex-direction: column;
         gap: 40px;
+
+        &__panel {
+            width: 100%;
+        }
     }
 
-    .category-container__content__panel {
+    .filters-container {
+        align-self: center;
         width: 100%;
     }
 }
@@ -322,13 +137,5 @@ $background: #EAEFF9;
         &:after {
             width: 100%;
         }
-    }
-}
-
-@media(max-width: 380px) {
-    .category-container__content__panel__sorting-buttons {
-        flex-direction: column;
-        align-items: center;
-        gap: 5px;
     }
 }

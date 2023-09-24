@@ -61,10 +61,12 @@ class Footer extends Component {
     private createContacts() {
         const photos = ['phone-orange.svg', 'email-orange.svg', 'insta-orange.svg'];
         const urls = ['tel:+375445053949', 'mailto:info@s-klad.by', 'https://www.instagram.com/moldir.opt/'];
+
         for (let i = 0; i < urls.length; i++) {
             const svg = new Component(this.contactsContainer.element, 'a', ['footer__nav-panel__contacts-cont__svg']);
             svg.element.setAttribute('href', `${urls[i]}`);
             svg.element.style.backgroundImage = `url("./assets/svg/${photos[i]}")`;
+            
             if (photos[i].includes('insta')) {
                 svg.element.setAttribute('target', '_blank');
             }

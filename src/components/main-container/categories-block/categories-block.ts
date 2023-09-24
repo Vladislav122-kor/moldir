@@ -1,7 +1,6 @@
 import Component from '../../../utils/component';
 import goods from '../../../assets/files/goods';
 
-
 import './categories-block.scss';
 
 class CategoriesBlock extends Component {
@@ -19,11 +18,11 @@ class CategoriesBlock extends Component {
     }
 
     private createCards() {
-        for (let elem of goods) {
+        for (let item of goods) {
             const card = new Component(this.cards.element, 'a', ['categories-block__cards__card']);
-            card.element.setAttribute('href', `#/catalog/${elem.link.split('_')[0]}/${elem.link}`);
-            card.element.style.backgroundImage = `linear-gradient( rgba(0, 0, 0, 0.7), rgba(29, 53, 100, 0.15) ), url('./assets/img/${elem.photo}')`;
-            const cardTitle = new Component(card.element, 'p', ['categories-block__cards__card__title'], `${elem.name.split('|').join('')}`);
+            card.element.setAttribute('href', `#/catalog/${item.category[1]}/${item.subCategory[1]}`);
+            card.element.style.backgroundImage = `linear-gradient( rgba(0, 0, 0, 0.7), rgba(29, 53, 100, 0.15) ), url('./assets/img/${item.subCategory[1]}.jpg')`;
+            const cardTitle = new Component(card.element, 'p', ['categories-block__cards__card__title'], `${item.subCategory[0]}`);
         }
     }
 }

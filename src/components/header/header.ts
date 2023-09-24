@@ -65,7 +65,6 @@ class Header extends Component {
                 this.dark.element.style.height = `100vh`;
                 this.dark.element.style.transitionTimingFunction = `ease-out`;
             } else {
-                //this.dark.element.style.height = `${window.innerHeight + window.pageYOffset}px`;
                 this.dark.element.style.height = `${document.documentElement.scrollHeight - 5}px`;
                 this.dark.element.style.transitionTimingFunction = `ease-in`;
             }
@@ -83,7 +82,8 @@ class Header extends Component {
 
     private createNavElements() {
         const navNames = ['Оплата и доставка', 'Возврат товара', 'Контакты'];
-        const navLinks = ['#/payment-and-delivery', '#/return', '#/contacts'];
+        const navLinks = ['#/payment_and_delivery', '#/return', '#/contacts'];
+        
         for (let i = 0; i < navNames.length; i += 1) {
             const element = new Component(this.navigation.element, 'a', ['header__nav-panel__nav__element'], `${navNames[i]}`);
             element.element.setAttribute('href', `${navLinks[i]}`);
@@ -91,19 +91,21 @@ class Header extends Component {
     }
 
     private findCategories() {
-        let item = '';
-        let index = 0;
-        for (let elem of Goods) {
-            if (elem.name.split('|')[0] !== item) {
-                item = elem.name.split('|')[0];
-                index++;
-                const elementsBlock = new Component(this.categories.element, 'div', ['header__nav-panel__button__categories__elements-block', `elements-block_${index}`]);
+        let sameCategory = '';
+        for (let item of Goods) {
+
+            if (item.category[0] !== sameCategory) {
+                sameCategory = item.category[0];
+
+                const elementsBlock = new Component(this.categories.element, 'div', ['header__nav-panel__button__categories__elements-block']);
                 const element = new Component(elementsBlock.element, 'a', ['header__nav-panel__button__categories__elements-block__element']);
-                element.element.innerHTML = `<b>${elem.name.split('|')[0]}</b>`;
-                element.element.setAttribute('href', `#/catalog/${elem.link.split('_')[0]}`);
+                element.element.innerHTML = `<b>${item.category[0]}</b>`;
+                element.element.setAttribute('href', `#/catalog/${item.category[1]}`);
             }
-            const element = new Component(document.querySelector(`.elements-block_${index}`), 'a', ['header__nav-panel__button__categories__elements-block__element'], `${elem.name.split('|').join('')}`);
-            element.element.setAttribute('href', `#/catalog/${elem.link.split('_')[0]}/${elem.link}`);
+
+            const necessaryElementsBlock = document.querySelectorAll('.header__nav-panel__button__categories__elements-block')[document.querySelectorAll('.header__nav-panel__button__categories__elements-block').length - 1];
+            const element = new Component(necessaryElementsBlock as HTMLDivElement, 'a', ['header__nav-panel__button__categories__elements-block__element'], `${item.subCategory[0]}`);
+            element.element.setAttribute('href', `#/catalog/${item.category[1]}/${item.subCategory[1]}`);
         }
     }
 
@@ -111,6 +113,7 @@ class Header extends Component {
         const photos = ['phone-blue.svg', 'email-blue.svg', 'insta-blue.svg'];
         const urls = ['tel:+375445053949', 'mailto:info@s-klad.by', 'https://www.instagram.com/moldir.opt/'];
         const texts = ['+375 44 505 39 49', 'info@s-klad.by', 'moldir.opt'];
+
         for (let i = 0; i < urls.length; i++) {
             const block = new Component(this.contacts.element, 'a', [`header__info-panel__contacts__block`]);
             block.element.setAttribute('href', `${urls[i]}`);
@@ -118,9 +121,11 @@ class Header extends Component {
             svg.element.style.backgroundImage = `url("./assets/svg/${photos[i]}")`;
             const text = new Component(block.element, 'p', [`header__info-panel__contacts__block-text`]);
             text.element.innerHTML = `${texts[i]}`;
+
             if (photos[i].includes('insta')) {
                 block.element.setAttribute('target', '_blank');
             }
+
         }
     }
 }

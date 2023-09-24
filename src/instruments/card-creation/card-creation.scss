@@ -1,0 +1,111 @@
+$font-family: 'Montserrat', sans-serif;
+$font-color-grey: #252E39;
+$font-color-orange: #DFA974;
+$background: #EAEFF9;
+
+%font-text {
+    font-family: $font-family;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 1.6rem;
+    line-height: 2.3rem;
+    color: $font-color-grey;
+}
+
+%font-text-values {
+    font-family: $font-family;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.5rem;
+    line-height: 2.3rem;
+    color: $font-color-grey;
+}
+
+.three {
+    width: 32%;
+}
+
+.four {
+    width: 23.5%;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    background: $background;
+    border-radius: 5px;
+    text-decoration: none;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.15);
+    transition: 0.3s;
+
+    &:hover {
+        box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    &__img {
+        width: 100%;
+        border-radius: 5px;
+    }
+
+    &__text-block {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        justify-content: space-between;
+        flex-grow: 1;
+
+        &__name {
+            @extend %font-text;
+            text-align: center;
+        }
+
+        &__description {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            @extend %font-text-values;
+            text-decoration: none;
+        }
+
+        &__price {
+            @extend %font-text;
+            text-align: center;
+        }
+    }
+}
+
+.presence-span-color-green {
+    color: green;
+}
+
+.presence-span-color-orange {
+    color: $font-color-orange;
+}
+
+@media(max-width: 1200px) {
+    .three {
+        width: 49%;
+    }
+
+    .four {
+        width: 32%;
+    }
+}
+
+@media(max-width: 900px) {
+    .three {
+        width: 100%;
+    }
+
+    .four {
+        width: 49%;
+    }
+}
+
+@media(max-width: 550px) {
+    .four {
+        width: 100%;
+    }
+}
